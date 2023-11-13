@@ -1,6 +1,8 @@
 import 'package:finance_pro/screens/content/activity_ratios_screen.dart';
 import 'package:finance_pro/screens/content/debt_ratio.dart';
 import 'package:finance_pro/screens/content/liquidity_ratios_screen.dart';
+import 'package:finance_pro/screens/content/market_ratio.dart';
+import 'package:finance_pro/screens/content/profatibility_ratio.dart';
 import 'package:flutter/material.dart';
 import '../../utils/colors_assets.dart';
 import '../../widgets/custom_option.dart';
@@ -52,13 +54,19 @@ class FinancialRatiosScreen extends StatelessWidget {
             ),
             CustomOption(
               title: 'Razones de rentabilidad',
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: ((context) => const ProfatibilityRatio())));
+              },
               firstColor: ColorAssets.fourth,
               secondColor: ColorAssets.fifth,
             ),
             CustomOption(
               title: 'Razones de mercado',
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: ((context) => const MarketRatio())));
+              },
               firstColor: ColorAssets.fifth,
               secondColor: ColorAssets.sixth,
             ),
