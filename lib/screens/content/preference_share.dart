@@ -12,55 +12,64 @@ class PreferenceShare extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Acciones preferentes'),
-        backgroundColor: ColorAssets.first,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const Text(
-              'Concepto',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
-            ),
-            const Divider(),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                'Las acciones preferentes son un tipo de valor mobiliario que combina características tanto de acciones comunes como de bonos. Los accionistas preferentes tienen prioridad sobre los accionistas comunes en términos de distribución de dividendos y liquidación de activos en caso de quiebra o liquidación de la empresa.',
-                textAlign: TextAlign.justify,
-              ),
-            ),
-            const Gap(20),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                'Como las acciones preferentes generalmente brindan a sus tenedores un dividendo anual fijo durante su supuesta vida infinita, se usa la valuación de crecimiento cero.',
-                textAlign: TextAlign.justify,
-              ),
-            ),
-            const Gap(40),
-            const Text(
-              'Métodos de valuación',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
-            ),
-            const Divider(),
-            const Gap(20),
-            crecimientoCero(),
-            const Gap(20),
-          ],
+        appBar: AppBar(
+          title: const Text('Acciones preferentes'),
+          backgroundColor: ColorAssets.first,
         ),
-      ),
-      bottomNavigationBar: ElevatedButton.icon(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const Text(
+                'Concepto',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+              ),
+              const Divider(),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  'Las acciones preferentes son un tipo de valor mobiliario que combina características tanto de acciones comunes como de bonos. Los accionistas preferentes tienen prioridad sobre los accionistas comunes en términos de distribución de dividendos y liquidación de activos en caso de quiebra o liquidación de la empresa.',
+                  textAlign: TextAlign.justify,
+                ),
+              ),
+              const Gap(20),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  'Como las acciones preferentes generalmente brindan a sus tenedores un dividendo anual fijo durante su supuesta vida infinita, se usa la valuación de crecimiento cero.',
+                  textAlign: TextAlign.justify,
+                ),
+              ),
+              const Gap(40),
+              const Text(
+                'Métodos de valuación',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+              ),
+              const Divider(),
+              const Gap(20),
+              crecimientoCero(),
+              const Gap(20),
+            ],
+          ),
+        ),
+        bottomNavigationBar: ElevatedButton.icon(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: ColorAssets.fourth,
+              shape: const RoundedRectangleBorder()),
+          icon: const Icon(
+            Icons.calculate,
+            color: ColorAssets.textBlack,
+          ),
+          label: const Text(
+            'Calculadora',
+            style: TextStyle(color: ColorAssets.textBlack),
+          ),
           onPressed: () {
             Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (context) => const ShareCalcOptionScreen()));
           },
-          icon: const Icon(Icons.calculate),
-          label: const Text('Calculadora')),
-    );
+        ));
   }
 
   Column crecimientoCero() {

@@ -67,13 +67,22 @@ class _BondScreenState extends State<BondScreen> {
           ],
         )),
         bottomNavigationBar: ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: ColorAssets.fourth,
+                shape: const RoundedRectangleBorder()),
             onPressed: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => const BondCalcOptionScreen()));
             },
-            icon: const Icon(Icons.calculate),
-            label: const Text('Calculadora')));
+            icon: const Icon(
+              Icons.calculate,
+              color: ColorAssets.textBlack,
+            ),
+            label: const Text(
+              'Calculadora',
+              style: TextStyle(color: ColorAssets.textBlack),
+            )));
   }
 }

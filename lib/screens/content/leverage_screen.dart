@@ -11,40 +11,52 @@ class LeverageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Apalancamiento'),
-        backgroundColor: ColorAssets.first,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const Text(
-              'Concepto',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
-            ),
-            const Divider(),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                'El apalancamiento se refiere a los efectos que tienen los costos fijos sobre el rendimiento que ganan los accionistas. Por “costos fijos” queremos decir costos que no aumentan ni disminuyen con los cambios en las ventas de la compañía. Las empresas tienen que pagar estos costos fijos independientemente de que las condiciones del negocio sean buenas o malas. Estos costos fijos pueden ser operativos, como los derivados de la compra y la operación de la planta y el equipo, o financieros, como los costos fijos derivados de los pagos de deuda. Por lo general, el apalancamiento incrementa tanto los rendimientos como el riesgo. Una empresa con más apalancamiento gana mayores rendimientos, en promedio, que aquellas que tienen menos apalancamiento, pero los rendimientos de la empresa con mayor apalancamiento también son más volátiles.',
-                textAlign: TextAlign.justify,
-              ),
-            ),
-            const Gap(40),
-            const Text(
-              'Tipos de Apalancamiento',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
-            ),
-            const Divider(),
-            const Gap(20),
-            operativo(),
-            const Divider(),
-            const Gap(20),
-            financiera()
-          ],
+        appBar: AppBar(
+          title: const Text('Apalancamiento'),
+          backgroundColor: ColorAssets.first,
         ),
-      ),
-    );
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const Text(
+                'Concepto',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+              ),
+              const Divider(),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  'El apalancamiento se refiere a los efectos que tienen los costos fijos sobre el rendimiento que ganan los accionistas. Por “costos fijos” queremos decir costos que no aumentan ni disminuyen con los cambios en las ventas de la compañía. Las empresas tienen que pagar estos costos fijos independientemente de que las condiciones del negocio sean buenas o malas. Estos costos fijos pueden ser operativos, como los derivados de la compra y la operación de la planta y el equipo, o financieros, como los costos fijos derivados de los pagos de deuda. Por lo general, el apalancamiento incrementa tanto los rendimientos como el riesgo. Una empresa con más apalancamiento gana mayores rendimientos, en promedio, que aquellas que tienen menos apalancamiento, pero los rendimientos de la empresa con mayor apalancamiento también son más volátiles.',
+                  textAlign: TextAlign.justify,
+                ),
+              ),
+              const Gap(40),
+              const Text(
+                'Tipos de Apalancamiento',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+              ),
+              const Divider(),
+              const Gap(20),
+              operativo(),
+              const Divider(),
+              const Gap(20),
+              financiera()
+            ],
+          ),
+        ),
+        bottomNavigationBar: ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: ColorAssets.fourth,
+                shape: const RoundedRectangleBorder()),
+            onPressed: () {},
+            icon: const Icon(
+              Icons.calculate,
+              color: ColorAssets.textBlack,
+            ),
+            label: const Text(
+              'Calculadora',
+              style: TextStyle(color: ColorAssets.textBlack),
+            )));
   }
 
   Column financiera() {
@@ -70,7 +82,7 @@ class LeverageScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Math.tex(
-            r'\text{GAF de UAII} = \frac{\$10,000}{\$10,000 - \$2,000 - (\$2,400 \times  (1/ 1 - 0.40))} = 2.5',
+            r'\text{GAF de UAII} = \frac{\$10,000}{\$10,000 - \$2,000 - (\$2,400 \times  (1/ 1 - 0.40))} = 2.5  ',
             mathStyle: MathStyle.display,
             textStyle: const TextStyle(fontSize: 18),
           ),
