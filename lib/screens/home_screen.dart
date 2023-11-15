@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:finance_pro/screens/calculator_screen.dart';
-import 'package:finance_pro/screens/construcction_screen.dart';
 import 'package:finance_pro/screens/content/bond_screen.dart';
+import 'package:finance_pro/screens/content/lease_screen.dart';
 import 'package:finance_pro/screens/content/leverage_screen.dart';
 import 'package:finance_pro/screens/options/financial_ratios_screen.dart';
 import 'package:finance_pro/screens/options/share_screen.dart';
@@ -193,8 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: ((context) =>
-                                    const ConstrucctionScreen())));
+                                builder: ((context) => const LeaseScreen())));
                       },
                     ),
                     CustomCard(

@@ -1,3 +1,4 @@
+import 'package:finance_pro/screens/calculator_option/laverage_calc_option_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:gap/gap.dart';
@@ -48,7 +49,12 @@ class LeverageScreen extends StatelessWidget {
             style: ElevatedButton.styleFrom(
                 backgroundColor: ColorAssets.fourth,
                 shape: const RoundedRectangleBorder()),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const LaverageCalcOptionScreen()));
+            },
             icon: const Icon(
               Icons.calculate,
               color: ColorAssets.textBlack,

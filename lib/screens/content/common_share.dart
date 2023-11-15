@@ -61,16 +61,16 @@ class CommonShare extends StatelessWidget {
                   ),
                 ),
                 Gap(40),
+                Text(
+                  'Métodos de valuación',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+                ),
               ],
             ),
           ),
           SliverToBoxAdapter(
             child: Column(
               children: [
-                const Text(
-                  'Métodos de valuación',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
-                ),
                 const Divider(),
                 const Gap(20),
                 crecimientoCero(),
