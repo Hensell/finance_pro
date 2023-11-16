@@ -1,4 +1,5 @@
 import 'package:finance_pro/screens/calculator_option/bond_calc_option_screen.dart';
+import 'package:finance_pro/screens/calculator_option/laverage_calc_option_screen.dart';
 import 'package:finance_pro/screens/calculator_option/share_calc_option_screen.dart';
 import 'package:finance_pro/widgets/calculator_option.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,19 @@ class CalculatorScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => const BondCalcOptionScreen()));
+              },
+            ),
+            CalculatorOption(
+              title: 'Apalancamiento',
+              backgroundColor: ColorAssets.first,
+              light: false,
+              margin: const EdgeInsets.all(5),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const LaverageCalcOptionScreen()));
               },
             ),
           ],
