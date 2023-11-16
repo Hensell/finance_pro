@@ -1,3 +1,5 @@
+import 'package:finance_pro/screens/calculator_option/tabs/leverage_fin_screen.dart';
+import 'package:finance_pro/screens/calculator_option/tabs/leverage_opt_screen.dart';
 import 'package:flutter/material.dart';
 
 class LaverageCalcOptionScreen extends StatefulWidget {
@@ -10,7 +12,8 @@ class LaverageCalcOptionScreen extends StatefulWidget {
 
 class _LaverageCalcOptionScreenState extends State<LaverageCalcOptionScreen>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController = TabController(length: 2, vsync: this);
+  late final TabController _tabController =
+      TabController(length: 2, vsync: this);
 
   @override
   void dispose() {
@@ -22,40 +25,19 @@ class _LaverageCalcOptionScreenState extends State<LaverageCalcOptionScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tabs Screen'),
+        title: const Text('Apalancamiento'),
         bottom: TabBar(
           controller: _tabController,
-          tabs: [
-            Tab(text: 'Tab 1'),
-            Tab(text: 'Tab 2'),
+          tabs: const [
+            Tab(text: 'Operativo'),
+            Tab(text: 'Financiero'),
           ],
         ),
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-          Tab1(),
-          Tab2(),
-        ],
+        children: const [LeverageOptScreen(), LeverageFinScreen()],
       ),
-    );
-  }
-}
-
-class Tab1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Contenido de la pestaña 1'),
-    );
-  }
-}
-
-class Tab2 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Contenido de la pestaña 2'),
     );
   }
 }
