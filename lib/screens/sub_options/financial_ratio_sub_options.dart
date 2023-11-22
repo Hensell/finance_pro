@@ -1,11 +1,11 @@
+import 'package:finance_pro/screens/content/activity_ratio_content.dart';
+import 'package:finance_pro/screens/content/debt_ratio_content.dart';
+import 'package:finance_pro/screens/content/liquidity_ratio_content.dart';
+import 'package:finance_pro/screens/content/market_ratio_content.dart';
+import 'package:finance_pro/screens/content/profatibility_ratio_content.dart';
 import 'package:flutter/material.dart';
 import '../../utils/colors_assets.dart';
 import '../../widgets/custom_option.dart';
-import '../content/activity_ratios_screen.dart';
-import '../content/debt_ratio.dart';
-import '../sub_content/liquidity_ratios_screen.dart';
-import '../content/market_ratio.dart';
-import '../content/profatibility_ratio.dart';
 
 class FinancialRatiosSubOptions extends StatelessWidget {
   const FinancialRatiosSubOptions({super.key});
@@ -25,7 +25,7 @@ class FinancialRatiosSubOptions extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: ((context) => const LiquidityRatiosScreen())));
+                      builder: ((context) => const LiquidityRatioContent())));
             },
             firstColor: ColorAssets.first,
             secondColor: ColorAssets.second,
@@ -36,7 +36,7 @@ class FinancialRatiosSubOptions extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: ((context) => const ActivityRatiosScreen())));
+                      builder: ((context) => const ActivityRatioContent())));
             },
             firstColor: ColorAssets.second,
             secondColor: ColorAssets.third,
@@ -44,8 +44,10 @@ class FinancialRatiosSubOptions extends StatelessWidget {
           CustomOption(
             title: 'Razones de endeudamiento',
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => const DebtRatio())));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => const DebtRatioContent())));
             },
             firstColor: ColorAssets.third,
             secondColor: ColorAssets.fourth,
@@ -54,7 +56,7 @@ class FinancialRatiosSubOptions extends StatelessWidget {
             title: 'Razones de rentabilidad',
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: ((context) => const ProfatibilityRatio())));
+                  builder: ((context) => const ProfatibilityRatioContent())));
             },
             firstColor: ColorAssets.fourth,
             secondColor: ColorAssets.fifth,
@@ -63,7 +65,7 @@ class FinancialRatiosSubOptions extends StatelessWidget {
             title: 'Razones de mercado',
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: ((context) => const MarketRatio())));
+                  builder: ((context) => const MarketRatioContent())));
             },
             firstColor: ColorAssets.fifth,
             secondColor: ColorAssets.sixth,

@@ -21,27 +21,31 @@ class CustomOption extends StatelessWidget {
         alignment: Alignment.center,
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         padding: const EdgeInsetsDirectional.only(start: 15),
-        height: 80,
+        height: 70,
         decoration: BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [firstColor, secondColor]),
-          borderRadius: BorderRadius.circular(50),
+              colors: [
+                firstColor.withOpacity(0.7),
+                secondColor.withOpacity(0.7)
+              ]),
+          borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
                 offset: const Offset(1, 1),
                 blurRadius: 2,
                 spreadRadius: 1,
-                color: firstColor.withOpacity(0.5))
+                color: firstColor.withOpacity(0.7))
           ],
         ),
         child: Text(
           title,
           style: const TextStyle(
               color: ColorAssets.white,
-              fontSize: 24,
+              fontSize: 20,
               fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
         ),
       ),
     );
