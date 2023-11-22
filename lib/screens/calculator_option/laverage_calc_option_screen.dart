@@ -1,5 +1,5 @@
-import 'package:finance_pro/screens/calculator_option/tabs/leverage_fin_screen.dart';
-import 'package:finance_pro/screens/calculator_option/tabs/leverage_opt_screen.dart';
+import 'package:finance_pro/screens/calculator_option/tabs/leverage_fin_tab.dart';
+import 'package:finance_pro/screens/calculator_option/tabs/leverage_opt_tab.dart';
 import 'package:flutter/material.dart';
 
 class LaverageCalcOptionScreen extends StatefulWidget {
@@ -36,7 +36,7 @@ class _LaverageCalcOptionScreenState extends State<LaverageCalcOptionScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const [LeverageOptScreen(), LeverageFinScreen()],
+        children: const [LeverageOptTab(), LeverageFinTab()],
       ),
     );
   }

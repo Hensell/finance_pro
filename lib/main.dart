@@ -14,13 +14,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Finance Pro',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffD9ED92)),
-          useMaterial3: true,
-          textTheme: const TextTheme(
-            bodyLarge: TextStyle(),
-            bodyMedium: TextStyle(),
-          ).apply(
-              bodyColor: const Color(0xff1B1B1F), displayColor: Colors.red)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xffD9ED92), brightness: Brightness.dark),
+        useMaterial3: true,
+        fontFamily: 'Manjari',
+      ),
       home: const SplashScreen(),
     );
   }

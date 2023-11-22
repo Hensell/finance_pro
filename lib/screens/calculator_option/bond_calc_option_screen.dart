@@ -19,6 +19,16 @@ class _BondCalcOptionScreenState extends State<BondCalcOptionScreen> {
   final TextEditingController _rendiController = TextEditingController();
   double formattedResult = 0.0;
   late BondModel rowData;
+
+  @override
+  void dispose() {
+    _interesController.dispose();
+    _numerosController.dispose();
+    _valorParController.dispose();
+    _rendiController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +46,7 @@ class _BondCalcOptionScreenState extends State<BondCalcOptionScreen> {
                 children: [
                   TextFormField(
                     controller: _interesController,
+                    keyboardType: TextInputType.number,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
                           RegExp(r'^\d+\.?\d{0,2}')),
@@ -60,6 +71,7 @@ class _BondCalcOptionScreenState extends State<BondCalcOptionScreen> {
                   const Gap(10),
                   TextFormField(
                     controller: _valorParController,
+                    keyboardType: TextInputType.number,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
                           RegExp(r'^\d+\.?\d{0,2}')),
@@ -73,6 +85,7 @@ class _BondCalcOptionScreenState extends State<BondCalcOptionScreen> {
                   const Gap(10),
                   TextFormField(
                     controller: _rendiController,
+                    keyboardType: TextInputType.number,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
                           RegExp(r'^\d+\.?\d{0,2}')),

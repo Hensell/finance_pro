@@ -32,7 +32,7 @@ class CalculatorScreen extends StatelessWidget {
             ),
             CalculatorOption(
               title: 'Bonos',
-              backgroundColor: ColorAssets.first,
+              backgroundColor: ColorAssets.second,
               light: false,
               margin: const EdgeInsets.all(5),
               onTap: () {
@@ -44,7 +44,7 @@ class CalculatorScreen extends StatelessWidget {
             ),
             CalculatorOption(
               title: 'Apalancamiento',
-              backgroundColor: ColorAssets.first,
+              backgroundColor: ColorAssets.third,
               light: false,
               margin: const EdgeInsets.all(5),
               onTap: () {

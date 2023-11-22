@@ -1,78 +1,23 @@
-import 'package:finance_pro/screens/content/activity_ratios_screen.dart';
-import 'package:finance_pro/screens/content/debt_ratio.dart';
-import 'package:finance_pro/screens/content/liquidity_ratios_screen.dart';
-import 'package:finance_pro/screens/content/market_ratio.dart';
-import 'package:finance_pro/screens/content/profatibility_ratio.dart';
+import 'package:finance_pro/screens/sub_options/financial_ratio_sub_options.dart';
 import 'package:flutter/material.dart';
-import '../../utils/colors_assets.dart';
-import '../../widgets/custom_option.dart';
+import '../../widgets/sub_option_widget.dart';
 
 class FinancialRatiosScreen extends StatelessWidget {
   const FinancialRatiosScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Container(
-        width: double.infinity,
-        alignment: Alignment.topCenter,
-        child: Wrap(
-          children: [
-            CustomOption(
-              title: 'Razones de liquidez',
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) => const LiquidityRatiosScreen())));
-              },
-              firstColor: ColorAssets.first,
-              secondColor: ColorAssets.second,
-            ),
-            CustomOption(
-              title: 'Razones de actividad',
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) => const ActivityRatiosScreen())));
-              },
-              firstColor: ColorAssets.second,
-              secondColor: ColorAssets.third,
-            ),
-            CustomOption(
-              title: 'Razones de endeudamiento',
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) => const DebtRatio())));
-              },
-              firstColor: ColorAssets.third,
-              secondColor: ColorAssets.fourth,
-            ),
-            CustomOption(
-              title: 'Razones de rentabilidad',
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: ((context) => const ProfatibilityRatio())));
-              },
-              firstColor: ColorAssets.fourth,
-              secondColor: ColorAssets.fifth,
-            ),
-            CustomOption(
-              title: 'Razones de mercado',
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: ((context) => const MarketRatio())));
-              },
-              firstColor: ColorAssets.fifth,
-              secondColor: ColorAssets.sixth,
-            ),
-          ],
-        ),
-      ),
+    return SubOptionWidget(
+      appBarTitle: 'Razones financieras \n',
+      definition:
+          'consiste en "determinar las relaciones existentes entre los diferentes rubros de los estados financieros, para que mediante una correcta interpretación, puedas obtener información acerca del desempeño anterior de la empresa y su postura financiera para el futuro cercano".',
+      buttonTitle: 'Razones financieras',
+      onPressed: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const FinancialRatiosSubOptions()));
+      },
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:gap/gap.dart';
 
-import '../../utils/colors_assets.dart';
 import '../../widgets/custom_title.dart';
 
 class ProfatibilityRatio extends StatelessWidget {
@@ -13,7 +12,7 @@ class ProfatibilityRatio extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Razónes de endeudamiento'),
-        backgroundColor: ColorAssets.first,
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
           child: Column(

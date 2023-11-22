@@ -8,20 +8,25 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: _initializeDatabase(),
+        future: _initializeApp(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return const HomeScreen();
           } else {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+                child: Text(
+              'Bienvenidos a la APP de finanzas II',
+              style: TextStyle(fontSize: 36, fontWeight: FontWeight.w500),
+              textAlign: TextAlign.center,
+            ));
           }
         },
       ),
     );
   }
 
-  Future<void> _initializeDatabase() async {
+  Future<void> _initializeApp() async {
     // Simula una inicialización de base de datos asíncrona
-    await Future.delayed(const Duration(milliseconds: 500));
+    await Future.delayed(const Duration(seconds: 3));
   }
 }

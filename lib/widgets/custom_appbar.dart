@@ -9,8 +9,11 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     return PreferredSize(
       preferredSize: preferredSize,
       child: AppBar(
-        title: Text(title),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(
+          title,
+          textAlign: TextAlign.center,
+        ),
+        centerTitle: true,
       ),
     );
   }

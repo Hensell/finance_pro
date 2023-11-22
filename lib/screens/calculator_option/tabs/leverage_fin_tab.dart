@@ -4,19 +4,28 @@ import 'package:gap/gap.dart';
 
 import '../../../services/functions/number_utils.dart';
 
-class LeverageOptScreen extends StatefulWidget {
-  const LeverageOptScreen({super.key});
+class LeverageFinTab extends StatefulWidget {
+  const LeverageFinTab({super.key});
 
   @override
-  State<LeverageOptScreen> createState() => _LeverageOptScreenState();
+  State<LeverageFinTab> createState() => _LeverageFinTabState();
 }
 
-class _LeverageOptScreenState extends State<LeverageOptScreen> {
+class _LeverageFinTabState extends State<LeverageFinTab> {
   final TextEditingController _firstController = TextEditingController();
   final TextEditingController _secondController = TextEditingController();
   final TextEditingController _thirdController = TextEditingController();
   final TextEditingController _fourthController = TextEditingController();
   double formattedResult = 0.0;
+
+  @override
+  void dispose() {
+    _firstController.dispose();
+    _secondController.dispose();
+    _thirdController.dispose();
+    _fourthController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +41,13 @@ class _LeverageOptScreenState extends State<LeverageOptScreen> {
                 children: [
                   TextFormField(
                     controller: _firstController,
+                    keyboardType: TextInputType.number,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
                           RegExp(r'^\d+\.?\d{0,2}')),
                     ],
                     decoration: const InputDecoration(
-                      label: Text('Q Ventas'),
+                      label: Text('I Interes anual'),
                       hintText: '0.0',
                       filled: true,
                     ),
@@ -51,7 +61,7 @@ class _LeverageOptScreenState extends State<LeverageOptScreen> {
                           RegExp(r'^\d+\.?\d{0,2}')),
                     ],
                     decoration: const InputDecoration(
-                      label: Text('P Precio de venta'),
+                      label: Text('DP Dividendos de acciones preferentes'),
                       hintText: '0.0',
                       filled: true,
                     ),
@@ -59,12 +69,13 @@ class _LeverageOptScreenState extends State<LeverageOptScreen> {
                   const Gap(10),
                   TextFormField(
                     controller: _thirdController,
+                    keyboardType: TextInputType.number,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
                           RegExp(r'^\d+\.?\d{0,2}')),
                     ],
                     decoration: const InputDecoration(
-                      label: Text('CV Costo variable'),
+                      label: Text('T Impuestos (en %)'),
                       hintText: '0.0',
                       filled: true,
                     ),
@@ -72,12 +83,13 @@ class _LeverageOptScreenState extends State<LeverageOptScreen> {
                   const Gap(10),
                   TextFormField(
                     controller: _fourthController,
+                    keyboardType: TextInputType.number,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
                           RegExp(r'^\d+\.?\d{0,2}')),
                     ],
                     decoration: const InputDecoration(
-                      label: Text('CF Costo fijo'),
+                      label: Text('UAII Utilidad antes de impuestos'),
                       hintText: '0.0',
                       filled: true,
                     ),
@@ -106,12 +118,12 @@ class _LeverageOptScreenState extends State<LeverageOptScreen> {
   void calculateResult() {
     double first = parseDouble(_firstController.text);
     double second = parseDouble(_secondController.text);
-    double third = parseDouble(_thirdController.text);
+    double third = parseDouble(_thirdController.text) / 100;
     double fourth = parseDouble(_fourthController.text);
 
     double result = 0;
 
-    result = (first * (second - third)) / ((first * (second - third)) - fourth);
+    result = fourth / (fourth - first - (second * (1 / (1 - third))));
     setState(() {
       formattedResult = NumberUtils.formatAndRound(result);
     });

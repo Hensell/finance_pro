@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../utils/colors_assets.dart';
 
 class CustomOption extends StatelessWidget {
@@ -19,7 +18,7 @@ class CustomOption extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(5),
       child: Container(
-        alignment: Alignment.centerLeft,
+        alignment: Alignment.center,
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         padding: const EdgeInsetsDirectional.only(start: 15),
         height: 80,
@@ -28,7 +27,7 @@ class CustomOption extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [firstColor, secondColor]),
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(50),
           boxShadow: [
             BoxShadow(
                 offset: const Offset(1, 1),
@@ -42,7 +41,7 @@ class CustomOption extends StatelessWidget {
           style: const TextStyle(
               color: ColorAssets.white,
               fontSize: 24,
-              fontWeight: FontWeight.w300),
+              fontWeight: FontWeight.bold),
         ),
       ),
     );
