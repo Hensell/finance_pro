@@ -9,7 +9,7 @@ class CommonShareModel {
   double g2Value;
   double ksValue;
 
-//valores calculados abajo
+//valores calculados
   late List<double> g1Results;
   late List<double> dtResults;
   late List<double> ksResults;

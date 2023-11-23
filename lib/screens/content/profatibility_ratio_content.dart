@@ -16,7 +16,7 @@ class ProfatibilityRatioContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tipos de liquidez'),
+        title: const Text('Razones de rentabilidad'),
         centerTitle: true,
       ),
       body: ListView(

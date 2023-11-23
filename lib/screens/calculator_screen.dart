@@ -1,4 +1,5 @@
 import 'package:finance_pro/screens/calculator_option/bond_calc_option_screen.dart';
+import 'package:finance_pro/screens/calculator_option/financial_ratios_calc_option.dart';
 import 'package:finance_pro/screens/calculator_option/laverage_calc_option_screen.dart';
 import 'package:finance_pro/screens/calculator_option/share_calc_option_screen.dart';
 import 'package:finance_pro/widgets/calculator_option.dart';
@@ -53,6 +54,19 @@ class CalculatorScreen extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) =>
                             const LaverageCalcOptionScreen()));
+              },
+            ),
+            CalculatorOption(
+              title: 'Razones financieras',
+              backgroundColor: ColorAssets.fourth,
+              light: false,
+              margin: const EdgeInsets.all(5),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const FinancialRatiosCalcOption()));
               },
             ),
           ],
