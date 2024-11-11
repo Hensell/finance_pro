@@ -1,89 +1,89 @@
 class AccountModel {
   String accountName;
   bool isPositive;
+  String type;
+  double value;
 
-  AccountModel(this.accountName, this.isPositive);
+  AccountModel(this.accountName, this.isPositive, this.type, [double? value])
+      : value = value ?? 0.0;
 }
 
 //**************************Estado de resultado */
 //1) ventas
 List<AccountModel> erVentas = [
-  AccountModel('Ventas', true),
-  AccountModel('Descuento sobre ventas', false),
-  AccountModel('Devoluciones sobre ventas', false)
+  AccountModel('Ventas', true, 'er'),
+  AccountModel('Descuento sobre ventas', false, 'er'),
+  AccountModel('Devoluciones sobre ventas', false, 'er')
 ];
 
 //2) costo de articulos vendidos
 List<AccountModel> erCosto = [
-  AccountModel('Inventario inicial', true),
-  AccountModel('Compras', false),
-  AccountModel('Gastos de compra', false),
-  AccountModel('Descuentos sobre compras', true),
-  AccountModel('Menos inventario Final ', true)
+  AccountModel('Inventario inicial', true, 'er'),
+  AccountModel('Compras', false, 'er'),
+  AccountModel('Gastos de compra', false, 'er'),
+  AccountModel('Descuentos sobre compras', true, 'er'),
+  AccountModel('Menos inventario Final ', true, 'er')
 ];
 //3) Gastos de ventas
 List<AccountModel> erGastosVentas = [
-  AccountModel('Sueldos y comiciones a vendedores', false),
-  AccountModel('Sueldos de la oficina de ventas', false),
-  AccountModel('Víaticos', false),
-  AccountModel('Fletes de mercancias recibidas', false),
-  AccountModel('Depreciación de equipo de transporte', false),
-  AccountModel('Teléfono', false)
+  AccountModel('Sueldos y comiciones a vendedores', false, 'er'),
+  AccountModel('Sueldos de la oficina de ventas', false, 'er'),
+  AccountModel('Víaticos', false, 'er'),
+  AccountModel('Fletes de mercancias recibidas', false, 'er'),
+  AccountModel('Depreciación de equipo de transporte', false, 'er'),
+  AccountModel('Teléfono', false, 'er')
 ];
 
 //4) Gastos de adminitración
 List<AccountModel> erGastosAdmin = [
-  AccountModel('Sueldos de oficina', false),
-  AccountModel('Servicios públicos', false),
-  AccountModel('Depreciación del edificio', false),
-  AccountModel('Depreciación de equipo de oficina', false)
+  AccountModel('Sueldos de oficina', false, 'er'),
+  AccountModel('Servicios públicos', false, 'er'),
+  AccountModel('Depreciación del edificio', false, 'er'),
+  AccountModel('Depreciación de equipo de oficina', false, 'er')
 ];
 
 //5) Otros ingresos
 List<AccountModel> erOtrosIng = [
-  AccountModel('Dividendos cobrados', false),
-  AccountModel('Utilidad antes de impuestos', false),
-  AccountModel('Impuestos a la utilidad', false)
+  AccountModel('Dividendos cobrados', false, 'er'),
+  AccountModel('Utilidad antes de impuestos', false, 'er'),
+  AccountModel('Impuestos a la utilidad', false, 'er')
 ];
 //************************** */
 
 //**************************Balance general*/
 //1) Activo circulante
 List<AccountModel> bgActivoC = [
-  AccountModel('Efectivo y Valores realizables', true),
-  AccountModel('Cuentas por cobrar', true),
-  AccountModel('Anticipo a proveedores', true),
-  AccountModel('Provisión cuentas incobrables', false),
-  AccountModel('Inventarios', true)
+  AccountModel('Efectivo y Valores realizables', true, 'bg'),
+  AccountModel('Cuentas por cobrar', true, 'bg'),
+  AccountModel('Anticipo a proveedores', true, 'bg'),
+  AccountModel('Provisión cuentas incobrables', false, 'bg'),
+  AccountModel('Inventarios', true, 'bg')
 ];
 
-//2) Activo no circulante
 List<AccountModel> bgActivoNC = [
-  AccountModel('nmuebles Maquinaria y Equipo', true),
-  AccountModel('Depreciación acumulada', false)
+  AccountModel('Muebles Maquinaria y Equipo', true, 'bg'),
+  AccountModel('Depreciación acumulada', false, 'bg')
 ];
 
-//3) Pasivo circulante
 List<AccountModel> bgPasivoC = [
-  AccountModel('Proveedores', true),
-  AccountModel('Acreedores Bancarios corto plazo', true),
-  AccountModel('Impuestos por pagar', true)
+  AccountModel('Proveedores', true, 'bg'),
+  AccountModel('Acreedores Bancarios corto plazo', true, 'bg'),
+  AccountModel('Impuestos por pagar', true, 'bg')
 ];
 
-//4) Pasivo no circulante
 List<AccountModel> bgPasivoNC = [
-  AccountModel('Documentos x pagar LP', true),
-  AccountModel('Acreedores Hipotecarios', true),
-  AccountModel('Obligaciones', true)
+  AccountModel('Documentos por pagar LP', true, 'bg'),
+  AccountModel('Acreedores Hipotecarios', true, 'bg'),
+  AccountModel('Obligaciones', true, 'bg')
 ];
 
-//5) Capital contable
 List<AccountModel> bgCapitalCon = [
-  AccountModel('Capital social', true),
-  AccountModel('Reserva legal', true),
-  AccountModel('Reserva de reinversión', true),
-  AccountModel('Utilidad de ejercicios anteriores', true),
+  AccountModel('Capital social', true, 'bg'),
+  AccountModel('Reserva legal', true, 'bg'),
+  AccountModel('Reserva de reinversión', true, 'bg'),
+  AccountModel('Utilidad de ejercicios anteriores', true, 'bg'),
 ];
+
 //************************** */
 
 List<List<AccountModel>> balanceGeneralList = [

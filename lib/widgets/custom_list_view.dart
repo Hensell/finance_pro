@@ -7,12 +7,13 @@ class CustomListView extends StatelessWidget {
       {super.key,
       required this.model,
       required this.controllers,
-      required this.title});
+      required this.title,
+      this.onTap});
 
   final List<AccountModel> model;
   final List<TextEditingController> controllers;
   final String title;
-
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,14 +29,31 @@ class CustomListView extends StatelessWidget {
               shrinkWrap: true,
               itemCount: model.length,
               itemBuilder: (context, index) {
-                return TextField(
-                  controller: controllers[index],
-                  decoration: InputDecoration(
-                    labelText: model[index].accountName,
-                  ),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.allow(
-                        RegExp(r'^\d+\.?\d{0,2}')),
+                return Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: controllers[index],
+                        decoration: InputDecoration(
+                          labelText: model[index].accountName,
+                        ),
+                        keyboardType: TextInputType.number,
+                        onChanged: (value) {
+                          model[index].value = double.parse(value);
+                        },
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'^\d+\.?\d{0,2}')),
+                        ],
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          model.removeWhere((account) =>
+                              account.accountName == model[index].accountName);
+                          onTap;
+                        },
+                        icon: const Icon(Icons.remove_circle))
                   ],
                 );
               }),
