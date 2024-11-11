@@ -12,6 +12,7 @@ class CustomOption extends StatelessWidget {
   final VoidCallback? onTap;
   final Color firstColor;
   final Color secondColor;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(

@@ -157,6 +157,9 @@ class _FinancialRatiosCalcOptionState extends State<FinancialRatiosCalcOption> {
                 title: 'Ventas',
                 model: erVentas,
                 controllers: _erVentas,
+                onTap: () {
+                  onUpdate();
+                },
               ),
               CustomListView(
                 title: 'Costo de articulos vendidos',
@@ -215,10 +218,19 @@ class _FinancialRatiosCalcOptionState extends State<FinancialRatiosCalcOption> {
       ),
       bottomNavigationBar: ElevatedButton(
           onPressed: () {
-            calcular();
+            setState(() {});
+            //  print(erVentas[1].value);
+            //calcular();
           },
           child: const Text('Calcular')),
     );
+  }
+
+  onUpdate() {
+    print('uwu');
+    setState(() {
+      print('uwu');
+    });
   }
 
   calcular() {
