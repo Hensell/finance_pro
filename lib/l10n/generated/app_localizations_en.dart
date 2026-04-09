@@ -102,13 +102,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Built for web and ready to scale by feature.';
 
   @override
-  String get appFooterCreditsPrefix => 'Credits:';
-
-  @override
-  String get appFooterCreditsName => 'Hensell';
-
-  @override
-  String get appFooterCreditsLinkLabel => 'hensell.dev';
+  String get appFooterCreditsLabel => '© 2026 Hensell Dev';
 
   @override
   String get appNumericHint => '0.0';

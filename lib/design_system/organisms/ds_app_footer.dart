@@ -11,56 +11,42 @@ class DsAppFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
+    final double footerHeight = (tokens.spacing.sm * 2) + 24;
 
-    return Material(
-      color: tokens.colors.surfaceRaised,
-      child: SafeArea(
-        top: false,
-        child: Container(
-          decoration: BoxDecoration(
-            border: Border(
-              top: BorderSide(color: tokens.colors.border),
+    return SafeArea(
+      top: false,
+      child: SizedBox(
+        height: footerHeight,
+        child: Material(
+          color: tokens.colors.surfaceRaised,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(color: tokens.colors.border),
+              ),
             ),
-          ),
-          padding: EdgeInsets.symmetric(
-            horizontal: tokens.layout.compactPagePadding,
-            vertical: tokens.spacing.sm,
-          ),
-          child: Center(
-            child: Link(
-              uri: _creditsUri,
-              target: LinkTarget.blank,
-              builder: (BuildContext context, FollowLink? openLink) {
-                return InkWell(
-                  onTap: openLink,
-                  borderRadius: BorderRadius.circular(tokens.radii.round),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: tokens.spacing.sm,
-                      vertical: tokens.spacing.xs,
+            child: Center(
+              child: Link(
+                uri: _creditsUri,
+                target: LinkTarget.blank,
+                builder: (BuildContext context, FollowLink? openLink) {
+                  return InkWell(
+                    onTap: openLink,
+                    borderRadius: BorderRadius.circular(tokens.radii.round),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: tokens.spacing.sm,
+                        vertical: tokens.spacing.xs,
+                      ),
+                      child: DsText(
+                        context.l10n.appFooterCreditsLabel,
+                        tone: DsTextTone.bodyMuted,
+                        color: tokens.colors.onSurfaceMuted,
+                      ),
                     ),
-                    child: Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      spacing: tokens.spacing.xs,
-                      children: <Widget>[
-                        DsText(
-                          context.l10n.appFooterCreditsPrefix,
-                          tone: DsTextTone.bodyMuted,
-                        ),
-                        DsText(
-                          context.l10n.appFooterCreditsName,
-                          tone: DsTextTone.label,
-                          color: tokens.colors.primary,
-                        ),
-                        DsText(
-                          context.l10n.appFooterCreditsLinkLabel,
-                          tone: DsTextTone.bodyMuted,
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
         ),

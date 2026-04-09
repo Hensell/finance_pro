@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:finance_pro/app/router/app_route_paths.dart';
 import 'package:finance_pro/core/extensions/build_context_x.dart';
 import 'package:finance_pro/design_system/atoms/ds_text.dart';
-import 'package:finance_pro/design_system/organisms/ds_app_footer.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -51,7 +50,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
     return Scaffold(
       backgroundColor: tokens.colors.shellBackground,
-      bottomNavigationBar: const DsAppFooter(),
       body: SafeArea(
         child: Center(
           child: Padding(

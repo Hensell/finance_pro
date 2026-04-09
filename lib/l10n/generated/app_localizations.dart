@@ -278,23 +278,11 @@ abstract class AppLocalizations {
   /// **'Pensado para web y preparado para crecer por features.'**
   String get appFooterSecondary;
 
-  /// No description provided for @appFooterCreditsPrefix.
+  /// No description provided for @appFooterCreditsLabel.
   ///
   /// In es, this message translates to:
-  /// **'Créditos:'**
-  String get appFooterCreditsPrefix;
-
-  /// No description provided for @appFooterCreditsName.
-  ///
-  /// In es, this message translates to:
-  /// **'Hensell'**
-  String get appFooterCreditsName;
-
-  /// No description provided for @appFooterCreditsLinkLabel.
-  ///
-  /// In es, this message translates to:
-  /// **'hensell.dev'**
-  String get appFooterCreditsLinkLabel;
+  /// **'© 2026 Hensell Dev'**
+  String get appFooterCreditsLabel;
 
   /// No description provided for @appNumericHint.
   ///

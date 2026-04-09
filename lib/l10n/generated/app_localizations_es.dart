@@ -104,13 +104,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Pensado para web y preparado para crecer por features.';
 
   @override
-  String get appFooterCreditsPrefix => 'Créditos:';
-
-  @override
-  String get appFooterCreditsName => 'Hensell';
-
-  @override
-  String get appFooterCreditsLinkLabel => 'hensell.dev';
+  String get appFooterCreditsLabel => '© 2026 Hensell Dev';
 
   @override
   String get appNumericHint => '0.0';

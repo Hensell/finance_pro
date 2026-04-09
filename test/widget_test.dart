@@ -15,6 +15,7 @@ void main() {
 
     expect(find.text('Preparing the finance lab.'), findsNothing);
     expect(find.text('Preparando el laboratorio financiero.'), findsOneWidget);
+    expect(find.text('© 2026 Hensell Dev'), findsNothing);
 
     await tester.pump(const Duration(milliseconds: 950));
     await tester.pumpAndSettle();
@@ -23,7 +24,6 @@ void main() {
       find.text('Explora finanzas corporativas con una estructura clara'),
       findsOneWidget,
     );
-    expect(find.text('Créditos:'), findsOneWidget);
-    expect(find.text('hensell.dev'), findsOneWidget);
+    expect(find.text('© 2026 Hensell Dev'), findsOneWidget);
   });
 }
