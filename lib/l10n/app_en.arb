@@ -1,0 +1,290 @@
+{
+  "@@locale": "en",
+  "appTitle": "Finance Pro",
+  "appTagline": "Corporate finance with clear routes, live formulas, and practical calculators.",
+  "appPrimaryAction": "Enter the lab",
+  "appSecondaryAction": "Go to home",
+  "appExploreAction": "Explore module",
+  "appReadTopicAction": "Read topic",
+  "appOpenCalculatorAction": "Open calculator",
+  "appRetryAction": "Retry",
+  "appBackAction": "Back",
+  "appBackHomeAction": "Back to home",
+  "appToggleLanguageLabel": "Language",
+  "appSpanishLabel": "Spanish",
+  "appEnglishLabel": "English",
+  "appLoadingTitle": "Loading content",
+  "appLoadingBody": "Preparing modules, formulas, and calculators.",
+  "appErrorTitle": "We could not load this view",
+  "appErrorBody": "Check the local content and try again.",
+  "appEmptyTitle": "No content available",
+  "appEmptyBody": "This module does not have published content yet.",
+  "appTopicsSection": "Available topics",
+  "appHighlightsSection": "Why study this module",
+  "appCalculatorSection": "Calculator",
+  "appResultsSection": "Results",
+  "appFormulaSection": "Formulas",
+  "appExamplesSection": "Examples",
+  "appInputsSection": "Inputs",
+  "appTopicSection": "Topic",
+  "appFooterPrimary": "Clean architecture, localizable content, and design system components.",
+  "appFooterSecondary": "Built for web and ready to scale by feature.",
+  "appNumericHint": "0.0",
+  "shellModulesLabel": "Modules",
+  "validationPositiveNumbers": "Enter valid positive values in all required fields.",
+  "validationWholeYearsRequired": "Years to maturity must be a positive whole number.",
+  "validationNonNegativeNumbers": "Enter valid non-negative values.",
+  "bondCalculatorGuideTitle": "How to approach this calculation",
+  "bondCalculatorGuideStepCashTitle": "1. Identify the bond cash flows",
+  "bondCalculatorGuideStepCashBody": "First identify how much the bond pays each year and how much it returns at maturity.",
+  "bondCalculatorGuideStepMarketTitle": "2. Define time and market rate",
+  "bondCalculatorGuideStepMarketBody": "Then determine how many years are left and what return investors demand.",
+  "bondCalculatorGuideStepDecisionTitle": "3. Interpret the price",
+  "bondCalculatorGuideStepDecisionBody": "Finally compare the estimated price with par value to tell whether the bond trades at a premium, discount, or near par.",
+  "bondCalculatorLiveFormulaLabel": "Live substitution",
+  "bondCalculatorLiveFormulaSummary": "The formula updates with your values while you complete the exercise.",
+  "bondCalculatorInterpretationTitle": "How to read the result",
+  "bondCalculatorStatusLabel": "Bond position",
+  "bondCalculatorStatusPremium": "Premium",
+  "bondCalculatorStatusAtPar": "Near par",
+  "bondCalculatorStatusDiscount": "Discount",
+  "bondCalculatorCouponRateLabel": "Implied coupon rate",
+  "bondCalculatorDifferenceLabel": "Difference vs par",
+  "bondCalculatorPremiumExplanation": "The bond trades at a premium because the implied coupon rate ({couponRate}%) is above the required return ({requiredReturn}%). That pushes the price above par value.",
+  "@bondCalculatorPremiumExplanation": {
+    "placeholders": {
+      "couponRate": {},
+      "requiredReturn": {}
+    }
+  },
+  "bondCalculatorAtParExplanation": "The bond stays near par because the implied coupon rate ({couponRate}%) is very close to the required return ({requiredReturn}%).",
+  "@bondCalculatorAtParExplanation": {
+    "placeholders": {
+      "couponRate": {},
+      "requiredReturn": {}
+    }
+  },
+  "bondCalculatorDiscountExplanation": "The bond trades at a discount because the implied coupon rate ({couponRate}%) stays below the required return ({requiredReturn}%). That pulls the price below par value.",
+  "@bondCalculatorDiscountExplanation": {
+    "placeholders": {
+      "couponRate": {},
+      "requiredReturn": {}
+    }
+  },
+  "shareCalculatorGuideTitle": "How to approach this model",
+  "shareCalculatorGuideStepModelTitle": "1. Choose the right model",
+  "shareCalculatorGuideStepModelBody": "First decide whether the problem uses zero growth, constant growth, two growth stages, or a preferred share.",
+  "shareCalculatorGuideStepDividendTitle": "2. Identify which dividend the model uses",
+  "shareCalculatorGuideStepDividendBody": "You do not always enter the same cash flow: some modes start from D₁, others from D₀, and preferred shares use D.",
+  "shareCalculatorGuideStepInterpretTitle": "3. Interpret the price",
+  "shareCalculatorGuideStepInterpretBody": "After calculating, review how growth, required return, and when applicable terminal value shape the estimated price.",
+  "shareCalculatorModelSectionTitle": "Choose the valuation approach",
+  "shareCalculatorModelSectionSummary": "Each model answers a different assumption about dividends and growth.",
+  "shareCalculatorLiveFormulaLabel": "Live substitution",
+  "shareCalculatorLiveFormulaSummary": "The formula changes with the active model and updates with your values while you type.",
+  "shareCalculatorInterpretationTitle": "How to read the result",
+  "shareCalculatorDividendBasisLabel": "Dividend used",
+  "shareCalculatorRequiredReturnLabel": "Required return",
+  "shareCalculatorSpreadLabel": "Valuation spread",
+  "shareCalculatorTerminalWeightLabel": "Terminal value weight",
+  "shareCalculatorZeroGrowthExplanation": "This model treats the share as a simple perpetuity using D₁ and a required return of {requiredReturn}%. It works best when you expect no dividend growth.",
+  "@shareCalculatorZeroGrowthExplanation": {
+    "placeholders": {
+      "requiredReturn": {}
+    }
+  },
+  "shareCalculatorPreferredExplanation": "A preferred share is valued as a perpetuity with a fixed dividend and a required return of {requiredReturn}%. The relevant cash flow here is D, not D₀ or D₁.",
+  "@shareCalculatorPreferredExplanation": {
+    "placeholders": {
+      "requiredReturn": {}
+    }
+  },
+  "shareCalculatorConstantGrowthExplanation": "Price depends on the spread between k_s and g. With growth at {growthRate}% and a spread of {spread}%, the Gordon model remains valid because k_s stays above g.",
+  "@shareCalculatorConstantGrowthExplanation": {
+    "placeholders": {
+      "growthRate": {},
+      "spread": {}
+    }
+  },
+  "shareCalculatorVariableGrowthExplanation": "The result adds projected dividends for {periods} periods and a terminal value computed with g₂ = {terminalGrowth}%. In this case, terminal value explains about {terminalWeight}% of the estimated price.",
+  "@shareCalculatorVariableGrowthExplanation": {
+    "placeholders": {
+      "periods": {},
+      "terminalGrowth": {},
+      "terminalWeight": {}
+    }
+  },
+  "leverageCalculatorGuideTitle": "How to think through this calculation",
+  "leverageCalculatorGuideStepModeTitle": "1. Pick the right leverage type",
+  "leverageCalculatorGuideStepModeBody": "First decide whether the problem is about EBIT sensitivity to sales or common-shareholder sensitivity to EBIT.",
+  "leverageCalculatorGuideStepBaseTitle": "2. Check the sensitive base",
+  "leverageCalculatorGuideStepBaseBody": "Then confirm that the denominator base stays positive. When it gets close to zero, risk rises and the degree jumps.",
+  "leverageCalculatorGuideStepInterpretTitle": "3. Interpret the amplification",
+  "leverageCalculatorGuideStepInterpretBody": "A degree of 2 does not mean 2 more dollars. It means a 1% change is amplified to roughly 2%.",
+  "leverageCalculatorModeSectionTitle": "Choose the leverage type",
+  "leverageCalculatorModeSectionSummary": "Each mode starts from a different base and reflects a different source of business risk.",
+  "leverageCalculatorLiveFormulaLabel": "Live substitution",
+  "leverageCalculatorLiveFormulaSummary": "The formula updates with your inputs so you can see what enters the numerator and what remains as the sensitive base.",
+  "leverageCalculatorInterpretationTitle": "How to read the result",
+  "leverageCalculatorSensitivityLabel": "Sensitivity level",
+  "leverageCalculatorSensitivityMeasured": "Measured",
+  "leverageCalculatorSensitivityElevated": "Elevated",
+  "leverageCalculatorSensitivityHigh": "High",
+  "leverageCalculatorContributionMarginLabel": "Total contribution margin",
+  "leverageCalculatorEbitLabel": "Estimated EBIT",
+  "leverageCalculatorCommonBaseLabel": "Base available to common shareholders",
+  "leverageCalculatorTaxAdjustedPreferredLabel": "Tax-adjusted preferred dividends",
+  "leverageCalculatorOperatingExplanation": "With a DOL of {amplification}, a 1% change in sales would move EBIT by roughly {amplification}%. In this exercise, total contribution margin is {contributionMargin} and estimated EBIT is {ebit}.",
+  "@leverageCalculatorOperatingExplanation": {
+    "placeholders": {
+      "amplification": {},
+      "contributionMargin": {},
+      "ebit": {}
+    }
+  },
+  "leverageCalculatorFinancialExplanation": "With a DFL of {amplification}, a 1% change in EBIT would move earnings available to common shareholders by roughly {amplification}%. Here the base available to common shareholders is {commonBase} and the tax-adjusted preferred dividend charge is {taxAdjustedPreferred}.",
+  "@leverageCalculatorFinancialExplanation": {
+    "placeholders": {
+      "amplification": {},
+      "commonBase": {},
+      "taxAdjustedPreferred": {}
+    }
+  },
+  "leaseCalculatorGuideTitle": "How to think through this comparison",
+  "leaseCalculatorGuideStepLeaseTitle": "1. Compute the lease cost",
+  "leaseCalculatorGuideStepLeaseBody": "Convert all future lease payments into one present value amount.",
+  "leaseCalculatorGuideStepBuyTitle": "2. Compute the net cost of buying",
+  "leaseCalculatorGuideStepBuyBody": "Start with the price today and subtract the discounted residual value so you do not compare cash flows from different dates directly.",
+  "leaseCalculatorGuideStepDecisionTitle": "3. Compare and decide",
+  "leaseCalculatorGuideStepDecisionBody": "The alternative with the lower present value is the lower-cost option economically, although the final decision may still consider flexibility or risk.",
+  "leaseCalculatorLiveFormulaLabel": "Live substitution",
+  "leaseCalculatorLiveFormulaSummary": "The comparison updates with your numbers so you can see the lease cost and the net cost of buying at the same time.",
+  "leaseCalculatorInterpretationTitle": "How to read the result",
+  "leaseCalculatorRecommendationLabel": "Suggested alternative",
+  "leaseCalculatorRecommendationLease": "Leasing looks better",
+  "leaseCalculatorRecommendationBuy": "Buying looks better",
+  "leaseCalculatorRecommendationNeutral": "Very similar result",
+  "leaseCalculatorDifferenceLabel": "Relative savings",
+  "leaseCalculatorResidualBenefitLabel": "Discounted residual value",
+  "leaseCalculatorLeaseExplanation": "With a discount rate of {rate}%, leasing consumes about {savings} less present value. The discounted residual value on the purchase option would be {residual}, but leasing still remains the lighter economic cost.",
+  "@leaseCalculatorLeaseExplanation": {
+    "placeholders": {
+      "savings": {},
+      "rate": {},
+      "residual": {}
+    }
+  },
+  "leaseCalculatorBuyExplanation": "With a discount rate of {rate}%, buying today is better by about {savings}. The discounted residual value recovers roughly {residual}, and that pushes the net purchase cost below the lease alternative.",
+  "@leaseCalculatorBuyExplanation": {
+    "placeholders": {
+      "savings": {},
+      "rate": {},
+      "residual": {}
+    }
+  },
+  "leaseCalculatorNeutralExplanation": "With a discount rate of {rate}% and a discounted residual value near {residual}, both alternatives end up very close in present value. The final choice may depend on liquidity, flexibility, or operating risk.",
+  "@leaseCalculatorNeutralExplanation": {
+    "placeholders": {
+      "rate": {},
+      "residual": {}
+    }
+  },
+  "validationGrowthLessThanReturn": "Growth rate must be lower than the required return.",
+  "validationPeriodsRequired": "When using variable growth, periods must be greater than zero.",
+  "validationLeaseRequiredFields": "Complete the lease payment, periods, rate, purchase price, and residual value with valid numbers.",
+  "validationLeasePeriodsRequired": "The number of lease periods must be a positive integer.",
+  "validationLeaseResidualExceedsPrice": "Residual value should not exceed the purchase price in this basic comparison.",
+  "validationTaxRateRange": "Tax rate must be at least 0 and lower than 100.",
+  "validationLeverageOperatingDenominator": "Total contribution margin must exceed fixed costs to calculate operating leverage.",
+  "validationLeverageFinancialDenominator": "Earnings available to common shareholders must be greater than zero to calculate financial leverage.",
+  "validationRatiosRequired": "Complete all required fields to calculate the financial ratios.",
+  "financialRatiosContinueAction": "Continue",
+  "financialRatiosLoadSampleAction": "Fill with sample data",
+  "financialRatiosFormulaFallback": "Select a step or ratio family to see the relevant formulas.",
+  "financialRatiosStatementPreviewTitle": "Derived subtotals",
+  "financialRatiosStatementPreviewSummary": "The builder recalculates these balances each time you change a base line item.",
+  "financialRatiosBalancePreviewTitle": "Accounting check",
+  "financialRatiosBalancePreviewSummary": "Use this block to review the equation and catch inconsistencies before analyzing.",
+  "financialRatiosNetSalesLabel": "Net sales",
+  "financialRatiosNetPurchasesLabel": "Net purchases",
+  "financialRatiosCostOfSalesLabel": "Cost of sales",
+  "financialRatiosGrossProfitLabel": "Gross profit",
+  "financialRatiosOperatingExpensesLabel": "Operating expenses",
+  "financialRatiosEbitLabel": "EBIT",
+  "financialRatiosEarningsBeforeTaxesLabel": "Earnings before taxes",
+  "financialRatiosNetIncomeLabel": "Net income",
+  "financialRatiosCurrentAssetsLabel": "Current assets",
+  "financialRatiosFixedAssetsNetLabel": "Net fixed assets",
+  "financialRatiosTotalAssetsLabel": "Total assets",
+  "financialRatiosCurrentLiabilitiesLabel": "Current liabilities",
+  "financialRatiosNonCurrentLiabilitiesLabel": "Non-current liabilities",
+  "financialRatiosTotalLiabilitiesLabel": "Total liabilities",
+  "financialRatiosEquityLabel": "Equity",
+  "financialRatiosLiabilitiesAndEquityLabel": "Liabilities + equity",
+  "financialRatiosBalanceDifferenceLabel": "Balance difference",
+  "financialRatiosValidationNumeric": "Enter valid numbers or leave the field empty when the line item is zero.",
+  "financialRatiosValidationCompleteIncomeStatement": "Complete every income statement line item, even when a value is 0.",
+  "financialRatiosValidationCompleteBalanceSheet": "Complete every balance sheet line item, even when a value is 0.",
+  "financialRatiosValidationNetSalesNegative": "Net sales cannot be negative. Review discounts and returns.",
+  "financialRatiosValidationNegativeCostOfSales": "Cost of sales cannot turn negative. Review beginning inventory, purchases, and ending inventory.",
+  "financialRatiosValidationGrossProfitInconsistent": "Gross profit became inconsistent with the sales entered.",
+  "financialRatiosValidationOperatingIncomeInconsistent": "EBIT became inconsistent with gross profit and operating expenses.",
+  "financialRatiosValidationNetReceivablesNegative": "Net receivables cannot be negative. Review the allowance for doubtful accounts.",
+  "financialRatiosValidationFixedAssetsNegative": "Net fixed assets cannot be negative. Review accumulated depreciation.",
+  "financialRatiosValidationTotalAssetsRequired": "You need a positive asset base to generate the analysis.",
+  "financialRatiosValidationBalanceMismatch": "The balance sheet does not tie: total assets must equal total liabilities plus equity.",
+  "financialRatiosValidationInventoryMismatch": "Balance sheet inventory must match the ending inventory from the income statement.",
+  "financialRatiosBalanceMatches": "The balance sheet ties correctly: assets and funding sources are aligned.",
+  "financialRatiosBalanceAssetsHigher": "Assets exceed liabilities + equity by {difference}. Review equity, debt, or ending inventory.",
+  "@financialRatiosBalanceAssetsHigher": {
+    "placeholders": {
+      "difference": {}
+    }
+  },
+  "financialRatiosBalanceFundingHigher": "Liabilities + equity exceed assets by {difference}. Review depreciation, net receivables, or equity.",
+  "@financialRatiosBalanceFundingHigher": {
+    "placeholders": {
+      "difference": {}
+    }
+  },
+  "financialRatiosMetricCurrentRatioNote": "Current ratio is not useful when current liabilities are zero or negative.",
+  "financialRatiosMetricQuickRatioNote": "Quick ratio does not apply when current liabilities are zero or when the base does not represent enforceable obligations.",
+  "financialRatiosMetricCashRatioNote": "Cash ratio requires positive current liabilities to produce a useful reading.",
+  "financialRatiosMetricInventoryTurnoverNote": "Inventory turnover requires positive inventory. If inventory is zero, the ratio is not interpretable.",
+  "financialRatiosMetricDaysInventoryNote": "Days in inventory requires a positive cost of sales to express storage time.",
+  "financialRatiosMetricReceivablesTurnoverNote": "Receivables turnover requires positive net receivables.",
+  "financialRatiosMetricCollectionPeriodNote": "Average collection period requires positive net sales.",
+  "financialRatiosMetricPayablesTurnoverNote": "Payables turnover requires positive accounts payable.",
+  "financialRatiosMetricPaymentPeriodNote": "Average payment period requires a positive cost of sales.",
+  "financialRatiosMetricTotalAssetTurnoverNote": "Total asset turnover requires a positive asset base.",
+  "financialRatiosMetricFixedAssetTurnoverNote": "Fixed asset turnover requires positive net fixed assets.",
+  "financialRatiosMetricDebtRatioNote": "Debt ratio requires positive total assets.",
+  "financialRatiosMetricDebtToEquityNote": "Debt-to-equity requires positive equity to avoid a distorted reading.",
+  "financialRatiosMetricEquityMultiplierNote": "Equity multiplier requires positive equity.",
+  "financialRatiosMetricInterestCoverageNote": "Interest coverage does not apply when there is no positive interest expense.",
+  "financialRatiosMetricGrossMarginNote": "Gross margin requires positive net sales.",
+  "financialRatiosMetricOperatingMarginNote": "Operating margin requires positive net sales.",
+  "financialRatiosMetricNetMarginNote": "Net margin requires positive net sales.",
+  "financialRatiosMetricReturnOnAssetsNote": "ROA requires positive total assets.",
+  "financialRatiosMetricReturnOnEquityNote": "ROE requires positive equity.",
+  "financialRatiosMetricDupontNetMarginNote": "The net margin component requires positive net sales.",
+  "financialRatiosMetricDupontAssetTurnoverNote": "The turnover component requires positive total assets.",
+  "financialRatiosMetricDupontEquityMultiplierNote": "The multiplier component requires positive equity.",
+  "financialRatiosMetricDupontRoeNote": "DuPont ROE cannot be rebuilt while any component is missing.",
+  "homeRouteLabel": "Home",
+  "featureBondsLabel": "Bonds",
+  "featureSharesLabel": "Shares",
+  "featureLeverageLabel": "Leverage",
+  "featureRatiosLabel": "Financial ratios",
+  "featureLeaseLabel": "Financial lease",
+  "onboardingRouteLabel": "Welcome",
+  "onboardingIndexLabel": "Lab index",
+  "onboardingStatModules": "modules",
+  "onboardingStatCalculators": "calculators",
+  "onboardingStatLanguages": "languages",
+  "onboardingChipBondPricing": "Bond pricing",
+  "onboardingChipShareValuation": "Share valuation",
+  "onboardingChipLeverage": "Leverage",
+  "onboardingChipFinancialRatios": "Financial ratios",
+  "onboardingChipLease": "Financial lease"
+}

@@ -1,0 +1,359 @@
+{
+  "id": "shares",
+  "accent": "teal",
+  "eyebrow": "Capital patrimonial",
+  "title": "Acciones",
+  "summary": "La valuación de acciones depende de los dividendos esperados, la etapa de crecimiento y el rendimiento que exige el inversionista.",
+  "heroPoints": [
+    "Modelos por dividendos",
+    "Relación crecimiento-retorno",
+    "Lectura por etapas",
+    "Acciones preferentes"
+  ],
+  "topics": [
+    {
+      "id": "zero_growth",
+      "title": "Crecimiento cero",
+      "summary": "Útil cuando el dividendo esperado para el próximo periodo se mantiene estable en el tiempo.",
+      "sections": [
+        {
+          "id": "zero_growth_formula",
+          "title": "Modelo estable",
+          "body": "Si el dividendo esperado no cambia, la acción se comporta como una perpetuidad simple. El precio de hoy surge al dividir el dividendo esperado del próximo periodo entre el rendimiento requerido.",
+          "bullets": [
+            "Se usa cuando no esperas crecimiento en dividendos.",
+            "El dividendo relevante es D1, es decir, el próximo dividendo esperado.",
+            "Mientras mayor sea k_s, menor será el precio estimado."
+          ],
+          "formulas": [
+            { "label": "Acción con crecimiento cero", "tex": "P_0 = \\frac{D_1}{k_s}" }
+          ]
+        },
+        {
+          "id": "zero_growth_variables",
+          "title": "Qué significa cada variable",
+          "body": "Antes de calcular, conviene distinguir claramente qué representa cada símbolo del modelo.",
+          "exampleTable": {
+            "title": "Variables del modelo",
+            "columns": ["Variable", "Significado", "Cómo leerla"],
+            "rows": [
+              { "cells": ["P₀", "Precio de la acción hoy", "Es el valor presente que buscas estimar."] },
+              { "cells": ["D₁", "Dividendo esperado el próximo año", "No es el dividendo histórico, sino el siguiente flujo esperado."] },
+              { "cells": ["k_s", "Rendimiento requerido", "Retorno que exige el inversionista por asumir el riesgo de la acción."] }
+            ],
+            "footnote": "Este modelo es útil cuando la política de dividendos es muy estable y no se espera crecimiento."
+          }
+        },
+        {
+          "id": "zero_growth_use",
+          "title": "Cuándo usarlo y qué evitar",
+          "body": "Es un modelo simple, pero solo funciona bien cuando sus supuestos realmente se cumplen.",
+          "bullets": [
+            "Úsalo cuando la empresa reparte dividendos regulares y sin crecimiento esperado.",
+            "No confundas D₁ con el último dividendo pagado si el problema te pide el próximo dividendo.",
+            "Si el negocio está creciendo, conviene pasar a un modelo con crecimiento."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "constant_growth",
+      "title": "Crecimiento constante",
+      "summary": "Sirve cuando la empresa puede sostener una tasa de crecimiento estable menor al rendimiento requerido.",
+      "sections": [
+        {
+          "id": "constant_growth_formula",
+          "title": "Modelo de Gordon",
+          "body": "Cuando la empresa crece a una tasa constante g, el precio actual se obtiene descontando una perpetuidad creciente. La condición clave es que g sea menor que k_s.",
+          "bullets": [
+            "D₁ representa el próximo dividendo esperado.",
+            "La diferencia k_s - g concentra la relación entre riesgo y crecimiento.",
+            "Si g se acerca demasiado a k_s, el precio crece de forma muy sensible."
+          ],
+          "formulas": [
+            { "label": "Acción con crecimiento constante", "tex": "P_0 = \\frac{D_1}{k_s-g}" }
+          ]
+        },
+        {
+          "id": "constant_growth_variables",
+          "title": "Variables y lectura financiera",
+          "body": "El modelo no solo calcula un precio: también muestra cómo el crecimiento esperado puede elevar el valor de la acción.",
+          "exampleTable": {
+            "title": "Lectura de variables",
+            "columns": ["Variable", "Significado", "Impacto en el precio"],
+            "rows": [
+              { "cells": ["D₁", "Próximo dividendo esperado", "A mayor dividendo esperado, mayor precio."] },
+              { "cells": ["k_s", "Rendimiento requerido", "A mayor rendimiento exigido, menor precio."] },
+              { "cells": ["g", "Tasa de crecimiento constante", "A mayor crecimiento sostenible, mayor precio."] }
+            ],
+            "footnote": "El modelo pierde validez si g es igual o mayor que k_s."
+          }
+        },
+        {
+          "id": "constant_growth_case",
+          "title": "Mini caso guiado",
+          "body": "Si D₁ = 3, k_s = 15% y g = 5%, el denominador queda en 10% y el precio estimado es 30.",
+          "exampleTable": {
+            "title": "Lectura del caso",
+            "columns": ["Dato", "Valor", "Interpretación"],
+            "rows": [
+              { "cells": ["D₁", "3", "Próximo flujo esperado para el accionista."] },
+              { "cells": ["k_s", "15%", "Rendimiento requerido por el riesgo de la acción."] },
+              { "cells": ["g", "5%", "Crecimiento sostenible de dividendos."] },
+              { "cells": ["P₀", "30", "Valor actual estimado con crecimiento constante."] }
+            ],
+            "footnote": "Lo importante no es memorizar el 30, sino entender que el spread entre k_s y g controla el valor."
+          }
+        }
+      ]
+    },
+    {
+      "id": "variable_growth",
+      "title": "Crecimiento variable",
+      "summary": "Se usa cuando la empresa pasa de una etapa de alto crecimiento a una tasa terminal más estable.",
+      "sections": [
+        {
+          "id": "variable_growth_steps",
+          "title": "Lógica del cálculo por etapas",
+          "body": "En este modelo no basta una sola fórmula. Primero proyectas dividendos durante la fase inicial y luego calculas un valor terminal con una tasa más estable.",
+          "bullets": [
+            "El dividendo de entrada es D₀, es decir, el último dividendo pagado.",
+            "g₁ puede ser una tasa alta durante pocos periodos.",
+            "La tasa terminal g₂ debe ser menor que k_s para que el valor terminal tenga sentido."
+          ],
+          "formulas": [
+            { "label": "Dividendos durante la fase inicial", "tex": "D_t = D_0(1+g_1)^t" },
+            { "label": "Valor terminal", "tex": "P_N = \\frac{D_{N+1}}{k_s-g_2}" }
+          ]
+        },
+        {
+          "id": "variable_growth_process",
+          "title": "Cómo resolverlo paso a paso",
+          "body": "Este es el modelo más útil para empresas en transición, pero también el que más orden exige.",
+          "bullets": [
+            "Proyecta los dividendos desde t = 1 hasta t = N usando g₁.",
+            "Descuenta cada uno de esos dividendos al presente con k_s.",
+            "Calcula Dₙ₊₁ con la tasa terminal g₂ y luego encuentra Pₙ.",
+            "Descuenta Pₙ al presente y súmalo al valor de los dividendos proyectados."
+          ]
+        },
+        {
+          "id": "variable_growth_variables",
+          "title": "Variables del modelo por etapas",
+          "body": "Aquí ya no basta identificar un dividendo y una tasa. Debes distinguir entre fase inicial y fase terminal.",
+          "exampleTable": {
+            "title": "Variables clave",
+            "columns": ["Variable", "Significado", "Comentario"],
+            "rows": [
+              { "cells": ["D₀", "Último dividendo pagado", "Es la base desde la que proyectas D₁, D₂, ..."] },
+              { "cells": ["g₁", "Crecimiento inicial", "Puede ser mayor que la tasa terminal y durar pocos periodos."] },
+              { "cells": ["N", "Número de periodos de alto crecimiento", "Marca el final de la primera etapa."] },
+              { "cells": ["g₂", "Crecimiento terminal", "Debe ser menor que k_s para que el valor terminal sea válido."] },
+              { "cells": ["k_s", "Rendimiento requerido", "Se usa para descontar dividendos y valor terminal."] }
+            ],
+            "footnote": "Este modelo enseña que no todas las empresas crecen igual para siempre."
+          }
+        }
+      ]
+    },
+    {
+      "id": "preferred_share",
+      "title": "Acciones preferentes",
+      "summary": "Si el dividendo preferente es fijo, la valuación se parece a una perpetuidad simple.",
+      "sections": [
+        {
+          "id": "preferred_share_formula",
+          "title": "Dividendos preferentes",
+          "body": "La acción preferente suele pagar un dividendo fijo. Si ese flujo es estable, su valuación es similar a la de una perpetuidad.",
+          "bullets": [
+            "Aquí el dividendo relevante es D, no D₀ ni D₁.",
+            "No se supone crecimiento del dividendo preferente.",
+            "El rendimiento requerido refleja el riesgo del título preferente."
+          ],
+          "formulas": [
+            { "label": "Acción preferente", "tex": "P_0 = \\frac{D}{k_s}" }
+          ]
+        },
+        {
+          "id": "preferred_share_variables",
+          "title": "Qué mirar en una preferente",
+          "body": "Aunque la fórmula es simple, sigue siendo importante distinguir entre flujo fijo y tasa exigida.",
+          "exampleTable": {
+            "title": "Variables del modelo",
+            "columns": ["Variable", "Significado", "Cómo leerla"],
+            "rows": [
+              { "cells": ["P₀", "Precio actual", "Valor de la acción preferente hoy."] },
+              { "cells": ["D", "Dividendo preferente fijo", "Flujo periódico prometido al inversionista."] },
+              { "cells": ["k_s", "Rendimiento requerido", "Retorno que compensa el riesgo del instrumento."] }
+            ],
+            "footnote": "Conceptualmente se parece al crecimiento cero, pero aquí el flujo se trata como un dividendo fijo perpetuo."
+          }
+        }
+      ]
+    }
+  ],
+  "calculator": {
+    "id": "share_value",
+    "title": "Calculadora de acciones",
+    "summary": "Selecciona el modelo correcto y usa la definición de dividendo, crecimiento y rendimiento requerida por ese caso.",
+    "note": "Cada modo usa una entrada distinta para dividendos: D₁ en crecimiento cero y constante, D₀ en crecimiento variable y D en preferentes.",
+    "submitLabel": "Calcular valor de la acción",
+    "modes": [
+      {
+        "id": "zero_growth",
+        "label": "Crecimiento cero",
+        "summary": "Perpetuidad simple con D₁ fijo y sin crecimiento."
+      },
+      {
+        "id": "constant_growth",
+        "label": "Crecimiento constante",
+        "summary": "Modelo de Gordon con D₁ y una tasa g menor que k_s."
+      },
+      {
+        "id": "variable_growth",
+        "label": "Crecimiento variable",
+        "summary": "Dos etapas: una fase inicial con g₁ y una fase terminal con g₂."
+      },
+      {
+        "id": "preferred_share",
+        "label": "Preferente",
+        "summary": "Perpetuidad con dividendo fijo D y sin crecimiento."
+      }
+    ],
+    "sections": [
+      {
+        "id": "zero_growth_base",
+        "title": "Datos del modelo",
+        "modeIds": ["zero_growth"],
+        "fields": [
+          {
+            "id": "dividend",
+            "label": "Dividendo esperado el próximo año (D₁)",
+            "hint": "3.0",
+            "helperText": "Usa el próximo dividendo esperado, no el histórico."
+          },
+          {
+            "id": "requiredReturn",
+            "label": "Rendimiento requerido (k_s, %)",
+            "hint": "15",
+            "helperText": "Retorno que exige el inversionista por el riesgo de la acción."
+          }
+        ]
+      },
+      {
+        "id": "constant_growth_base",
+        "title": "Datos del modelo",
+        "modeIds": ["constant_growth"],
+        "fields": [
+          {
+            "id": "dividend",
+            "label": "Dividendo esperado el próximo año (D₁)",
+            "hint": "3.0",
+            "helperText": "Este modelo parte del próximo dividendo esperado."
+          },
+          {
+            "id": "requiredReturn",
+            "label": "Rendimiento requerido (k_s, %)",
+            "hint": "15",
+            "helperText": "Debe ser mayor que la tasa de crecimiento constante."
+          }
+        ]
+      },
+      {
+        "id": "constant_growth_rate",
+        "title": "Crecimiento",
+        "modeIds": ["constant_growth"],
+        "fields": [
+          {
+            "id": "initialGrowthRate",
+            "label": "Tasa de crecimiento constante (g, %)",
+            "hint": "5",
+            "helperText": "Usa una tasa sostenible y menor que k_s."
+          }
+        ]
+      },
+      {
+        "id": "variable_growth_base",
+        "title": "Punto de partida",
+        "modeIds": ["variable_growth"],
+        "fields": [
+          {
+            "id": "dividend",
+            "label": "Último dividendo pagado (D₀)",
+            "hint": "1.5",
+            "helperText": "Aquí el modelo parte del último dividendo ya pagado."
+          },
+          {
+            "id": "requiredReturn",
+            "label": "Rendimiento requerido (k_s, %)",
+            "hint": "15",
+            "helperText": "Se usa para descontar dividendos proyectados y valor terminal."
+          }
+        ]
+      },
+      {
+        "id": "variable_growth_inputs",
+        "title": "Etapas de crecimiento",
+        "modeIds": ["variable_growth"],
+        "fields": [
+          {
+            "id": "initialGrowthRate",
+            "label": "Crecimiento inicial (g₁, %)",
+            "hint": "10",
+            "helperText": "Tasa usada solo durante la primera etapa."
+          },
+          {
+            "id": "periods",
+            "label": "Número de periodos (N)",
+            "hint": "3",
+            "acceptsDecimal": false,
+            "helperText": "Cantidad de años de la fase inicial."
+          },
+          {
+            "id": "terminalGrowthRate",
+            "label": "Crecimiento terminal (g₂, %)",
+            "hint": "5",
+            "helperText": "Debe ser menor que k_s para que el valor terminal sea válido."
+          }
+        ]
+      },
+      {
+        "id": "preferred_base",
+        "title": "Datos del modelo",
+        "modeIds": ["preferred_share"],
+        "fields": [
+          {
+            "id": "dividend",
+            "label": "Dividendo preferente anual (D)",
+            "hint": "8.0",
+            "helperText": "Flujo fijo que paga la acción preferente."
+          },
+          {
+            "id": "requiredReturn",
+            "label": "Rendimiento requerido (k_s, %)",
+            "hint": "12",
+            "helperText": "Retorno exigido por el riesgo del título preferente."
+          }
+        ]
+      }
+    ],
+    "results": [
+      { "id": "presentValue", "label": "Valor presente estimado" },
+      {
+        "id": "terminalDividend",
+        "label": "Dividendo terminal",
+        "modeIds": ["variable_growth"]
+      },
+      {
+        "id": "terminalPrice",
+        "label": "Precio terminal",
+        "modeIds": ["variable_growth"]
+      },
+      {
+        "id": "terminalPresentValue",
+        "label": "Valor presente terminal",
+        "modeIds": ["variable_growth"]
+      }
+    ]
+  }
+}

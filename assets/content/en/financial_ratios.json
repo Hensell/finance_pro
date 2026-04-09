@@ -1,0 +1,808 @@
+{
+  "id": "financial_ratios",
+  "accent": "blue",
+  "eyebrow": "Financial diagnosis",
+  "title": "Financial ratios",
+  "summary": "Turn the income statement and balance sheet into comparable signals about liquidity, activity, leverage, profitability, and integrated reading.",
+  "heroPoints": [
+    "Liquidity",
+    "Activity",
+    "Debt and coverage",
+    "Profitability",
+    "DuPont analysis"
+  ],
+  "topics": [
+    {
+      "id": "liquidity",
+      "title": "Liquidity",
+      "summary": "Measures the ability to meet short-term obligations without putting unnecessary pressure on operations.",
+      "sections": [
+        {
+          "id": "liquidity_core",
+          "title": "Core idea",
+          "body": "Liquidity ratios answer one simple question: can the company convert current assets into enough cash to pay what is due soon? Asset quality matters as much as size.",
+          "bullets": [
+            "The current ratio compares all current assets against current liabilities.",
+            "The quick ratio removes inventory to create a more conservative view.",
+            "The cash ratio looks only at the most immediate coverage: cash and equivalents."
+          ],
+          "formulas": [
+            {
+              "label": "Current ratio",
+              "tex": "\\text{Current ratio}=\\frac{Current\\ assets}{Current\\ liabilities}"
+            },
+            {
+              "label": "Quick ratio",
+              "tex": "\\text{Quick ratio}=\\frac{Current\\ assets-Inventory}{Current\\ liabilities}"
+            },
+            {
+              "label": "Cash ratio",
+              "tex": "\\text{Cash ratio}=\\frac{Cash\\ and\\ equivalents}{Current\\ liabilities}"
+            }
+          ],
+          "formulaLegend": [
+            { "symbol": "Current assets", "meaning": "Cash, net receivables, advances, and inventory expected to turn within the operating cycle." },
+            { "symbol": "Current liabilities", "meaning": "Obligations due within the operating cycle or the next year." },
+            { "symbol": "Inventory", "meaning": "The least liquid part of current assets because it must be sold before becoming cash." }
+          ]
+        },
+        {
+          "id": "liquidity_teaching",
+          "title": "When to use it and common mistakes",
+          "body": "These ratios are useful when reviewing short-term cash pressure, credit lines, or whether the business can absorb collection delays.",
+          "bullets": [
+            "A low value usually signals working-capital stress or refinancing dependence.",
+            "An excessively high value may also suggest idle resources.",
+            "Do not confuse good liquidity with high profitability."
+          ],
+          "exampleTable": {
+            "title": "Mini guided case",
+            "columns": ["Scenario", "Reading"],
+            "rows": [
+              { "cells": ["Current ratio 1.8x", "There is reasonable short-term coverage."] },
+              { "cells": ["Quick ratio 0.7x", "Without selling inventory, the company looks tighter."] },
+              { "cells": ["Cash ratio 0.2x", "Immediate cash backing is thin; collections matter."] }
+            ],
+            "footnote": "Final interpretation should always be compared with the operating cycle."
+          }
+        }
+      ]
+    },
+    {
+      "id": "activity",
+      "title": "Activity",
+      "summary": "Links sales and cost of sales with inventory, receivables, payables, and assets to measure speed and efficiency.",
+      "sections": [
+        {
+          "id": "activity_core",
+          "title": "Turnover and average days",
+          "body": "Activity ratios answer how fast working capital moves. A company can sell a lot and still manage inventory poorly or collect too slowly.",
+          "bullets": [
+            "High turnover usually means more efficient use of the resource being measured.",
+            "Average periods convert the ratio into days, which is often easier to teach and interpret.",
+            "The value comes from reading inventory, collection, and payment together."
+          ],
+          "formulas": [
+            {
+              "label": "Inventory turnover",
+              "tex": "\\text{Inventory turnover}=\\frac{Cost\\ of\\ sales}{Inventory}"
+            },
+            {
+              "label": "Average collection period",
+              "tex": "\\text{Average collection period}=\\frac{Net\\ receivables\\times365}{Net\\ sales}"
+            },
+            {
+              "label": "Average payment period",
+              "tex": "\\text{Average payment period}=\\frac{Accounts\\ payable\\times365}{Cost\\ of\\ sales}"
+            }
+          ],
+          "formulaLegend": [
+            { "symbol": "Cost of sales", "meaning": "Cost of the goods actually sold during the period." },
+            { "symbol": "Net receivables", "meaning": "Accounts receivable minus allowance for doubtful accounts." },
+            { "symbol": "365", "meaning": "Annual convention used to convert a turnover ratio into average days." }
+          ]
+        },
+        {
+          "id": "activity_teaching",
+          "title": "What to read together",
+          "body": "This block should rarely be read one ratio at a time. The real insight comes from connecting inventory, collection, and payment.",
+          "bullets": [
+            "If you collect in 75 days but pay suppliers in 30, the cash cycle is under pressure.",
+            "Low total asset turnover can come from weak sales or from an oversized asset base.",
+            "Fixed asset turnover helps assess whether installed capacity is underused."
+          ],
+          "exampleTable": {
+            "title": "Mini guided case",
+            "columns": ["Indicator", "Signal"],
+            "rows": [
+              { "cells": ["High inventory days", "Product is moving slowly or purchases are too high."] },
+              { "cells": ["High collection period", "Loose credit policy or slow collections."] },
+              { "cells": ["Short payment period", "The company uses little spontaneous supplier financing."] }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "debt_coverage",
+      "title": "Debt and coverage",
+      "summary": "Evaluates how much of the financial structure depends on creditors and how comfortably earnings cover interest expense.",
+      "sections": [
+        {
+          "id": "debt_core",
+          "title": "Exposure and support",
+          "body": "Debt ratios show structural leverage. Interest coverage adds an operating question: does the business generate enough earnings to carry its debt?",
+          "bullets": [
+            "Debt ratio compares total liabilities against total assets.",
+            "Debt-to-equity shows creditor pressure relative to owners' capital.",
+            "Interest coverage connects EBIT with financing cost."
+          ],
+          "formulas": [
+            {
+              "label": "Debt ratio",
+              "tex": "\\text{Debt ratio}=\\frac{Total\\ liabilities}{Total\\ assets}"
+            },
+            {
+              "label": "Debt to equity",
+              "tex": "\\text{Debt to equity}=\\frac{Total\\ liabilities}{Equity}"
+            },
+            {
+              "label": "Interest coverage",
+              "tex": "\\text{Interest coverage}=\\frac{EBIT}{Interest\\ expense}"
+            }
+          ],
+          "formulaLegend": [
+            { "symbol": "Total liabilities", "meaning": "The sum of current and non-current obligations." },
+            { "symbol": "Equity", "meaning": "Capital and retained earnings attributable to shareholders." },
+            { "symbol": "EBIT", "meaning": "Operating earnings before interest and taxes." }
+          ]
+        },
+        {
+          "id": "debt_teaching",
+          "title": "Prudent reading",
+          "body": "More debt is not automatically bad, but it does require a careful review of sales stability, coverage, and cash flexibility.",
+          "bullets": [
+            "A high equity multiplier can boost ROE, but it also raises risk.",
+            "Interest coverage near 1x leaves almost no cushion.",
+            "Reading debt and coverage together avoids a one-angle conclusion."
+          ],
+          "exampleTable": {
+            "title": "Mini guided case",
+            "columns": ["Indicator", "Reading"],
+            "rows": [
+              { "cells": ["Debt to equity 1.5x", "Creditors finance more than shareholders."] },
+              { "cells": ["Interest coverage 4.0x", "EBIT covers interest four times."] },
+              { "cells": ["Interest coverage 1.2x", "Any operating decline creates immediate pressure."] }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "profitability",
+      "title": "Profitability",
+      "summary": "Measures the ability to turn sales and assets into earnings for the operation and for shareholders.",
+      "sections": [
+        {
+          "id": "profitability_core",
+          "title": "Margins and returns",
+          "body": "Profitability ratios connect earnings quality with sales volume and asset size.",
+          "bullets": [
+            "Gross margin reflects price, mix, and cost of sales.",
+            "Operating margin shows what remains after selling and administrative expenses.",
+            "ROA and ROE connect net income with assets and equity."
+          ],
+          "formulas": [
+            {
+              "label": "Gross margin",
+              "tex": "\\text{Gross margin}=\\frac{Gross\\ profit}{Net\\ sales}"
+            },
+            {
+              "label": "Operating margin",
+              "tex": "\\text{Operating margin}=\\frac{EBIT}{Net\\ sales}"
+            },
+            {
+              "label": "ROE",
+              "tex": "\\text{ROE}=\\frac{Net\\ income}{Equity}"
+            }
+          ],
+          "formulaLegend": [
+            { "symbol": "Gross profit", "meaning": "Net sales minus cost of sales." },
+            { "symbol": "Net income", "meaning": "Final profit after interest and taxes." },
+            { "symbol": "ROA / ROE", "meaning": "Returns that connect earnings with invested resources." }
+          ]
+        },
+        {
+          "id": "profitability_teaching",
+          "title": "Common interpretation mistakes",
+          "body": "One margin alone is never enough. A company can have a modest net margin and still produce a strong ROE if it moves assets quickly and uses debt carefully.",
+          "bullets": [
+            "A healthy gross margin does not guarantee net income if operating expenses grow too fast.",
+            "Low ROA with high turnover can signal very thin margins.",
+            "High ROE without reviewing debt can lead to an overly optimistic conclusion."
+          ],
+          "exampleTable": {
+            "title": "Mini guided case",
+            "columns": ["Scenario", "Interpretation"],
+            "rows": [
+              { "cells": ["Operating margin improves", "The cost structure is becoming more efficient."] },
+              { "cells": ["ROA falls while assets grow", "The company is using more assets without enough profit."] },
+              { "cells": ["ROE rises because of debt", "Leverage may be driving shareholder return."] }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dupont",
+      "title": "Integrated analysis / DuPont",
+      "summary": "Breaks ROE into net margin, asset turnover, and equity multiplier to explain where shareholder return is coming from.",
+      "sections": [
+        {
+          "id": "dupont_core",
+          "title": "How to read DuPont",
+          "body": "DuPont keeps you from treating ROE as a single number. It separates whether the return comes from better profit on sales, better use of assets, or more financial leverage.",
+          "formulas": [
+            {
+              "label": "DuPont breakdown",
+              "tex": "\\text{ROE}=\\left(\\frac{Net\\ income}{Net\\ sales}\\right)\\times\\left(\\frac{Net\\ sales}{Total\\ assets}\\right)\\times\\left(\\frac{Total\\ assets}{Equity}\\right)"
+            }
+          ],
+          "formulaLegend": [
+            { "symbol": "Net margin", "meaning": "How much of each sale becomes net income." },
+            { "symbol": "Asset turnover", "meaning": "How many sales are generated by the asset base." },
+            { "symbol": "Equity multiplier", "meaning": "How much asset base is supported by each unit of equity." }
+          ]
+        },
+        {
+          "id": "dupont_teaching",
+          "title": "Mini guided case and common mistakes",
+          "body": "If ROE improves, DuPont helps identify the source. That prevents celebrating an improvement that comes only from higher leverage.",
+          "bullets": [
+            "If net margin rises, the gain came from better final profitability.",
+            "If turnover rises, the company is selling more per unit of assets.",
+            "If the multiplier rises, ROE may be increasing only because of more leverage."
+          ],
+          "exampleTable": {
+            "title": "Guided reading",
+            "columns": ["Component", "Teaching question"],
+            "rows": [
+              { "cells": ["Net margin", "Is the company converting sales into profit more effectively?"] },
+              { "cells": ["Asset turnover", "Are assets generating enough sales volume?"] },
+              { "cells": ["Equity multiplier", "Is ROE depending too much on leverage?"] }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "calculator": {
+    "id": "financial_ratios",
+    "title": "Financial ratios accounting builder",
+    "summary": "Build a summarized income statement and balance sheet. The system derives subtotals, validates the accounting equation, and then groups the ratios by family.",
+    "submitLabel": "Analyze ratios",
+    "note": "Only capture the base line items. The builder calculates subtotals automatically.",
+    "steps": [
+      {
+        "id": "income_statement",
+        "title": "Step 1 · Income statement",
+        "summary": "Capture sales, inventories, purchases, and expenses to derive net sales, cost of sales, EBIT, and net income."
+      },
+      {
+        "id": "balance_sheet",
+        "title": "Step 2 · Balance sheet",
+        "summary": "Capture assets, liabilities, and equity. The builder validates that assets = liabilities + equity."
+      },
+      {
+        "id": "results",
+        "title": "Step 3 · Results and interpretation",
+        "summary": "Review ratios by family, key formulas, and didactic reading for each indicator."
+      }
+    ],
+    "formulas": [
+      {
+        "label": "Net sales",
+        "tex": "\\text{Net sales}=Gross\\ sales-Discounts-Returns",
+        "stepIds": ["income_statement"]
+      },
+      {
+        "label": "Cost of sales",
+        "tex": "\\text{Cost of sales}=Beginning\\ inventory+Net\\ purchases-Ending\\ inventory",
+        "stepIds": ["income_statement"]
+      },
+      {
+        "label": "Gross profit",
+        "tex": "\\text{Gross profit}=Net\\ sales-Cost\\ of\\ sales",
+        "stepIds": ["income_statement"]
+      },
+      {
+        "label": "EBIT",
+        "tex": "\\text{EBIT}=Gross\\ profit-Selling\\ expenses-Administrative\\ expenses",
+        "stepIds": ["income_statement"]
+      },
+      {
+        "label": "Net income",
+        "tex": "\\text{Net income}=EBIT-Interest-Tax",
+        "stepIds": ["income_statement"]
+      },
+      {
+        "label": "Current assets",
+        "tex": "\\text{Current assets}=Cash+Net\\ receivables+Advances+Inventory",
+        "stepIds": ["balance_sheet"]
+      },
+      {
+        "label": "Total assets",
+        "tex": "\\text{Total assets}=Current\\ assets+Non\\ current\\ assets",
+        "stepIds": ["balance_sheet"]
+      },
+      {
+        "label": "Total liabilities",
+        "tex": "\\text{Total liabilities}=Current\\ liabilities+Non\\ current\\ liabilities",
+        "stepIds": ["balance_sheet"]
+      },
+      {
+        "label": "Accounting equation",
+        "tex": "\\text{Total assets}=Total\\ liabilities+Equity",
+        "stepIds": ["balance_sheet"]
+      },
+      {
+        "label": "Current ratio",
+        "tex": "\\text{Current ratio}=\\frac{Current\\ assets}{Current\\ liabilities}",
+        "groupIds": ["liquidity"]
+      },
+      {
+        "label": "Quick ratio",
+        "tex": "\\text{Quick ratio}=\\frac{Current\\ assets-Inventory}{Current\\ liabilities}",
+        "groupIds": ["liquidity"]
+      },
+      {
+        "label": "Inventory turnover",
+        "tex": "\\text{Inventory turnover}=\\frac{Cost\\ of\\ sales}{Inventory}",
+        "groupIds": ["activity"]
+      },
+      {
+        "label": "Average payment period",
+        "tex": "\\text{Average payment period}=\\frac{Accounts\\ payable\\times365}{Cost\\ of\\ sales}",
+        "groupIds": ["activity"]
+      },
+      {
+        "label": "Debt to equity",
+        "tex": "\\text{Debt to equity}=\\frac{Total\\ liabilities}{Equity}",
+        "groupIds": ["debt_coverage"]
+      },
+      {
+        "label": "Interest coverage",
+        "tex": "\\text{Interest coverage}=\\frac{EBIT}{Interest\\ expense}",
+        "groupIds": ["debt_coverage"]
+      },
+      {
+        "label": "Operating margin",
+        "tex": "\\text{Operating margin}=\\frac{EBIT}{Net\\ sales}",
+        "groupIds": ["profitability"]
+      },
+      {
+        "label": "ROE",
+        "tex": "\\text{ROE}=\\frac{Net\\ income}{Equity}",
+        "groupIds": ["profitability"]
+      },
+      {
+        "label": "DuPont",
+        "tex": "\\text{ROE}=\\left(\\frac{Net\\ income}{Net\\ sales}\\right)\\times\\left(\\frac{Net\\ sales}{Total\\ assets}\\right)\\times\\left(\\frac{Total\\ assets}{Equity}\\right)",
+        "groupIds": ["dupont"]
+      }
+    ],
+    "modes": [
+      {
+        "id": "builder",
+        "label": "Guided builder",
+        "summary": "Assisted financial statement capture."
+      }
+    ],
+    "sections": [
+      {
+        "id": "income_sales",
+        "title": "Sales and cost base",
+        "summary": "These line items feed net sales and cost of sales.",
+        "stepId": "income_statement",
+        "fields": [
+          {
+            "id": "grossSales",
+            "label": "Gross sales",
+            "hint": "0.0",
+            "helperText": "Total billed revenue before discounts and returns."
+          },
+          {
+            "id": "salesDiscounts",
+            "label": "Sales discounts",
+            "hint": "0.0",
+            "helperText": "Allowances or rebates granted to customers."
+          },
+          {
+            "id": "salesReturns",
+            "label": "Sales returns",
+            "hint": "0.0",
+            "helperText": "Merchandise returned by customers."
+          },
+          {
+            "id": "beginningInventory",
+            "label": "Beginning inventory",
+            "hint": "0.0",
+            "helperText": "Inventory at the start of the period."
+          },
+          {
+            "id": "purchases",
+            "label": "Purchases",
+            "hint": "0.0",
+            "helperText": "Gross purchases during the period."
+          },
+          {
+            "id": "purchaseExpenses",
+            "label": "Purchase expenses",
+            "hint": "0.0",
+            "helperText": "Costs directly associated with procurement."
+          },
+          {
+            "id": "purchaseDiscounts",
+            "label": "Purchase discounts",
+            "hint": "0.0",
+            "helperText": "Discounts obtained from suppliers."
+          },
+          {
+            "id": "endingInventory",
+            "label": "Ending inventory",
+            "hint": "0.0",
+            "helperText": "Inventory at the end of the period. It must match the inventory reported on the balance sheet."
+          }
+        ]
+      },
+      {
+        "id": "income_expenses",
+        "title": "Expenses and final result",
+        "summary": "These line items complete the path from gross profit to net income.",
+        "stepId": "income_statement",
+        "fields": [
+          {
+            "id": "sellingExpenses",
+            "label": "Selling expenses",
+            "hint": "0.0",
+            "helperText": "Commercial salaries, commissions, freight, and other selling costs."
+          },
+          {
+            "id": "administrativeExpenses",
+            "label": "Administrative expenses",
+            "hint": "0.0",
+            "helperText": "Management, office, and support expenses."
+          },
+          {
+            "id": "interestExpense",
+            "label": "Interest expense",
+            "hint": "0.0",
+            "helperText": "Financing cost of debt."
+          },
+          {
+            "id": "incomeTaxExpense",
+            "label": "Income tax expense",
+            "hint": "0.0",
+            "helperText": "Tax accrued on the period's earnings."
+          }
+        ]
+      },
+      {
+        "id": "balance_assets",
+        "title": "Current and non-current assets",
+        "summary": "Capture liquid assets, receivables, inventory, and productive assets.",
+        "stepId": "balance_sheet",
+        "fields": [
+          {
+            "id": "cashAndCashEquivalents",
+            "label": "Cash and equivalents",
+            "hint": "0.0",
+            "helperText": "Immediate available cash and cash equivalents."
+          },
+          {
+            "id": "accountsReceivable",
+            "label": "Accounts receivable",
+            "hint": "0.0",
+            "helperText": "Closing customer balance."
+          },
+          {
+            "id": "allowanceForDoubtfulAccounts",
+            "label": "Allowance for doubtful accounts",
+            "hint": "0.0",
+            "helperText": "Adjustment used to report receivables at net value."
+          },
+          {
+            "id": "advancesToSuppliers",
+            "label": "Advances to suppliers",
+            "hint": "0.0",
+            "helperText": "Short-term prepaid amounts."
+          },
+          {
+            "id": "inventory",
+            "label": "Inventory",
+            "hint": "0.0",
+            "helperText": "Balance sheet inventory. It must equal ending inventory from the income statement."
+          },
+          {
+            "id": "propertyPlantAndEquipment",
+            "label": "Property, plant, and equipment",
+            "hint": "0.0",
+            "helperText": "Gross productive asset base."
+          },
+          {
+            "id": "accumulatedDepreciation",
+            "label": "Accumulated depreciation",
+            "hint": "0.0",
+            "helperText": "Accumulated adjustment to bring fixed assets to net value."
+          }
+        ]
+      },
+      {
+        "id": "balance_liabilities",
+        "title": "Liabilities and equity",
+        "summary": "Complete the financing structure and validate the accounting equation.",
+        "stepId": "balance_sheet",
+        "fields": [
+          {
+            "id": "accountsPayable",
+            "label": "Accounts payable",
+            "hint": "0.0",
+            "helperText": "Short-term trade debt."
+          },
+          {
+            "id": "shortTermBankDebt",
+            "label": "Short-term bank debt",
+            "hint": "0.0",
+            "helperText": "Loans and overdrafts due in the short term."
+          },
+          {
+            "id": "taxesPayable",
+            "label": "Taxes payable",
+            "hint": "0.0",
+            "helperText": "Current tax liabilities."
+          },
+          {
+            "id": "longTermNotesPayable",
+            "label": "Long-term notes payable",
+            "hint": "0.0",
+            "helperText": "Long-term documented debt."
+          },
+          {
+            "id": "mortgagePayable",
+            "label": "Mortgage payable",
+            "hint": "0.0",
+            "helperText": "Obligations secured with property."
+          },
+          {
+            "id": "bondsPayable",
+            "label": "Bonds payable",
+            "hint": "0.0",
+            "helperText": "Financial obligations represented by bonds."
+          },
+          {
+            "id": "equity",
+            "label": "Equity",
+            "hint": "0.0",
+            "helperText": "Capital and retained earnings attributable to owners."
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "id": "currentRatio",
+        "group": "liquidity",
+        "label": "Current ratio",
+        "formula": "Current assets / Current liabilities",
+        "summary": "Overall short-term coverage of obligations.",
+        "format": "ratio",
+        "didacticRanges": [
+          { "label": "Tight", "summary": "Short-term coverage looks weak; review working capital pressure.", "max": 1.0 },
+          { "label": "Reasonable", "summary": "There is acceptable short-term breathing room.", "min": 1.0, "max": 2.0 },
+          { "label": "Loose", "summary": "There is a strong liquidity cushion; check for idle resources.", "min": 2.0 }
+        ]
+      },
+      {
+        "id": "quickRatio",
+        "group": "liquidity",
+        "label": "Quick ratio",
+        "formula": "(Current assets - Inventory) / Current liabilities",
+        "summary": "Short-term liquidity without relying on inventory sales.",
+        "format": "ratio",
+        "didacticRanges": [
+          { "label": "Weak", "summary": "Without inventory, immediate support looks thin.", "max": 1.0 },
+          { "label": "Adequate", "summary": "The company keeps reasonable coverage even without inventory.", "min": 1.0 }
+        ]
+      },
+      {
+        "id": "cashRatio",
+        "group": "liquidity",
+        "label": "Cash ratio",
+        "formula": "Cash and equivalents / Current liabilities",
+        "summary": "Immediate coverage using available cash only.",
+        "format": "ratio",
+        "didacticRanges": [
+          { "label": "Very narrow", "summary": "Immediate cash is tight and depends heavily on operating inflows.", "max": 0.2 },
+          { "label": "Moderate", "summary": "There is some immediate backing, though not abundant.", "min": 0.2, "max": 0.5 },
+          { "label": "Strong", "summary": "Immediate cash comfortably covers short-term pressure.", "min": 0.5 }
+        ]
+      },
+      {
+        "id": "netWorkingCapital",
+        "group": "liquidity",
+        "label": "Net working capital",
+        "formula": "Current assets - Current liabilities",
+        "summary": "Monetary short-term surplus after covering current obligations.",
+        "format": "currency"
+      },
+      {
+        "id": "inventoryTurnover",
+        "group": "activity",
+        "label": "Inventory turnover",
+        "formula": "Cost of sales / Inventory",
+        "summary": "Frequency with which inventory is converted into cost of sales.",
+        "format": "ratio"
+      },
+      {
+        "id": "daysInventory",
+        "group": "activity",
+        "label": "Days in inventory",
+        "formula": "(Inventory × 365) / Cost of sales",
+        "summary": "Average time inventory remains in stock.",
+        "format": "days"
+      },
+      {
+        "id": "receivablesTurnover",
+        "group": "activity",
+        "label": "Receivables turnover",
+        "formula": "Net sales / Net receivables",
+        "summary": "Speed at which credit sales are collected.",
+        "format": "ratio"
+      },
+      {
+        "id": "averageCollectionPeriod",
+        "group": "activity",
+        "label": "Average collection period",
+        "formula": "(Net receivables × 365) / Net sales",
+        "summary": "Average number of days to collect from customers.",
+        "format": "days"
+      },
+      {
+        "id": "payablesTurnover",
+        "group": "activity",
+        "label": "Payables turnover",
+        "formula": "Cost of sales / Accounts payable",
+        "summary": "Speed of trade debt rotation with suppliers.",
+        "format": "ratio"
+      },
+      {
+        "id": "averagePaymentPeriod",
+        "group": "activity",
+        "label": "Average payment period",
+        "formula": "(Accounts payable × 365) / Cost of sales",
+        "summary": "Average number of days the company takes to pay suppliers.",
+        "format": "days"
+      },
+      {
+        "id": "totalAssetTurnover",
+        "group": "activity",
+        "label": "Total asset turnover",
+        "formula": "Net sales / Total assets",
+        "summary": "Use of the total asset base to generate sales.",
+        "format": "ratio"
+      },
+      {
+        "id": "fixedAssetTurnover",
+        "group": "activity",
+        "label": "Fixed asset turnover",
+        "formula": "Net sales / Net fixed assets",
+        "summary": "Use of installed capacity and productive assets.",
+        "format": "ratio"
+      },
+      {
+        "id": "debtRatio",
+        "group": "debt_coverage",
+        "label": "Debt ratio",
+        "formula": "Total liabilities / Total assets",
+        "summary": "Share of assets financed by creditors.",
+        "format": "percent"
+      },
+      {
+        "id": "debtToEquity",
+        "group": "debt_coverage",
+        "label": "Debt to equity",
+        "formula": "Total liabilities / Equity",
+        "summary": "Creditor pressure relative to owners' capital.",
+        "format": "ratio"
+      },
+      {
+        "id": "equityMultiplier",
+        "group": "debt_coverage",
+        "label": "Equity multiplier",
+        "formula": "Total assets / Equity",
+        "summary": "Degree to which equity supports the asset base through leverage.",
+        "format": "ratio"
+      },
+      {
+        "id": "interestCoverage",
+        "group": "debt_coverage",
+        "label": "Interest coverage",
+        "formula": "EBIT / Interest expense",
+        "summary": "Number of times operating earnings cover interest cost.",
+        "format": "ratio"
+      },
+      {
+        "id": "grossMargin",
+        "group": "profitability",
+        "label": "Gross margin",
+        "formula": "Gross profit / Net sales",
+        "summary": "Share of each sale that remains after cost of sales.",
+        "format": "percent"
+      },
+      {
+        "id": "operatingMargin",
+        "group": "profitability",
+        "label": "Operating margin",
+        "formula": "EBIT / Net sales",
+        "summary": "Share of each sale left after operating expenses.",
+        "format": "percent"
+      },
+      {
+        "id": "netMargin",
+        "group": "profitability",
+        "label": "Net margin",
+        "formula": "Net income / Net sales",
+        "summary": "Final share of sales that becomes net income.",
+        "format": "percent"
+      },
+      {
+        "id": "returnOnAssets",
+        "group": "profitability",
+        "label": "ROA",
+        "formula": "Net income / Total assets",
+        "summary": "Return generated by the total asset base.",
+        "format": "percent"
+      },
+      {
+        "id": "returnOnEquity",
+        "group": "profitability",
+        "label": "ROE",
+        "formula": "Net income / Equity",
+        "summary": "Return generated for shareholders.",
+        "format": "percent"
+      },
+      {
+        "id": "dupontNetMargin",
+        "group": "dupont",
+        "label": "Component 1 · Net margin",
+        "formula": "Net income / Net sales",
+        "summary": "First ROE driver in DuPont analysis.",
+        "format": "percent"
+      },
+      {
+        "id": "dupontAssetTurnover",
+        "group": "dupont",
+        "label": "Component 2 · Asset turnover",
+        "formula": "Net sales / Total assets",
+        "summary": "Second ROE driver: asset efficiency.",
+        "format": "ratio"
+      },
+      {
+        "id": "dupontEquityMultiplier",
+        "group": "dupont",
+        "label": "Component 3 · Equity multiplier",
+        "formula": "Total assets / Equity",
+        "summary": "Third ROE driver: financial leverage intensity.",
+        "format": "ratio"
+      },
+      {
+        "id": "dupontReturnOnEquity",
+        "group": "dupont",
+        "label": "ROE by DuPont",
+        "formula": "Net margin × Asset turnover × Equity multiplier",
+        "summary": "Integrated reconstruction of shareholder return.",
+        "format": "percent"
+      }
+    ]
+  }
+}

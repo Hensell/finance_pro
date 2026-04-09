@@ -1,0 +1,47 @@
+{
+  "eyebrow": "Centro de aprendizaje",
+  "title": "Explora finanzas corporativas con una estructura clara",
+  "summary": "Cada módulo mezcla teoría esencial, fórmulas renderizadas con LaTeX y calculadoras enfocadas en decisiones reales.",
+  "highlights": [
+    { "label": "Módulos base", "value": "5" },
+    { "label": "Calculadoras", "value": "4" },
+    { "label": "Idiomas iniciales", "value": "2" }
+  ],
+  "modules": [
+    {
+      "id": "bonds",
+      "accent": "blue",
+      "kicker": "Deuda",
+      "title": "Bonos",
+      "summary": "Comprende el valor presente de los flujos de un bono y cómo cambia con la tasa requerida."
+    },
+    {
+      "id": "shares",
+      "accent": "teal",
+      "kicker": "Patrimonio",
+      "title": "Acciones",
+      "summary": "Valora acciones con crecimiento cero, constante, variable y preferenciales desde un solo flujo."
+    },
+    {
+      "id": "leverage",
+      "accent": "lime",
+      "kicker": "Riesgo operativo",
+      "title": "Apalancamiento",
+      "summary": "Mide sensibilidad del beneficio operativo y financiero ante cambios en ventas y estructura de costos."
+    },
+    {
+      "id": "financial_ratios",
+      "accent": "blue",
+      "kicker": "Diagnóstico",
+      "title": "Razones financieras",
+      "summary": "Analiza liquidez, actividad, endeudamiento y rentabilidad con una sola captura estructurada."
+    },
+    {
+      "id": "lease",
+      "accent": "teal",
+      "kicker": "Arrendamiento",
+      "title": "Arrendamiento financiero",
+      "summary": "Repasa la lógica del arrendamiento como fuente de financiamiento y su impacto económico."
+    }
+  ]
+}

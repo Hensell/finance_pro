@@ -1,0 +1,47 @@
+{
+  "eyebrow": "Learning center",
+  "title": "Explore corporate finance through a clearer structure",
+  "summary": "Each module combines essential theory, LaTeX formulas, and calculators focused on real decision making.",
+  "highlights": [
+    { "label": "Core modules", "value": "5" },
+    { "label": "Calculators", "value": "4" },
+    { "label": "Initial languages", "value": "2" }
+  ],
+  "modules": [
+    {
+      "id": "bonds",
+      "accent": "blue",
+      "kicker": "Debt",
+      "title": "Bonds",
+      "summary": "Understand the present value of bond cash flows and how required return changes the price."
+    },
+    {
+      "id": "shares",
+      "accent": "teal",
+      "kicker": "Equity",
+      "title": "Shares",
+      "summary": "Value shares with zero, constant, variable, and preferred growth from a single workflow."
+    },
+    {
+      "id": "leverage",
+      "accent": "lime",
+      "kicker": "Operating risk",
+      "title": "Leverage",
+      "summary": "Measure how operating and financial profit react to changes in sales and cost structure."
+    },
+    {
+      "id": "financial_ratios",
+      "accent": "blue",
+      "kicker": "Diagnostics",
+      "title": "Financial ratios",
+      "summary": "Analyze liquidity, activity, debt, and profitability from a single structured input set."
+    },
+    {
+      "id": "lease",
+      "accent": "teal",
+      "kicker": "Leasing",
+      "title": "Finance lease",
+      "summary": "Review the logic of leasing as a financing source and its economic impact."
+    }
+  ]
+}

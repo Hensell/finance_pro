@@ -1,0 +1,290 @@
+{
+  "@@locale": "es",
+  "appTitle": "Finance Pro",
+  "appTagline": "Finanzas corporativas con rutas claras, fórmulas vivas y calculadoras prácticas.",
+  "appPrimaryAction": "Entrar al laboratorio",
+  "appSecondaryAction": "Ir al inicio",
+  "appExploreAction": "Explorar módulo",
+  "appReadTopicAction": "Leer tema",
+  "appOpenCalculatorAction": "Abrir calculadora",
+  "appRetryAction": "Reintentar",
+  "appBackAction": "Volver",
+  "appBackHomeAction": "Volver al inicio",
+  "appToggleLanguageLabel": "Idioma",
+  "appSpanishLabel": "Español",
+  "appEnglishLabel": "English",
+  "appLoadingTitle": "Cargando contenido",
+  "appLoadingBody": "Preparando módulos, fórmulas y calculadoras.",
+  "appErrorTitle": "No pudimos cargar esta vista",
+  "appErrorBody": "Verifica el contenido local y vuelve a intentarlo.",
+  "appEmptyTitle": "No hay contenido disponible",
+  "appEmptyBody": "Este módulo todavía no tiene contenido publicado.",
+  "appTopicsSection": "Temas disponibles",
+  "appHighlightsSection": "Por qué estudiar este módulo",
+  "appCalculatorSection": "Calculadora",
+  "appResultsSection": "Resultados",
+  "appFormulaSection": "Fórmulas",
+  "appExamplesSection": "Ejemplos",
+  "appInputsSection": "Entradas",
+  "appTopicSection": "Tema",
+  "appFooterPrimary": "Arquitectura limpia, contenido localizable y componentes con design system.",
+  "appFooterSecondary": "Pensado para web y preparado para crecer por features.",
+  "appNumericHint": "0.0",
+  "shellModulesLabel": "Módulos",
+  "validationPositiveNumbers": "Ingresa valores positivos válidos en todos los campos requeridos.",
+  "validationWholeYearsRequired": "Los años al vencimiento deben ser un entero positivo.",
+  "validationNonNegativeNumbers": "Ingresa valores no negativos válidos.",
+  "bondCalculatorGuideTitle": "Cómo pensar este cálculo",
+  "bondCalculatorGuideStepCashTitle": "1. Identifica los pagos del bono",
+  "bondCalculatorGuideStepCashBody": "Primero ubica cuánto paga el bono cada año y cuánto devolverá al final.",
+  "bondCalculatorGuideStepMarketTitle": "2. Define tiempo y tasa del mercado",
+  "bondCalculatorGuideStepMarketBody": "Luego determina cuántos años faltan y qué rendimiento exige el inversionista.",
+  "bondCalculatorGuideStepDecisionTitle": "3. Interpreta el precio",
+  "bondCalculatorGuideStepDecisionBody": "Al final compara el precio estimado con el valor a la par para saber si hay prima, descuento o equilibrio.",
+  "bondCalculatorLiveFormulaLabel": "Sustitución en tiempo real",
+  "bondCalculatorLiveFormulaSummary": "La fórmula se actualiza con tus datos mientras completas el ejercicio.",
+  "bondCalculatorInterpretationTitle": "Cómo leer el resultado",
+  "bondCalculatorStatusLabel": "Posición del bono",
+  "bondCalculatorStatusPremium": "Con prima",
+  "bondCalculatorStatusAtPar": "Cerca del valor a la par",
+  "bondCalculatorStatusDiscount": "Con descuento",
+  "bondCalculatorCouponRateLabel": "Tasa cupón implícita",
+  "bondCalculatorDifferenceLabel": "Diferencia vs par",
+  "bondCalculatorPremiumExplanation": "El bono está con prima porque la tasa cupón implícita ({couponRate}%) supera el rendimiento requerido ({requiredReturn}%). Eso empuja el precio por encima del valor a la par.",
+  "@bondCalculatorPremiumExplanation": {
+    "placeholders": {
+      "couponRate": {},
+      "requiredReturn": {}
+    }
+  },
+  "bondCalculatorAtParExplanation": "El bono está muy cerca del valor a la par porque la tasa cupón implícita ({couponRate}%) es muy similar al rendimiento requerido ({requiredReturn}%).",
+  "@bondCalculatorAtParExplanation": {
+    "placeholders": {
+      "couponRate": {},
+      "requiredReturn": {}
+    }
+  },
+  "bondCalculatorDiscountExplanation": "El bono está con descuento porque la tasa cupón implícita ({couponRate}%) queda por debajo del rendimiento requerido ({requiredReturn}%). Eso reduce el precio frente al valor a la par.",
+  "@bondCalculatorDiscountExplanation": {
+    "placeholders": {
+      "couponRate": {},
+      "requiredReturn": {}
+    }
+  },
+  "shareCalculatorGuideTitle": "Cómo pensar este modelo",
+  "shareCalculatorGuideStepModelTitle": "1. Elige el modelo correcto",
+  "shareCalculatorGuideStepModelBody": "Primero decide si el problema usa dividendos sin crecimiento, crecimiento constante, dos etapas o una acción preferente.",
+  "shareCalculatorGuideStepDividendTitle": "2. Identifica qué dividendo te piden",
+  "shareCalculatorGuideStepDividendBody": "No siempre ingresas el mismo flujo: algunos modos parten de D₁, otros de D₀ y las preferentes usan D.",
+  "shareCalculatorGuideStepInterpretTitle": "3. Interpreta el precio",
+  "shareCalculatorGuideStepInterpretBody": "Después de calcular, revisa qué papel juegan el crecimiento, el rendimiento requerido y, si aplica, el valor terminal.",
+  "shareCalculatorModelSectionTitle": "Elige el enfoque de valuación",
+  "shareCalculatorModelSectionSummary": "Cada modelo responde a un supuesto distinto sobre dividendos y crecimiento.",
+  "shareCalculatorLiveFormulaLabel": "Sustitución en tiempo real",
+  "shareCalculatorLiveFormulaSummary": "La fórmula cambia según el modelo activo y se actualiza con tus datos mientras escribes.",
+  "shareCalculatorInterpretationTitle": "Cómo leer el resultado",
+  "shareCalculatorDividendBasisLabel": "Dividendo usado",
+  "shareCalculatorRequiredReturnLabel": "Rendimiento requerido",
+  "shareCalculatorSpreadLabel": "Spread de valuación",
+  "shareCalculatorTerminalWeightLabel": "Peso del valor terminal",
+  "shareCalculatorZeroGrowthExplanation": "Este modelo trata la acción como una perpetuidad simple usando D₁ y un rendimiento requerido de {requiredReturn}%. Funciona mejor cuando no esperas crecimiento en dividendos.",
+  "@shareCalculatorZeroGrowthExplanation": {
+    "placeholders": {
+      "requiredReturn": {}
+    }
+  },
+  "shareCalculatorPreferredExplanation": "La acción preferente se valora como una perpetuidad con dividendo fijo y un rendimiento requerido de {requiredReturn}%. Aquí el flujo relevante es D, no D₀ ni D₁.",
+  "@shareCalculatorPreferredExplanation": {
+    "placeholders": {
+      "requiredReturn": {}
+    }
+  },
+  "shareCalculatorConstantGrowthExplanation": "El precio depende del spread entre k_s y g. Con un crecimiento de {growthRate}% y un spread de {spread}%, el modelo de Gordon sigue siendo válido porque k_s permanece por encima de g.",
+  "@shareCalculatorConstantGrowthExplanation": {
+    "placeholders": {
+      "growthRate": {},
+      "spread": {}
+    }
+  },
+  "shareCalculatorVariableGrowthExplanation": "El resultado suma dividendos proyectados durante {periods} periodos y un valor terminal calculado con g₂ = {terminalGrowth}%. En este caso, el valor terminal pesa aproximadamente {terminalWeight}% del precio estimado.",
+  "@shareCalculatorVariableGrowthExplanation": {
+    "placeholders": {
+      "periods": {},
+      "terminalGrowth": {},
+      "terminalWeight": {}
+    }
+  },
+  "leverageCalculatorGuideTitle": "Cómo pensar este cálculo",
+  "leverageCalculatorGuideStepModeTitle": "1. Elige el tipo correcto",
+  "leverageCalculatorGuideStepModeBody": "Primero decide si el problema habla de sensibilidad del EBIT frente a ventas o de sensibilidad para accionistas frente a la UAII.",
+  "leverageCalculatorGuideStepBaseTitle": "2. Revisa la base sensible",
+  "leverageCalculatorGuideStepBaseBody": "Luego confirma que la base del denominador siga siendo positiva. Si se acerca a cero, el riesgo sube y el grado se dispara.",
+  "leverageCalculatorGuideStepInterpretTitle": "3. Interpreta la amplificación",
+  "leverageCalculatorGuideStepInterpretBody": "Un grado de 2 no significa 2 dólares más: significa que un cambio porcentual de 1% se amplifica aproximadamente al doble.",
+  "leverageCalculatorModeSectionTitle": "Elige el tipo de apalancamiento",
+  "leverageCalculatorModeSectionSummary": "Cada modo parte de una base distinta y responde a un riesgo distinto dentro del negocio.",
+  "leverageCalculatorLiveFormulaLabel": "Sustitución en tiempo real",
+  "leverageCalculatorLiveFormulaSummary": "La fórmula se actualiza con tus datos para que veas qué entra en el numerador y qué queda como base sensible.",
+  "leverageCalculatorInterpretationTitle": "Cómo leer el resultado",
+  "leverageCalculatorSensitivityLabel": "Nivel de sensibilidad",
+  "leverageCalculatorSensitivityMeasured": "Moderada",
+  "leverageCalculatorSensitivityElevated": "Elevada",
+  "leverageCalculatorSensitivityHigh": "Alta",
+  "leverageCalculatorContributionMarginLabel": "Margen de contribución total",
+  "leverageCalculatorEbitLabel": "EBIT estimado",
+  "leverageCalculatorCommonBaseLabel": "Base disponible para comunes",
+  "leverageCalculatorTaxAdjustedPreferredLabel": "Dividendos preferentes ajustados",
+  "leverageCalculatorOperatingExplanation": "Con un GAO de {amplification}, un cambio de 1% en ventas movería aproximadamente {amplification}% el EBIT. En este ejercicio, el margen de contribución total es {contributionMargin} y el EBIT estimado es {ebit}.",
+  "@leverageCalculatorOperatingExplanation": {
+    "placeholders": {
+      "amplification": {},
+      "contributionMargin": {},
+      "ebit": {}
+    }
+  },
+  "leverageCalculatorFinancialExplanation": "Con un GAF de {amplification}, un cambio de 1% en la UAII movería aproximadamente {amplification}% la utilidad disponible para accionistas comunes. Aquí la base disponible para comunes es {commonBase} y el ajuste fiscal de dividendos preferentes es {taxAdjustedPreferred}.",
+  "@leverageCalculatorFinancialExplanation": {
+    "placeholders": {
+      "amplification": {},
+      "commonBase": {},
+      "taxAdjustedPreferred": {}
+    }
+  },
+  "leaseCalculatorGuideTitle": "Cómo pensar esta comparación",
+  "leaseCalculatorGuideStepLeaseTitle": "1. Calcula el costo del lease",
+  "leaseCalculatorGuideStepLeaseBody": "Convierte todas las cuotas futuras del arrendamiento a una sola cifra en valor presente.",
+  "leaseCalculatorGuideStepBuyTitle": "2. Calcula el costo neto de comprar",
+  "leaseCalculatorGuideStepBuyBody": "Parte del precio hoy y resta el valor residual futuro descontado para no comparar flujos en fechas distintas.",
+  "leaseCalculatorGuideStepDecisionTitle": "3. Compara y decide",
+  "leaseCalculatorGuideStepDecisionBody": "La alternativa con menor valor presente es la menos costosa en términos económicos, aunque la decisión final también puede considerar flexibilidad o riesgo.",
+  "leaseCalculatorLiveFormulaLabel": "Sustitución en tiempo real",
+  "leaseCalculatorLiveFormulaSummary": "La comparación se actualiza con tus datos para que veas al mismo tiempo el costo del lease y el costo neto de comprar.",
+  "leaseCalculatorInterpretationTitle": "Cómo leer el resultado",
+  "leaseCalculatorRecommendationLabel": "Alternativa sugerida",
+  "leaseCalculatorRecommendationLease": "Conviene arrendar",
+  "leaseCalculatorRecommendationBuy": "Conviene comprar",
+  "leaseCalculatorRecommendationNeutral": "Resultado muy parecido",
+  "leaseCalculatorDifferenceLabel": "Ahorro relativo",
+  "leaseCalculatorResidualBenefitLabel": "Valor residual descontado",
+  "leaseCalculatorLeaseExplanation": "Con una tasa de descuento de {rate}%, el arrendamiento consume menos valor presente por aproximadamente {savings}. El valor residual descontado de la compra sería {residual}, pero aun así la alternativa de lease sigue siendo más ligera en costo económico.",
+  "@leaseCalculatorLeaseExplanation": {
+    "placeholders": {
+      "savings": {},
+      "rate": {},
+      "residual": {}
+    }
+  },
+  "leaseCalculatorBuyExplanation": "Con una tasa de descuento de {rate}%, comprar hoy resulta más conveniente por aproximadamente {savings}. El valor residual descontado recupera cerca de {residual}, y eso reduce el costo neto de compra por debajo del lease.",
+  "@leaseCalculatorBuyExplanation": {
+    "placeholders": {
+      "savings": {},
+      "rate": {},
+      "residual": {}
+    }
+  },
+  "leaseCalculatorNeutralExplanation": "Con una tasa de descuento de {rate}% y un valor residual descontado cercano a {residual}, ambas alternativas quedan muy próximas en valor presente. La decisión final puede depender de liquidez, flexibilidad o riesgo operativo.",
+  "@leaseCalculatorNeutralExplanation": {
+    "placeholders": {
+      "rate": {},
+      "residual": {}
+    }
+  },
+  "validationGrowthLessThanReturn": "La tasa de crecimiento debe ser menor al rendimiento requerido.",
+  "validationPeriodsRequired": "Cuando usas crecimiento variable, el número de periodos debe ser mayor que cero.",
+  "validationLeaseRequiredFields": "Completa el pago del lease, los periodos, la tasa, el precio de compra y el valor residual con valores válidos.",
+  "validationLeasePeriodsRequired": "El número de periodos del arrendamiento debe ser un entero positivo.",
+  "validationLeaseResidualExceedsPrice": "El valor residual no debe superar el precio de compra en este análisis básico.",
+  "validationTaxRateRange": "La tasa de impuestos debe estar entre 0 y ser menor que 100.",
+  "validationLeverageOperatingDenominator": "El margen de contribución total debe superar los costos fijos para calcular el apalancamiento operativo.",
+  "validationLeverageFinancialDenominator": "La utilidad disponible para accionistas comunes debe ser mayor que cero para calcular el apalancamiento financiero.",
+  "validationRatiosRequired": "Completa todos los campos necesarios para calcular las razones financieras.",
+  "financialRatiosContinueAction": "Continuar",
+  "financialRatiosLoadSampleAction": "Llenar con datos de prueba",
+  "financialRatiosFormulaFallback": "Selecciona un paso o una familia de razones para ver las fórmulas relevantes.",
+  "financialRatiosStatementPreviewTitle": "Subtotales derivados",
+  "financialRatiosStatementPreviewSummary": "El builder recalcula estos saldos cada vez que cambias una partida base.",
+  "financialRatiosBalancePreviewTitle": "Comprobación contable",
+  "financialRatiosBalancePreviewSummary": "Usa este bloque para revisar el cuadre y detectar inconsistencias antes de analizar.",
+  "financialRatiosNetSalesLabel": "Ventas netas",
+  "financialRatiosNetPurchasesLabel": "Compras netas",
+  "financialRatiosCostOfSalesLabel": "Costo de ventas",
+  "financialRatiosGrossProfitLabel": "Utilidad bruta",
+  "financialRatiosOperatingExpensesLabel": "Gastos operativos",
+  "financialRatiosEbitLabel": "EBIT",
+  "financialRatiosEarningsBeforeTaxesLabel": "Utilidad antes de impuestos",
+  "financialRatiosNetIncomeLabel": "Utilidad neta",
+  "financialRatiosCurrentAssetsLabel": "Activos corrientes",
+  "financialRatiosFixedAssetsNetLabel": "Activos fijos netos",
+  "financialRatiosTotalAssetsLabel": "Activos totales",
+  "financialRatiosCurrentLiabilitiesLabel": "Pasivos corrientes",
+  "financialRatiosNonCurrentLiabilitiesLabel": "Pasivos no corrientes",
+  "financialRatiosTotalLiabilitiesLabel": "Pasivos totales",
+  "financialRatiosEquityLabel": "Patrimonio",
+  "financialRatiosLiabilitiesAndEquityLabel": "Pasivos + patrimonio",
+  "financialRatiosBalanceDifferenceLabel": "Diferencia de cuadre",
+  "financialRatiosValidationNumeric": "Ingresa números válidos o deja el campo vacío si la partida es cero.",
+  "financialRatiosValidationCompleteIncomeStatement": "Completa todas las partidas del estado de resultados, incluso si alguna vale 0.",
+  "financialRatiosValidationCompleteBalanceSheet": "Completa todas las partidas del balance general, incluso si alguna vale 0.",
+  "financialRatiosValidationNetSalesNegative": "Las ventas netas no pueden ser negativas. Revisa descuentos y devoluciones.",
+  "financialRatiosValidationNegativeCostOfSales": "El costo de ventas no puede quedar negativo. Revisa inventario inicial, compras e inventario final.",
+  "financialRatiosValidationGrossProfitInconsistent": "La utilidad bruta quedó inconsistente con las ventas registradas.",
+  "financialRatiosValidationOperatingIncomeInconsistent": "El EBIT quedó inconsistente con la utilidad bruta y los gastos operativos.",
+  "financialRatiosValidationNetReceivablesNegative": "Las cuentas por cobrar netas no pueden ser negativas. Revisa la estimación de incobrables.",
+  "financialRatiosValidationFixedAssetsNegative": "Los activos fijos netos no pueden ser negativos. Revisa la depreciación acumulada.",
+  "financialRatiosValidationTotalAssetsRequired": "Necesitas una base de activos positiva para generar el análisis.",
+  "financialRatiosValidationBalanceMismatch": "El balance no cuadra: activos totales deben ser iguales a pasivos totales más patrimonio.",
+  "financialRatiosValidationInventoryMismatch": "El inventario del balance debe coincidir con el inventario final del estado de resultados.",
+  "financialRatiosBalanceMatches": "El balance cuadra correctamente: activos y fuentes de financiamiento están alineados.",
+  "financialRatiosBalanceAssetsHigher": "Los activos superan a pasivos + patrimonio por {difference}. Revisa patrimonio, deuda o el inventario final.",
+  "@financialRatiosBalanceAssetsHigher": {
+    "placeholders": {
+      "difference": {}
+    }
+  },
+  "financialRatiosBalanceFundingHigher": "Pasivos + patrimonio superan a los activos por {difference}. Revisa depreciación, cuentas por cobrar netas o patrimonio.",
+  "@financialRatiosBalanceFundingHigher": {
+    "placeholders": {
+      "difference": {}
+    }
+  },
+  "financialRatiosMetricCurrentRatioNote": "Si el pasivo corriente es cero o negativo, la liquidez corriente no se puede interpretar de forma útil.",
+  "financialRatiosMetricQuickRatioNote": "La prueba ácida no aplica cuando el pasivo corriente es cero o cuando la base no representa obligaciones exigibles.",
+  "financialRatiosMetricCashRatioNote": "La razón de efectivo requiere pasivos corrientes positivos para una lectura útil.",
+  "financialRatiosMetricInventoryTurnoverNote": "La rotación de inventario requiere inventario positivo. Si el inventario es cero, la razón no es interpretable.",
+  "financialRatiosMetricDaysInventoryNote": "Los días de inventario requieren un costo de ventas positivo para expresar permanencia en bodega.",
+  "financialRatiosMetricReceivablesTurnoverNote": "La rotación de cuentas por cobrar requiere cuentas por cobrar netas positivas.",
+  "financialRatiosMetricCollectionPeriodNote": "El periodo promedio de cobro requiere ventas netas positivas.",
+  "financialRatiosMetricPayablesTurnoverNote": "La rotación de cuentas por pagar requiere proveedores positivos.",
+  "financialRatiosMetricPaymentPeriodNote": "El periodo promedio de pago requiere un costo de ventas positivo.",
+  "financialRatiosMetricTotalAssetTurnoverNote": "La rotación de activos totales requiere una base de activos positiva.",
+  "financialRatiosMetricFixedAssetTurnoverNote": "La rotación de activos fijos requiere activos fijos netos positivos.",
+  "financialRatiosMetricDebtRatioNote": "El índice de endeudamiento requiere activos totales positivos.",
+  "financialRatiosMetricDebtToEquityNote": "Deuda a patrimonio requiere patrimonio positivo para evitar una lectura distorsionada.",
+  "financialRatiosMetricEquityMultiplierNote": "El multiplicador del capital requiere patrimonio positivo.",
+  "financialRatiosMetricInterestCoverageNote": "La cobertura de intereses no aplica si no hay gasto financiero positivo en el periodo.",
+  "financialRatiosMetricGrossMarginNote": "El margen bruto requiere ventas netas positivas.",
+  "financialRatiosMetricOperatingMarginNote": "El margen operativo requiere ventas netas positivas.",
+  "financialRatiosMetricNetMarginNote": "El margen neto requiere ventas netas positivas.",
+  "financialRatiosMetricReturnOnAssetsNote": "ROA requiere activos totales positivos.",
+  "financialRatiosMetricReturnOnEquityNote": "ROE requiere patrimonio positivo.",
+  "financialRatiosMetricDupontNetMarginNote": "El componente de margen neto requiere ventas netas positivas.",
+  "financialRatiosMetricDupontAssetTurnoverNote": "El componente de rotación requiere activos totales positivos.",
+  "financialRatiosMetricDupontEquityMultiplierNote": "El componente de multiplicador requiere patrimonio positivo.",
+  "financialRatiosMetricDupontRoeNote": "El ROE de DuPont no se puede reconstruir mientras falte algún componente válido.",
+  "homeRouteLabel": "Inicio",
+  "featureBondsLabel": "Bonos",
+  "featureSharesLabel": "Acciones",
+  "featureLeverageLabel": "Apalancamiento",
+  "featureRatiosLabel": "Razones financieras",
+  "featureLeaseLabel": "Arrendamiento financiero",
+  "onboardingRouteLabel": "Bienvenida",
+  "onboardingIndexLabel": "Mapa del laboratorio",
+  "onboardingStatModules": "módulos",
+  "onboardingStatCalculators": "calculadoras",
+  "onboardingStatLanguages": "idiomas",
+  "onboardingChipBondPricing": "Precio de bonos",
+  "onboardingChipShareValuation": "Valuación de acciones",
+  "onboardingChipLeverage": "Apalancamiento",
+  "onboardingChipFinancialRatios": "Razones financieras",
+  "onboardingChipLease": "Arrendamiento financiero"
+}
