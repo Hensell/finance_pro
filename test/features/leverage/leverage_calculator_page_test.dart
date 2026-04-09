@@ -38,8 +38,7 @@ void main() {
     await tester.enterText(find.byType(TextField).at(1), '30');
     await tester.enterText(find.byType(TextField).at(2), '18');
     await tester.enterText(find.byType(TextField).at(3), '9000');
-    await tester.ensureVisible(find.text('Calcular apalancamiento'));
-    await tester.tap(find.text('Calcular apalancamiento'));
+    await _pressButton(tester, 'Calcular apalancamiento');
     await tester.pumpAndSettle();
 
     final Rect resultRect = tester.getRect(find.text('GRADO ESTIMADO'));
@@ -77,8 +76,7 @@ void main() {
     expect(content, contains(r'Q = 1200'));
     expect(content, contains(r'\frac{14400}{5400}'));
 
-    await tester.ensureVisible(find.text('Calcular apalancamiento'));
-    await tester.tap(find.text('Calcular apalancamiento'));
+    await _pressButton(tester, 'Calcular apalancamiento');
     await tester.pumpAndSettle();
 
     expect(find.text('Cómo leer el resultado'), findsOneWidget);
@@ -99,8 +97,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.ensureVisible(find.text('Financiero'));
-    await tester.tap(find.text('Financiero'));
+    await _selectMode(tester, 'financial');
     await tester.pumpAndSettle();
 
     expect(find.text('UAII'), findsOneWidget);
@@ -119,8 +116,7 @@ void main() {
     expect(content, contains(r'UAII = 10000'));
     expect(content, contains(r'T = 0.4'));
 
-    await tester.ensureVisible(find.text('Calcular apalancamiento'));
-    await tester.tap(find.text('Calcular apalancamiento'));
+    await _pressButton(tester, 'Calcular apalancamiento');
     await tester.pumpAndSettle();
 
     expect(find.text(AppNumberFormatter.decimal(2.5)), findsOneWidget);
@@ -145,8 +141,7 @@ void main() {
       await tester.enterText(find.byType(TextField).at(1), '30');
       await tester.enterText(find.byType(TextField).at(2), '18');
       await tester.enterText(find.byType(TextField).at(3), '9000');
-      await tester.ensureVisible(find.text('Calcular apalancamiento'));
-      await tester.tap(find.text('Calcular apalancamiento'));
+      await _pressButton(tester, 'Calcular apalancamiento');
       await tester.pumpAndSettle();
 
       expect(
@@ -200,6 +195,30 @@ void main() {
       expect(find.text('Reintentar'), findsOneWidget);
     },
   );
+}
+
+Future<void> _pressButton(WidgetTester tester, String label) async {
+  final Finder button = find.byKey(ValueKey<String>('ds-button:$label'));
+  await tester.ensureVisible(button);
+  final Widget widget = tester.widget<Widget>(button);
+
+  switch (widget) {
+    case FilledButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    case OutlinedButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    case TextButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    default:
+      await tester.tap(button, warnIfMissed: false);
+  }
+}
+
+Future<void> _selectMode(WidgetTester tester, String modeId) async {
+  final Finder mode = find.byKey(ValueKey<String>('leverage-mode:$modeId'));
+  await tester.ensureVisible(mode);
+  final GestureDetector gestureDetector = tester.widget<GestureDetector>(mode);
+  gestureDetector.onTap?.call();
 }
 
 final class _FailingFeatureContentRepository

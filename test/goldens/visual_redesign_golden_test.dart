@@ -18,7 +18,7 @@ void main() {
   testGoldens('Onboarding visual redesign', (WidgetTester tester) async {
     await tester.pumpWidgetBuilder(
       buildGoldenHarness(
-        child: const OnboardingPage(),
+        child: const OnboardingPage(autoRedirect: false),
         dependencies: dependencies,
         currentLocation: AppRoutePaths.onboarding,
         useShell: false,

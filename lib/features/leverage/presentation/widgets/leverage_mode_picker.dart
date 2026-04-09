@@ -68,6 +68,7 @@ class _ModeCard extends StatelessWidget {
       button: true,
       selected: selected,
       child: GestureDetector(
+        key: ValueKey<String>('leverage-mode:${mode.id}'),
         onTap: onTap,
         child: Container(
           width: double.infinity,

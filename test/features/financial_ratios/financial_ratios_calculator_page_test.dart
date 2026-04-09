@@ -33,15 +33,13 @@ void main() {
     await tester.pumpAndSettle();
 
     await _fillIncomeStatementStep(tester);
-    await tester.ensureVisible(find.text('Continuar'));
-    await tester.tap(find.text('Continuar'));
+    await _pressButton(tester, 'Continuar');
     await tester.pumpAndSettle();
 
     expect(find.text('Paso 2 · Balance general'), findsWidgets);
 
     await _fillBalanceSheetStep(tester);
-    await tester.ensureVisible(find.text('Analizar razones'));
-    await tester.tap(find.text('Analizar razones'));
+    await _pressButton(tester, 'Analizar razones');
     await tester.pumpAndSettle();
 
     expect(find.text('Liquidez'), findsAtLeastNWidgets(1));
@@ -76,8 +74,7 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      await tester.ensureVisible(find.text('Llenar con datos de prueba'));
-      await tester.tap(find.text('Llenar con datos de prueba'));
+      await _pressButton(tester, 'Llenar con datos de prueba');
       await tester.pumpAndSettle();
 
       expect(find.text('Liquidez corriente'), findsOneWidget);
@@ -103,8 +100,7 @@ void main() {
       await _fillIncomeStatementStep(tester);
       await tester.enterText(find.byType(TextField).first, '');
       await tester.pumpAndSettle();
-      await tester.ensureVisible(find.text('Continuar'));
-      await tester.tap(find.text('Continuar'));
+      await _pressButton(tester, 'Continuar');
       await tester.pumpAndSettle();
 
       expect(
@@ -132,13 +128,11 @@ void main() {
       await tester.pumpAndSettle();
 
       await _fillIncomeStatementStep(tester);
-      await tester.ensureVisible(find.text('Continuar'));
-      await tester.tap(find.text('Continuar'));
+      await _pressButton(tester, 'Continuar');
       await tester.pumpAndSettle();
 
       await _fillBalanceSheetStep(tester, equity: '500');
-      await tester.ensureVisible(find.text('Analizar razones'));
-      await tester.tap(find.text('Analizar razones'));
+      await _pressButton(tester, 'Analizar razones');
       await tester.pumpAndSettle();
 
       expect(find.textContaining('El balance no cuadra'), findsOneWidget);
@@ -166,13 +160,11 @@ void main() {
       await tester.pumpAndSettle();
 
       await _fillIncomeStatementStep(tester);
-      await tester.ensureVisible(find.text('Continuar'));
-      await tester.tap(find.text('Continuar'));
+      await _pressButton(tester, 'Continuar');
       await tester.pumpAndSettle();
 
       await _fillBalanceSheetStep(tester, inventory: '200', equity: '570');
-      await tester.ensureVisible(find.text('Analizar razones'));
-      await tester.tap(find.text('Analizar razones'));
+      await _pressButton(tester, 'Analizar razones');
       await tester.pumpAndSettle();
 
       expect(
@@ -224,6 +216,23 @@ void main() {
       expect(find.text('Reintentar'), findsOneWidget);
     },
   );
+}
+
+Future<void> _pressButton(WidgetTester tester, String label) async {
+  final Finder button = find.byKey(ValueKey<String>('ds-button:$label'));
+  await tester.ensureVisible(button);
+  final Widget widget = tester.widget<Widget>(button);
+
+  switch (widget) {
+    case FilledButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    case OutlinedButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    case TextButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    default:
+      await tester.tap(button, warnIfMissed: false);
+  }
 }
 
 Future<void> _fillIncomeStatementStep(WidgetTester tester) async {

@@ -188,6 +188,12 @@ abstract class AppLocalizations {
   /// **'Preparando módulos, fórmulas y calculadoras.'**
   String get appLoadingBody;
 
+  /// No description provided for @appSplashLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Preparando el laboratorio financiero.'**
+  String get appSplashLabel;
+
   /// No description provided for @appErrorTitle.
   ///
   /// In es, this message translates to:
@@ -271,6 +277,24 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Pensado para web y preparado para crecer por features.'**
   String get appFooterSecondary;
+
+  /// No description provided for @appFooterCreditsPrefix.
+  ///
+  /// In es, this message translates to:
+  /// **'Créditos:'**
+  String get appFooterCreditsPrefix;
+
+  /// No description provided for @appFooterCreditsName.
+  ///
+  /// In es, this message translates to:
+  /// **'Hensell'**
+  String get appFooterCreditsName;
+
+  /// No description provided for @appFooterCreditsLinkLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'hensell.dev'**
+  String get appFooterCreditsLinkLabel;
 
   /// No description provided for @appNumericHint.
   ///

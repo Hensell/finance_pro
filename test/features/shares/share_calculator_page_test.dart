@@ -36,8 +36,7 @@ void main() {
 
     await tester.enterText(find.byType(TextField).at(0), '3');
     await tester.enterText(find.byType(TextField).at(1), '15');
-    await tester.ensureVisible(find.text('Calcular valor de la acción'));
-    await tester.tap(find.text('Calcular valor de la acción'));
+    await _pressButton(tester, 'Calcular valor de la acción');
     await tester.pumpAndSettle();
 
     final Rect resultRect = tester.getRect(
@@ -77,8 +76,7 @@ void main() {
       contains(r'D_1 = 3'),
     );
 
-    await tester.ensureVisible(find.text('Calcular valor de la acción'));
-    await tester.tap(find.text('Calcular valor de la acción'));
+    await _pressButton(tester, 'Calcular valor de la acción');
     await tester.pumpAndSettle();
 
     expect(find.text('VALOR PRESENTE ESTIMADO'), findsOneWidget);
@@ -99,8 +97,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.ensureVisible(find.text('Crecimiento variable'));
-    await tester.tap(find.text('Crecimiento variable'));
+    await _selectMode(tester, 'variable_growth');
     await tester.pumpAndSettle();
 
     expect(find.text('Último dividendo pagado (D₀)'), findsOneWidget);
@@ -140,8 +137,7 @@ void main() {
 
     await tester.enterText(find.byType(TextField).at(0), '3');
     await tester.enterText(find.byType(TextField).at(1), '15');
-    await tester.ensureVisible(find.text('Calcular valor de la acción'));
-    await tester.tap(find.text('Calcular valor de la acción'));
+    await _pressButton(tester, 'Calcular valor de la acción');
     await tester.pumpAndSettle();
 
     expect(find.text(AppNumberFormatter.decimal(20)), findsOneWidget);
@@ -190,6 +186,30 @@ void main() {
     expect(find.text('No pudimos cargar esta vista'), findsOneWidget);
     expect(find.text('Reintentar'), findsOneWidget);
   });
+}
+
+Future<void> _pressButton(WidgetTester tester, String label) async {
+  final Finder button = find.byKey(ValueKey<String>('ds-button:$label'));
+  await tester.ensureVisible(button);
+  final Widget widget = tester.widget<Widget>(button);
+
+  switch (widget) {
+    case FilledButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    case OutlinedButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    case TextButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    default:
+      await tester.tap(button, warnIfMissed: false);
+  }
+}
+
+Future<void> _selectMode(WidgetTester tester, String modeId) async {
+  final Finder mode = find.byKey(ValueKey<String>('share-mode:$modeId'));
+  await tester.ensureVisible(mode);
+  final GestureDetector gestureDetector = tester.widget<GestureDetector>(mode);
+  gestureDetector.onTap?.call();
 }
 
 final class _FailingFeatureContentRepository

@@ -55,6 +55,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get appLoadingBody => 'Preparando módulos, fórmulas y calculadoras.';
 
   @override
+  String get appSplashLabel => 'Preparando el laboratorio financiero.';
+
+  @override
   String get appErrorTitle => 'No pudimos cargar esta vista';
 
   @override
@@ -99,6 +102,15 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get appFooterSecondary =>
       'Pensado para web y preparado para crecer por features.';
+
+  @override
+  String get appFooterCreditsPrefix => 'Créditos:';
+
+  @override
+  String get appFooterCreditsName => 'Hensell';
+
+  @override
+  String get appFooterCreditsLinkLabel => 'hensell.dev';
 
   @override
   String get appNumericHint => '0.0';

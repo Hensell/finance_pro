@@ -5,6 +5,7 @@ import 'package:finance_pro/app/router/app_route_paths.dart';
 import 'package:finance_pro/core/extensions/app_localizations_x.dart';
 import 'package:finance_pro/core/extensions/build_context_x.dart';
 import 'package:finance_pro/design_system/atoms/ds_text.dart';
+import 'package:finance_pro/design_system/organisms/ds_app_footer.dart';
 import 'package:finance_pro/design_system/organisms/ds_nav_rail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,6 +30,7 @@ class DsAppShell extends StatelessWidget {
     if (showRail) {
       return Scaffold(
         backgroundColor: tokens.colors.shellBackground,
+        bottomNavigationBar: const DsAppFooter(),
         body: SafeArea(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,6 +48,7 @@ class DsAppShell extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: tokens.colors.shellBackground,
+      bottomNavigationBar: const DsAppFooter(),
       body: SafeArea(
         child: Column(
           children: <Widget>[

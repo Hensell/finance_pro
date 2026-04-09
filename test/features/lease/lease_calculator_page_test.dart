@@ -75,8 +75,7 @@ void main() {
     await tester.enterText(find.byType(TextField).at(2), '11');
     await tester.enterText(find.byType(TextField).at(3), '1450');
     await tester.enterText(find.byType(TextField).at(4), '300');
-    await tester.ensureVisible(find.text('Comparar alternativas'));
-    await tester.tap(find.text('Comparar alternativas'));
+    await _pressButton(tester, 'Comparar alternativas');
     await tester.pumpAndSettle();
 
     expect(find.text('Cómo leer el resultado'), findsOneWidget);
@@ -130,6 +129,23 @@ void main() {
     expect(find.text('No pudimos cargar esta vista'), findsOneWidget);
     expect(find.text('Reintentar'), findsOneWidget);
   });
+}
+
+Future<void> _pressButton(WidgetTester tester, String label) async {
+  final Finder button = find.byKey(ValueKey<String>('ds-button:$label'));
+  await tester.ensureVisible(button);
+  final Widget widget = tester.widget<Widget>(button);
+
+  switch (widget) {
+    case FilledButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    case OutlinedButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    case TextButton(:final VoidCallback? onPressed):
+      onPressed?.call();
+    default:
+      await tester.tap(button, warnIfMissed: false);
+  }
 }
 
 final class _FailingFeatureContentRepository

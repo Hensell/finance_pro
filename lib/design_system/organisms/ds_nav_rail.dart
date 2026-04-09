@@ -36,6 +36,7 @@ class DsNavRail extends StatelessWidget {
             active: _isActive(destination.location),
             axis: axis,
             label: destination.label,
+            location: destination.location,
             onTap: () => onSelected(destination.location),
           ),
         )
@@ -84,12 +85,14 @@ class _NavItem extends StatelessWidget {
     required this.active,
     required this.axis,
     required this.label,
+    required this.location,
     required this.onTap,
   });
 
   final bool active;
   final Axis axis;
   final String label;
+  final String location;
   final VoidCallback onTap;
 
   @override
@@ -103,6 +106,7 @@ class _NavItem extends StatelessWidget {
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
+          key: ValueKey<String>('nav-item:$location'),
           behavior: HitTestBehavior.opaque,
           onTap: onTap,
           child: DecoratedBox(

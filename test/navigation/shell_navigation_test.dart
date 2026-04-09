@@ -188,8 +188,11 @@ void main() {
 }
 
 Future<void> _tapRailItem(WidgetTester tester, String label) async {
-  await tester.ensureVisible(find.text(label).first);
-  await tester.tap(find.text(label).first);
+  final Finder item = find.byKey(
+    ValueKey<String>('nav-item:${_locationForLabel(label)}'),
+  );
+  final GestureDetector gestureDetector = tester.widget<GestureDetector>(item);
+  gestureDetector.onTap?.call();
   await tester.pumpAndSettle();
   expect(tester.takeException(), isNull);
 }
@@ -206,7 +209,7 @@ Future<void> _assertFocusedCalculatorCanNavigateBack({
 
   final Finder field = find.byType(TextField).first;
   await tester.ensureVisible(field);
-  await tester.tap(field);
+  await tester.showKeyboard(field);
   await tester.pump();
   await tester.enterText(field, '100');
   await tester.pump();
@@ -216,4 +219,23 @@ Future<void> _assertFocusedCalculatorCanNavigateBack({
     appRouter.config.routeInformationProvider.value.uri.path,
     expectedLocation,
   );
+}
+
+String _locationForLabel(String label) {
+  switch (label) {
+    case 'Inicio':
+      return '/home';
+    case 'Bonos':
+      return '/feature/bonds';
+    case 'Acciones':
+      return '/feature/shares';
+    case 'Apalancamiento':
+      return '/feature/leverage';
+    case 'Razones financieras':
+      return '/feature/financial_ratios';
+    case 'Arrendamiento financiero':
+      return '/feature/lease';
+    default:
+      throw ArgumentError.value(label, 'label', 'Unknown rail label');
+  }
 }

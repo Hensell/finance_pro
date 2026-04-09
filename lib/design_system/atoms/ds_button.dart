@@ -58,12 +58,14 @@ class DsButton extends StatelessWidget {
   Widget _buildFilledButton(BuildContext context, IconData resolvedIcon) {
     if (icon == null) {
       return FilledButton(
+        key: ValueKey<String>('ds-button:$label'),
         onPressed: onPressed,
         child: Text(label),
       );
     }
 
     return FilledButton.icon(
+      key: ValueKey<String>('ds-button:$label'),
       onPressed: onPressed,
       icon: Icon(resolvedIcon),
       label: Text(label),
@@ -73,12 +75,14 @@ class DsButton extends StatelessWidget {
   Widget _buildOutlinedButton(BuildContext context, IconData resolvedIcon) {
     if (icon == null) {
       return OutlinedButton(
+        key: ValueKey<String>('ds-button:$label'),
         onPressed: onPressed,
         child: Text(label),
       );
     }
 
     return OutlinedButton.icon(
+      key: ValueKey<String>('ds-button:$label'),
       onPressed: onPressed,
       icon: Icon(resolvedIcon),
       label: Text(label),
@@ -88,12 +92,14 @@ class DsButton extends StatelessWidget {
   Widget _buildTextButton(BuildContext context, IconData resolvedIcon) {
     if (icon == null) {
       return TextButton(
+        key: ValueKey<String>('ds-button:$label'),
         onPressed: onPressed,
         child: Text(label),
       );
     }
 
     return TextButton.icon(
+      key: ValueKey<String>('ds-button:$label'),
       onPressed: onPressed,
       style: TextButton.styleFrom(
         foregroundColor: context.tokens.colors.onSurface,
@@ -115,6 +121,7 @@ class DsButton extends StatelessWidget {
 
     if (icon == null) {
       return OutlinedButton(
+        key: ValueKey<String>('ds-button:$label'),
         onPressed: onPressed,
         style: style,
         child: Text(label),
@@ -122,6 +129,7 @@ class DsButton extends StatelessWidget {
     }
 
     return OutlinedButton.icon(
+      key: ValueKey<String>('ds-button:$label'),
       onPressed: onPressed,
       style: style,
       icon: Icon(resolvedIcon),
