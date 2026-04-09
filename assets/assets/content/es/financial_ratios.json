@@ -1,0 +1,808 @@
+{
+  "id": "financial_ratios",
+  "accent": "blue",
+  "eyebrow": "Diagnóstico financiero",
+  "title": "Razones financieras",
+  "summary": "Convierte estado de resultados y balance general en señales comparables sobre liquidez, actividad, deuda, rentabilidad y lectura integrada.",
+  "heroPoints": [
+    "Liquidez",
+    "Actividad",
+    "Endeudamiento y cobertura",
+    "Rentabilidad",
+    "Análisis DuPont"
+  ],
+  "topics": [
+    {
+      "id": "liquidity",
+      "title": "Liquidez",
+      "summary": "Mide la capacidad de responder a obligaciones de corto plazo sin presionar innecesariamente la operación.",
+      "sections": [
+        {
+          "id": "liquidity_core",
+          "title": "Idea central",
+          "body": "Las razones de liquidez responden una pregunta básica: ¿la empresa puede convertir activos corrientes en efectivo suficiente para pagar lo que vence pronto? No solo importa el tamaño del activo corriente, también su calidad.",
+          "bullets": [
+            "La liquidez corriente compara todo el activo corriente contra el pasivo corriente.",
+            "La prueba ácida excluye inventarios para una visión más conservadora.",
+            "La razón de efectivo mira solo el respaldo más inmediato: caja y equivalentes."
+          ],
+          "formulas": [
+            {
+              "label": "Liquidez corriente",
+              "tex": "\\text{Liquidez corriente}=\\frac{Activos\\ corrientes}{Pasivos\\ corrientes}"
+            },
+            {
+              "label": "Prueba ácida",
+              "tex": "\\text{Prueba\\ \\acute{a}cida}=\\frac{Activos\\ corrientes-Inventario}{Pasivos\\ corrientes}"
+            },
+            {
+              "label": "Razón de efectivo",
+              "tex": "\\text{Raz\\'on de efectivo}=\\frac{Efectivo\\ y\\ equivalentes}{Pasivos\\ corrientes}"
+            }
+          ],
+          "formulaLegend": [
+            { "symbol": "Activos corrientes", "meaning": "Caja, cuentas por cobrar netas, anticipos e inventarios de corto plazo." },
+            { "symbol": "Pasivos corrientes", "meaning": "Obligaciones exigibles dentro del ciclo normal o del siguiente año." },
+            { "symbol": "Inventario", "meaning": "Parte menos líquida del activo corriente porque necesita venderse antes de convertirse en efectivo." }
+          ]
+        },
+        {
+          "id": "liquidity_teaching",
+          "title": "Cuándo usarla y errores comunes",
+          "body": "Estas razones son útiles al revisar la presión inmediata de caja, negociar líneas de crédito o evaluar si la empresa puede absorber atrasos de cobro.",
+          "bullets": [
+            "Un valor muy bajo suele anticipar tensión operativa o dependencia de refinanciación.",
+            "Un valor excesivamente alto también puede sugerir capital ocioso.",
+            "No confundas buena liquidez con alta rentabilidad: una empresa puede estar líquida y ser poco rentable."
+          ],
+          "exampleTable": {
+            "title": "Mini caso guiado",
+            "columns": ["Escenario", "Lectura"],
+            "rows": [
+              { "cells": ["Liquidez corriente 1.8x", "Existe cobertura razonable de obligaciones de corto plazo."] },
+              { "cells": ["Prueba ácida 0.7x", "Sin vender inventarios, la empresa está más ajustada."] },
+              { "cells": ["Razón de efectivo 0.2x", "La caja inmediata es baja; hay dependencia de cobros."] }
+            ],
+            "footnote": "La interpretación final siempre debe compararse con el ciclo operativo de la empresa."
+          }
+        }
+      ]
+    },
+    {
+      "id": "activity",
+      "title": "Actividad",
+      "summary": "Relaciona ventas y costo de ventas con inventarios, cuentas por cobrar, cuentas por pagar y activos para medir velocidad y eficiencia.",
+      "sections": [
+        {
+          "id": "activity_core",
+          "title": "Rotación y días promedio",
+          "body": "Las razones de actividad responden cuánto tarda el capital de trabajo en moverse. Una misma empresa puede vender mucho y aun así administrar mal sus inventarios o cobrar demasiado lento.",
+          "bullets": [
+            "Rotación alta suele significar mayor uso eficiente del recurso analizado.",
+            "Los periodos promedio convierten la razón en días, que suele ser más intuitivo para estudiantes y gerencia.",
+            "La lectura debe compararse entre rotaciones de inventario, cobro y pago para entender el ciclo completo."
+          ],
+          "formulas": [
+            {
+              "label": "Rotación de inventario",
+              "tex": "\\text{Rotaci\\'on de inventario}=\\frac{Costo\\ de\\ ventas}{Inventario}"
+            },
+            {
+              "label": "Periodo promedio de cobro",
+              "tex": "\\text{Periodo promedio de cobro}=\\frac{Cuentas\\ por\\ cobrar\\ netas\\times365}{Ventas\\ netas}"
+            },
+            {
+              "label": "Periodo promedio de pago",
+              "tex": "\\text{Periodo promedio de pago}=\\frac{Proveedores\\times365}{Costo\\ de\\ ventas}"
+            }
+          ],
+          "formulaLegend": [
+            { "symbol": "Costo de ventas", "meaning": "Costo de los bienes efectivamente vendidos en el periodo." },
+            { "symbol": "Cuentas por cobrar netas", "meaning": "Clientes menos estimación de incobrables." },
+            { "symbol": "365", "meaning": "Aproximación anual para transformar una rotación en días promedio." }
+          ]
+        },
+        {
+          "id": "activity_teaching",
+          "title": "Qué mirar en conjunto",
+          "body": "Este bloque rara vez debe leerse razón por razón. Lo valioso es conectar inventario, cobro y pago para identificar cuellos de botella del ciclo operativo.",
+          "bullets": [
+            "Si cobras en 75 días pero pagas a proveedores en 30, el ciclo financiero está tensionado.",
+            "Una rotación de activos totales baja puede venir de ventas débiles o de una base de activos sobredimensionada.",
+            "La rotación de activos fijos ayuda a revisar si la capacidad instalada está subutilizada."
+          ],
+          "exampleTable": {
+            "title": "Mini caso guiado",
+            "columns": ["Indicador", "Señal"],
+            "rows": [
+              { "cells": ["Días de inventario altos", "Producto detenido o compras excesivas."] },
+              { "cells": ["Periodo de cobro alto", "Política de crédito laxa o cobranza lenta."] },
+              { "cells": ["Periodo de pago corto", "La empresa usa poco financiamiento espontáneo de proveedores."] }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "debt_coverage",
+      "title": "Endeudamiento y cobertura",
+      "summary": "Evalúa cuánto de la estructura financiera depende de terceros y qué tan cómoda es la cobertura del gasto financiero.",
+      "sections": [
+        {
+          "id": "debt_core",
+          "title": "Exposición y respaldo",
+          "body": "Las razones de endeudamiento muestran apalancamiento estructural. La cobertura de intereses añade una pregunta operativa: ¿el negocio genera utilidad suficiente para sostener su deuda?",
+          "bullets": [
+            "El índice de endeudamiento compara pasivos totales contra activos totales.",
+            "Deuda a patrimonio revela la presión de acreedores frente al capital propio.",
+            "La cobertura de intereses relaciona EBIT con gasto financiero."
+          ],
+          "formulas": [
+            {
+              "label": "Índice de endeudamiento",
+              "tex": "\\text{\\'Indice de endeudamiento}=\\frac{Pasivos\\ totales}{Activos\\ totales}"
+            },
+            {
+              "label": "Deuda a patrimonio",
+              "tex": "\\text{Deuda a patrimonio}=\\frac{Pasivos\\ totales}{Patrimonio}"
+            },
+            {
+              "label": "Cobertura de intereses",
+              "tex": "\\text{Cobertura de intereses}=\\frac{EBIT}{Gasto\\ por\\ intereses}"
+            }
+          ],
+          "formulaLegend": [
+            { "symbol": "Pasivos totales", "meaning": "Suma de obligaciones corrientes y no corrientes." },
+            { "symbol": "Patrimonio", "meaning": "Aporte y utilidades retenidas que pertenecen a los accionistas." },
+            { "symbol": "EBIT", "meaning": "Utilidad operativa antes de intereses e impuestos." }
+          ]
+        },
+        {
+          "id": "debt_teaching",
+          "title": "Lectura prudente",
+          "body": "Más deuda no siempre es mala, pero sí exige revisar estabilidad de ventas, cobertura y flexibilidad de caja.",
+          "bullets": [
+            "Un multiplicador del capital muy alto amplifica el ROE, pero también el riesgo.",
+            "Una cobertura de intereses cercana a 1x deja poco margen ante una caída operativa.",
+            "Comparar deuda y cobertura evita evaluar el apalancamiento desde una sola foto."
+          ],
+          "exampleTable": {
+            "title": "Mini caso guiado",
+            "columns": ["Indicador", "Lectura"],
+            "rows": [
+              { "cells": ["Deuda a patrimonio 1.5x", "Los acreedores financian más que los accionistas."] },
+              { "cells": ["Cobertura de intereses 4.0x", "El EBIT cubre cuatro veces el gasto financiero."] },
+              { "cells": ["Cobertura de intereses 1.2x", "Cualquier caída en operación pone presión inmediata."] }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "profitability",
+      "title": "Rentabilidad",
+      "summary": "Mide la capacidad de convertir ventas y activos en utilidad para accionistas y operación.",
+      "sections": [
+        {
+          "id": "profitability_core",
+          "title": "Márgenes y rendimiento",
+          "body": "Las razones de rentabilidad conectan la calidad del resultado con el volumen de ventas y el tamaño de la base de activos.",
+          "bullets": [
+            "El margen bruto revisa el efecto conjunto de precio, mezcla y costo de ventas.",
+            "El margen operativo muestra cuánto queda después de gastos de venta y administración.",
+            "ROA y ROE conectan la utilidad neta con activos y patrimonio."
+          ],
+          "formulas": [
+            {
+              "label": "Margen bruto",
+              "tex": "\\text{Margen bruto}=\\frac{Utilidad\\ bruta}{Ventas\\ netas}"
+            },
+            {
+              "label": "Margen operativo",
+              "tex": "\\text{Margen operativo}=\\frac{EBIT}{Ventas\\ netas}"
+            },
+            {
+              "label": "ROE",
+              "tex": "\\text{ROE}=\\frac{Utilidad\\ neta}{Patrimonio}"
+            }
+          ],
+          "formulaLegend": [
+            { "symbol": "Utilidad bruta", "meaning": "Ventas netas menos costo de ventas." },
+            { "symbol": "Utilidad neta", "meaning": "Resultado final después de intereses e impuestos." },
+            { "symbol": "ROA / ROE", "meaning": "Rendimientos que conectan utilidad con los recursos invertidos." }
+          ]
+        },
+        {
+          "id": "profitability_teaching",
+          "title": "Errores comunes al interpretar",
+          "body": "No basta con ver un solo margen. Empresas con margen neto modesto pueden tener muy buen ROE si mueven activos con velocidad y usan deuda con prudencia.",
+          "bullets": [
+            "Un margen bruto sano no garantiza utilidad neta si gastos operativos crecen demasiado.",
+            "ROA bajo con rotación alta puede indicar márgenes muy estrechos.",
+            "ROE alto sin revisar deuda puede llevar a una conclusión demasiado optimista."
+          ],
+          "exampleTable": {
+            "title": "Mini caso guiado",
+            "columns": ["Escenario", "Interpretación"],
+            "rows": [
+              { "cells": ["Margen operativo mejora", "La estructura de gastos se está volviendo más eficiente."] },
+              { "cells": ["ROA cae con activos altos", "La empresa está usando más activos sin generar suficiente utilidad."] },
+              { "cells": ["ROE sube por deuda", "El apalancamiento puede estar impulsando el rendimiento del accionista."] }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dupont",
+      "title": "Análisis integral / DuPont",
+      "summary": "Descompone el ROE en margen neto, rotación de activos y multiplicador del capital para explicar de dónde sale el rendimiento.",
+      "sections": [
+        {
+          "id": "dupont_core",
+          "title": "Cómo leer DuPont",
+          "body": "El análisis DuPont evita mirar el ROE como una sola cifra. Permite separar si el rendimiento viene de mejor utilidad sobre ventas, mayor uso de activos o más apalancamiento financiero.",
+          "formulas": [
+            {
+              "label": "Desglose DuPont",
+              "tex": "\\text{ROE}=\\left(\\frac{Utilidad\\ neta}{Ventas\\ netas}\\right)\\times\\left(\\frac{Ventas\\ netas}{Activos\\ totales}\\right)\\times\\left(\\frac{Activos\\ totales}{Patrimonio}\\right)"
+            }
+          ],
+          "formulaLegend": [
+            { "symbol": "Margen neto", "meaning": "Qué parte de cada venta termina como utilidad neta." },
+            { "symbol": "Rotación de activos", "meaning": "Qué tanto venden los activos invertidos." },
+            { "symbol": "Multiplicador del capital", "meaning": "Cuánto activo sostiene cada unidad monetaria de patrimonio." }
+          ]
+        },
+        {
+          "id": "dupont_teaching",
+          "title": "Mini caso guiado y errores comunes",
+          "body": "Si el ROE mejora, DuPont te ayuda a identificar la fuente. Así evitas aplaudir una mejora que en realidad proviene solo de más deuda.",
+          "bullets": [
+            "Si sube el margen neto, la mejora vino de rentabilidad operativa/final.",
+            "Si sube la rotación, la empresa está vendiendo más por cada unidad de activo.",
+            "Si sube el multiplicador, el ROE puede crecer solo por mayor apalancamiento."
+          ],
+          "exampleTable": {
+            "title": "Lectura guiada",
+            "columns": ["Componente", "Pregunta docente"],
+            "rows": [
+              { "cells": ["Margen neto", "¿La empresa convierte mejor sus ventas en utilidad?"] },
+              { "cells": ["Rotación de activos", "¿Los activos generan suficiente volumen de ventas?"] },
+              { "cells": ["Multiplicador del capital", "¿El ROE depende demasiado de la deuda?"] }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "calculator": {
+    "id": "financial_ratios",
+    "title": "Builder contable de razones financieras",
+    "summary": "Arma un estado de resultados y un balance general resumidos. El sistema deriva subtotales, valida el cuadre contable y luego agrupa las razones por familia.",
+    "submitLabel": "Analizar razones",
+    "note": "Completa solo las partidas base. Los subtotales se calculan automáticamente dentro del builder.",
+    "steps": [
+      {
+        "id": "income_statement",
+        "title": "Paso 1 · Estado de resultados",
+        "summary": "Captura ventas, inventarios, compras y gastos para derivar ventas netas, costo de ventas, EBIT y utilidad neta."
+      },
+      {
+        "id": "balance_sheet",
+        "title": "Paso 2 · Balance general",
+        "summary": "Captura la estructura de activos, pasivos y patrimonio. El builder valida que activos = pasivos + patrimonio."
+      },
+      {
+        "id": "results",
+        "title": "Paso 3 · Resultados e interpretación",
+        "summary": "Revisa las razones agrupadas por familia, fórmulas clave y la lectura didáctica de cada indicador."
+      }
+    ],
+    "formulas": [
+      {
+        "label": "Ventas netas",
+        "tex": "\\text{Ventas netas}=Ventas\\ brutas-Descuentos-Devoluciones",
+        "stepIds": ["income_statement"]
+      },
+      {
+        "label": "Costo de ventas",
+        "tex": "\\text{Costo de ventas}=Inventario\\ inicial+Compras\\ netas-Inventario\\ final",
+        "stepIds": ["income_statement"]
+      },
+      {
+        "label": "Utilidad bruta",
+        "tex": "\\text{Utilidad bruta}=Ventas\\ netas-Costo\\ de\\ ventas",
+        "stepIds": ["income_statement"]
+      },
+      {
+        "label": "EBIT",
+        "tex": "\\text{EBIT}=Utilidad\\ bruta-Gastos\\ de\\ venta-Gastos\\ administrativos",
+        "stepIds": ["income_statement"]
+      },
+      {
+        "label": "Utilidad neta",
+        "tex": "\\text{Utilidad neta}=EBIT-Intereses-Impuesto\\ sobre\\ la\\ renta",
+        "stepIds": ["income_statement"]
+      },
+      {
+        "label": "Activos corrientes",
+        "tex": "\\text{Activos corrientes}=Caja+CxC\\ netas+Anticipos+Inventario",
+        "stepIds": ["balance_sheet"]
+      },
+      {
+        "label": "Activos totales",
+        "tex": "\\text{Activos totales}=Activos\\ corrientes+Activos\\ no\\ corrientes",
+        "stepIds": ["balance_sheet"]
+      },
+      {
+        "label": "Pasivos totales",
+        "tex": "\\text{Pasivos totales}=Pasivos\\ corrientes+Pasivos\\ no\\ corrientes",
+        "stepIds": ["balance_sheet"]
+      },
+      {
+        "label": "Ecuación contable",
+        "tex": "\\text{Activos totales}=Pasivos\\ totales+Patrimonio",
+        "stepIds": ["balance_sheet"]
+      },
+      {
+        "label": "Liquidez corriente",
+        "tex": "\\text{Liquidez corriente}=\\frac{Activos\\ corrientes}{Pasivos\\ corrientes}",
+        "groupIds": ["liquidity"]
+      },
+      {
+        "label": "Prueba ácida",
+        "tex": "\\text{Prueba\\ \\acute{a}cida}=\\frac{Activos\\ corrientes-Inventario}{Pasivos\\ corrientes}",
+        "groupIds": ["liquidity"]
+      },
+      {
+        "label": "Rotación de inventario",
+        "tex": "\\text{Rotaci\\'on de inventario}=\\frac{Costo\\ de\\ ventas}{Inventario}",
+        "groupIds": ["activity"]
+      },
+      {
+        "label": "Periodo promedio de pago",
+        "tex": "\\text{Periodo promedio de pago}=\\frac{Proveedores\\times365}{Costo\\ de\\ ventas}",
+        "groupIds": ["activity"]
+      },
+      {
+        "label": "Deuda a patrimonio",
+        "tex": "\\text{Deuda a patrimonio}=\\frac{Pasivos\\ totales}{Patrimonio}",
+        "groupIds": ["debt_coverage"]
+      },
+      {
+        "label": "Cobertura de intereses",
+        "tex": "\\text{Cobertura de intereses}=\\frac{EBIT}{Gasto\\ por\\ intereses}",
+        "groupIds": ["debt_coverage"]
+      },
+      {
+        "label": "Margen operativo",
+        "tex": "\\text{Margen operativo}=\\frac{EBIT}{Ventas\\ netas}",
+        "groupIds": ["profitability"]
+      },
+      {
+        "label": "ROE",
+        "tex": "\\text{ROE}=\\frac{Utilidad\\ neta}{Patrimonio}",
+        "groupIds": ["profitability"]
+      },
+      {
+        "label": "DuPont",
+        "tex": "\\text{ROE}=\\left(\\frac{Utilidad\\ neta}{Ventas\\ netas}\\right)\\times\\left(\\frac{Ventas\\ netas}{Activos\\ totales}\\right)\\times\\left(\\frac{Activos\\ totales}{Patrimonio}\\right)",
+        "groupIds": ["dupont"]
+      }
+    ],
+    "modes": [
+      {
+        "id": "builder",
+        "label": "Builder guiado",
+        "summary": "Captura asistida de estados financieros."
+      }
+    ],
+    "sections": [
+      {
+        "id": "income_sales",
+        "title": "Ventas y costo base",
+        "summary": "Estas partidas alimentan ventas netas y costo de ventas.",
+        "stepId": "income_statement",
+        "fields": [
+          {
+            "id": "grossSales",
+            "label": "Ventas brutas",
+            "hint": "0.0",
+            "helperText": "Total facturado antes de descuentos y devoluciones."
+          },
+          {
+            "id": "salesDiscounts",
+            "label": "Descuentos sobre ventas",
+            "hint": "0.0",
+            "helperText": "Bonificaciones o descuentos otorgados al cliente."
+          },
+          {
+            "id": "salesReturns",
+            "label": "Devoluciones sobre ventas",
+            "hint": "0.0",
+            "helperText": "Mercadería devuelta por el cliente."
+          },
+          {
+            "id": "beginningInventory",
+            "label": "Inventario inicial",
+            "hint": "0.0",
+            "helperText": "Existencias al inicio del periodo."
+          },
+          {
+            "id": "purchases",
+            "label": "Compras",
+            "hint": "0.0",
+            "helperText": "Compras brutas del periodo."
+          },
+          {
+            "id": "purchaseExpenses",
+            "label": "Gastos de compra",
+            "hint": "0.0",
+            "helperText": "Costos directamente asociados a abastecimiento."
+          },
+          {
+            "id": "purchaseDiscounts",
+            "label": "Descuentos sobre compras",
+            "hint": "0.0",
+            "helperText": "Rebajas obtenidas a proveedores."
+          },
+          {
+            "id": "endingInventory",
+            "label": "Inventario final",
+            "hint": "0.0",
+            "helperText": "Existencias al cierre del periodo. Debe coincidir con el inventario que reportes en el balance."
+          }
+        ]
+      },
+      {
+        "id": "income_expenses",
+        "title": "Gastos y resultado final",
+        "summary": "Estas partidas completan el camino desde utilidad bruta hasta utilidad neta.",
+        "stepId": "income_statement",
+        "fields": [
+          {
+            "id": "sellingExpenses",
+            "label": "Gastos de venta",
+            "hint": "0.0",
+            "helperText": "Sueldos, comisiones, fletes y otros gastos comerciales."
+          },
+          {
+            "id": "administrativeExpenses",
+            "label": "Gastos administrativos",
+            "hint": "0.0",
+            "helperText": "Gastos de dirección, oficinas y soporte administrativo."
+          },
+          {
+            "id": "interestExpense",
+            "label": "Gasto por intereses",
+            "hint": "0.0",
+            "helperText": "Costo financiero del endeudamiento."
+          },
+          {
+            "id": "incomeTaxExpense",
+            "label": "Impuesto sobre la renta",
+            "hint": "0.0",
+            "helperText": "Impuesto causado sobre la utilidad del periodo."
+          }
+        ]
+      },
+      {
+        "id": "balance_assets",
+        "title": "Activos corrientes y no corrientes",
+        "summary": "Captura activos líquidos, cuentas por cobrar, inventarios y activos productivos.",
+        "stepId": "balance_sheet",
+        "fields": [
+          {
+            "id": "cashAndCashEquivalents",
+            "label": "Caja y equivalentes",
+            "hint": "0.0",
+            "helperText": "Disponible inmediato y equivalentes de efectivo."
+          },
+          {
+            "id": "accountsReceivable",
+            "label": "Cuentas por cobrar",
+            "hint": "0.0",
+            "helperText": "Saldo de clientes al cierre."
+          },
+          {
+            "id": "allowanceForDoubtfulAccounts",
+            "label": "Estimación de incobrables",
+            "hint": "0.0",
+            "helperText": "Ajuste que reduce las cuentas por cobrar a su valor neto."
+          },
+          {
+            "id": "advancesToSuppliers",
+            "label": "Anticipos a proveedores",
+            "hint": "0.0",
+            "helperText": "Pagos adelantados de corto plazo."
+          },
+          {
+            "id": "inventory",
+            "label": "Inventario",
+            "hint": "0.0",
+            "helperText": "Inventario del balance. Debe ser igual al inventario final del estado de resultados."
+          },
+          {
+            "id": "propertyPlantAndEquipment",
+            "label": "Propiedad, planta y equipo",
+            "hint": "0.0",
+            "helperText": "Valor bruto de activos productivos."
+          },
+          {
+            "id": "accumulatedDepreciation",
+            "label": "Depreciación acumulada",
+            "hint": "0.0",
+            "helperText": "Ajuste acumulado que reduce el activo fijo a valor neto."
+          }
+        ]
+      },
+      {
+        "id": "balance_liabilities",
+        "title": "Pasivos y patrimonio",
+        "summary": "Completa la estructura de financiamiento y valida el cuadre contable.",
+        "stepId": "balance_sheet",
+        "fields": [
+          {
+            "id": "accountsPayable",
+            "label": "Proveedores",
+            "hint": "0.0",
+            "helperText": "Deuda comercial de corto plazo."
+          },
+          {
+            "id": "shortTermBankDebt",
+            "label": "Deuda bancaria CP",
+            "hint": "0.0",
+            "helperText": "Préstamos y sobregiros exigibles en el corto plazo."
+          },
+          {
+            "id": "taxesPayable",
+            "label": "Impuestos por pagar",
+            "hint": "0.0",
+            "helperText": "Pasivos fiscales corrientes."
+          },
+          {
+            "id": "longTermNotesPayable",
+            "label": "Documentos por pagar LP",
+            "hint": "0.0",
+            "helperText": "Deuda documentada de largo plazo."
+          },
+          {
+            "id": "mortgagePayable",
+            "label": "Acreedores hipotecarios",
+            "hint": "0.0",
+            "helperText": "Obligaciones garantizadas con inmuebles."
+          },
+          {
+            "id": "bondsPayable",
+            "label": "Obligaciones por bonos",
+            "hint": "0.0",
+            "helperText": "Pasivos financieros representados por bonos."
+          },
+          {
+            "id": "equity",
+            "label": "Patrimonio",
+            "hint": "0.0",
+            "helperText": "Capital y utilidades retenidas atribuibles a los accionistas."
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "id": "currentRatio",
+        "group": "liquidity",
+        "label": "Liquidez corriente",
+        "formula": "Activos corrientes / Pasivos corrientes",
+        "summary": "Cobertura general de obligaciones de corto plazo.",
+        "format": "ratio",
+        "didacticRanges": [
+          { "label": "Ajustada", "summary": "Cobertura corta; conviene revisar capital de trabajo.", "max": 1.0 },
+          { "label": "Razonable", "summary": "Existe margen operativo aceptable para el corto plazo.", "min": 1.0, "max": 2.0 },
+          { "label": "Holgada", "summary": "La empresa tiene colchón de liquidez; revisa si hay recursos ociosos.", "min": 2.0 }
+        ]
+      },
+      {
+        "id": "quickRatio",
+        "group": "liquidity",
+        "label": "Prueba ácida",
+        "formula": "(Activos corrientes - Inventario) / Pasivos corrientes",
+        "summary": "Liquidez de corto plazo sin depender de vender inventarios.",
+        "format": "ratio",
+        "didacticRanges": [
+          { "label": "Baja", "summary": "Sin inventario, el respaldo inmediato luce frágil.", "max": 1.0 },
+          { "label": "Suficiente", "summary": "La empresa conserva respaldo razonable aun sin vender inventarios.", "min": 1.0 }
+        ]
+      },
+      {
+        "id": "cashRatio",
+        "group": "liquidity",
+        "label": "Razón de efectivo",
+        "formula": "Caja y equivalentes / Pasivos corrientes",
+        "summary": "Cobertura inmediata con efectivo disponible.",
+        "format": "ratio",
+        "didacticRanges": [
+          { "label": "Muy estrecha", "summary": "La caja inmediata luce ajustada y depende del flujo operativo.", "max": 0.2 },
+          { "label": "Moderada", "summary": "Existe respaldo inmediato, pero no necesariamente amplio.", "min": 0.2, "max": 0.5 },
+          { "label": "Fuerte", "summary": "La caja inmediata cubre con comodidad el corto plazo.", "min": 0.5 }
+        ]
+      },
+      {
+        "id": "netWorkingCapital",
+        "group": "liquidity",
+        "label": "Capital de trabajo neto",
+        "formula": "Activos corrientes - Pasivos corrientes",
+        "summary": "Excedente monetario de corto plazo después de cubrir obligaciones corrientes.",
+        "format": "currency"
+      },
+      {
+        "id": "inventoryTurnover",
+        "group": "activity",
+        "label": "Rotación de inventario",
+        "formula": "Costo de ventas / Inventario",
+        "summary": "Frecuencia con la que el inventario se convierte en costo de ventas.",
+        "format": "ratio"
+      },
+      {
+        "id": "daysInventory",
+        "group": "activity",
+        "label": "Días de inventario",
+        "formula": "(Inventario × 365) / Costo de ventas",
+        "summary": "Tiempo promedio que el inventario permanece en bodega.",
+        "format": "days"
+      },
+      {
+        "id": "receivablesTurnover",
+        "group": "activity",
+        "label": "Rotación de cuentas por cobrar",
+        "formula": "Ventas netas / Cuentas por cobrar netas",
+        "summary": "Velocidad con la que la empresa recupera ventas a crédito.",
+        "format": "ratio"
+      },
+      {
+        "id": "averageCollectionPeriod",
+        "group": "activity",
+        "label": "Periodo promedio de cobro",
+        "formula": "(Cuentas por cobrar netas × 365) / Ventas netas",
+        "summary": "Días promedio que tarda la empresa en cobrar a clientes.",
+        "format": "days"
+      },
+      {
+        "id": "payablesTurnover",
+        "group": "activity",
+        "label": "Rotación de cuentas por pagar",
+        "formula": "Costo de ventas / Proveedores",
+        "summary": "Velocidad con la que gira la deuda comercial con proveedores.",
+        "format": "ratio"
+      },
+      {
+        "id": "averagePaymentPeriod",
+        "group": "activity",
+        "label": "Periodo promedio de pago",
+        "formula": "(Proveedores × 365) / Costo de ventas",
+        "summary": "Días promedio que la empresa tarda en pagar a proveedores.",
+        "format": "days"
+      },
+      {
+        "id": "totalAssetTurnover",
+        "group": "activity",
+        "label": "Rotación de activos totales",
+        "formula": "Ventas netas / Activos totales",
+        "summary": "Uso de la base total de activos para generar ventas.",
+        "format": "ratio"
+      },
+      {
+        "id": "fixedAssetTurnover",
+        "group": "activity",
+        "label": "Rotación de activos fijos",
+        "formula": "Ventas netas / Activos fijos netos",
+        "summary": "Uso de la capacidad instalada y activos productivos.",
+        "format": "ratio"
+      },
+      {
+        "id": "debtRatio",
+        "group": "debt_coverage",
+        "label": "Índice de endeudamiento",
+        "formula": "Pasivos totales / Activos totales",
+        "summary": "Proporción del activo financiada con obligaciones frente a terceros.",
+        "format": "percent"
+      },
+      {
+        "id": "debtToEquity",
+        "group": "debt_coverage",
+        "label": "Deuda a patrimonio",
+        "formula": "Pasivos totales / Patrimonio",
+        "summary": "Presión financiera de acreedores frente al capital propio.",
+        "format": "ratio"
+      },
+      {
+        "id": "equityMultiplier",
+        "group": "debt_coverage",
+        "label": "Multiplicador del capital",
+        "formula": "Activos totales / Patrimonio",
+        "summary": "Grado en que el patrimonio apalanca la base total de activos.",
+        "format": "ratio"
+      },
+      {
+        "id": "interestCoverage",
+        "group": "debt_coverage",
+        "label": "Cobertura de intereses",
+        "formula": "EBIT / Gasto por intereses",
+        "summary": "Veces que la utilidad operativa cubre el gasto financiero.",
+        "format": "ratio"
+      },
+      {
+        "id": "grossMargin",
+        "group": "profitability",
+        "label": "Margen bruto",
+        "formula": "Utilidad bruta / Ventas netas",
+        "summary": "Parte de cada venta que queda después del costo de ventas.",
+        "format": "percent"
+      },
+      {
+        "id": "operatingMargin",
+        "group": "profitability",
+        "label": "Margen operativo",
+        "formula": "EBIT / Ventas netas",
+        "summary": "Parte de cada venta que queda después de gastos operativos.",
+        "format": "percent"
+      },
+      {
+        "id": "netMargin",
+        "group": "profitability",
+        "label": "Margen neto",
+        "formula": "Utilidad neta / Ventas netas",
+        "summary": "Parte final de la venta que se convierte en utilidad neta.",
+        "format": "percent"
+      },
+      {
+        "id": "returnOnAssets",
+        "group": "profitability",
+        "label": "ROA",
+        "formula": "Utilidad neta / Activos totales",
+        "summary": "Rendimiento generado por la base total de activos.",
+        "format": "percent"
+      },
+      {
+        "id": "returnOnEquity",
+        "group": "profitability",
+        "label": "ROE",
+        "formula": "Utilidad neta / Patrimonio",
+        "summary": "Rendimiento generado para los accionistas.",
+        "format": "percent"
+      },
+      {
+        "id": "dupontNetMargin",
+        "group": "dupont",
+        "label": "Componente 1 · Margen neto",
+        "formula": "Utilidad neta / Ventas netas",
+        "summary": "Primer motor del ROE en el análisis DuPont.",
+        "format": "percent"
+      },
+      {
+        "id": "dupontAssetTurnover",
+        "group": "dupont",
+        "label": "Componente 2 · Rotación de activos",
+        "formula": "Ventas netas / Activos totales",
+        "summary": "Segundo motor del ROE: eficiencia del activo.",
+        "format": "ratio"
+      },
+      {
+        "id": "dupontEquityMultiplier",
+        "group": "dupont",
+        "label": "Componente 3 · Multiplicador del capital",
+        "formula": "Activos totales / Patrimonio",
+        "summary": "Tercer motor del ROE: intensidad del apalancamiento financiero.",
+        "format": "ratio"
+      },
+      {
+        "id": "dupontReturnOnEquity",
+        "group": "dupont",
+        "label": "ROE por DuPont",
+        "formula": "Margen neto × Rotación de activos × Multiplicador del capital",
+        "summary": "Reconstrucción integrada del rendimiento del accionista.",
+        "format": "percent"
+      }
+    ]
+  }
+}

@@ -1,0 +1,359 @@
+{
+  "id": "shares",
+  "accent": "teal",
+  "eyebrow": "Equity capital",
+  "title": "Shares",
+  "summary": "Share valuation depends on expected dividends, the growth stage, and the return required by investors.",
+  "heroPoints": [
+    "Dividend-based models",
+    "Growth-return relationship",
+    "Stage-based reading",
+    "Preferred shares"
+  ],
+  "topics": [
+    {
+      "id": "zero_growth",
+      "title": "Zero growth",
+      "summary": "Useful when the dividend expected for the next period stays stable over time.",
+      "sections": [
+        {
+          "id": "zero_growth_formula",
+          "title": "Stable model",
+          "body": "If the expected dividend does not change, the share behaves like a simple perpetuity. Today's price comes from dividing the next expected dividend by the required return.",
+          "bullets": [
+            "Use it when no dividend growth is expected.",
+            "The relevant dividend is D1, the next expected dividend.",
+            "As k_s rises, the estimated price falls."
+          ],
+          "formulas": [
+            { "label": "Zero-growth share", "tex": "P_0 = \\frac{D_1}{k_s}" }
+          ]
+        },
+        {
+          "id": "zero_growth_variables",
+          "title": "What each variable means",
+          "body": "Before calculating, clearly separate what each symbol represents in the model.",
+          "exampleTable": {
+            "title": "Model variables",
+            "columns": ["Variable", "Meaning", "How to read it"],
+            "rows": [
+              { "cells": ["P₀", "Share price today", "It is the present value you want to estimate."] },
+              { "cells": ["D₁", "Expected dividend next year", "Not the historical dividend, but the next expected cash flow."] },
+              { "cells": ["k_s", "Required return", "Return investors demand for taking the share's risk."] }
+            ],
+            "footnote": "This model is useful when dividend policy is very stable and no growth is expected."
+          }
+        },
+        {
+          "id": "zero_growth_use",
+          "title": "When to use it and what to avoid",
+          "body": "It is a simple model, but it only works well when its assumptions hold.",
+          "bullets": [
+            "Use it when the company pays regular dividends with no expected growth.",
+            "Do not confuse D₁ with the last dividend paid if the problem asks for the next dividend.",
+            "If the business is growing, move to a growth model instead."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "constant_growth",
+      "title": "Constant growth",
+      "summary": "Useful when the company can sustain a growth rate lower than the required return.",
+      "sections": [
+        {
+          "id": "constant_growth_formula",
+          "title": "Gordon model",
+          "body": "When the company grows at a constant rate g, today's price comes from discounting a growing perpetuity. The key condition is that g must remain below k_s.",
+          "bullets": [
+            "D₁ represents the next expected dividend.",
+            "The difference k_s - g concentrates the relationship between risk and growth.",
+            "If g gets too close to k_s, price becomes very sensitive."
+          ],
+          "formulas": [
+            { "label": "Constant-growth share", "tex": "P_0 = \\frac{D_1}{k_s-g}" }
+          ]
+        },
+        {
+          "id": "constant_growth_variables",
+          "title": "Variables and financial reading",
+          "body": "The model does not only produce a price. It also shows how expected growth can lift the value of the share.",
+          "exampleTable": {
+            "title": "Variable reading",
+            "columns": ["Variable", "Meaning", "Effect on price"],
+            "rows": [
+              { "cells": ["D₁", "Next expected dividend", "Higher expected dividend means higher price."] },
+              { "cells": ["k_s", "Required return", "Higher required return means lower price."] },
+              { "cells": ["g", "Constant growth rate", "Higher sustainable growth means higher price."] }
+            ],
+            "footnote": "The model loses validity if g is equal to or greater than k_s."
+          }
+        },
+        {
+          "id": "constant_growth_case",
+          "title": "Mini guided case",
+          "body": "If D₁ = 3, k_s = 15%, and g = 5%, the denominator becomes 10% and the estimated price is 30.",
+          "exampleTable": {
+            "title": "Case reading",
+            "columns": ["Data", "Value", "Interpretation"],
+            "rows": [
+              { "cells": ["D₁", "3", "Next expected cash flow for shareholders."] },
+              { "cells": ["k_s", "15%", "Return required for the share's risk."] },
+              { "cells": ["g", "5%", "Sustainable growth in dividends."] },
+              { "cells": ["P₀", "30", "Current estimated value under constant growth."] }
+            ],
+            "footnote": "The key lesson is not memorizing 30, but understanding that the spread between k_s and g drives value."
+          }
+        }
+      ]
+    },
+    {
+      "id": "variable_growth",
+      "title": "Variable growth",
+      "summary": "Used when the company moves from a high-growth phase to a more stable terminal rate.",
+      "sections": [
+        {
+          "id": "variable_growth_steps",
+          "title": "Calculation logic by stages",
+          "body": "In this model a single formula is not enough. First project dividends during the initial phase and then compute a terminal value using a more stable rate.",
+          "bullets": [
+            "The dividend input is D₀, the last dividend already paid.",
+            "g₁ can be a high rate during a short initial phase.",
+            "The terminal rate g₂ must be lower than k_s for the terminal value to make sense."
+          ],
+          "formulas": [
+            { "label": "Dividends during the initial phase", "tex": "D_t = D_0(1+g_1)^t" },
+            { "label": "Terminal value", "tex": "P_N = \\frac{D_{N+1}}{k_s-g_2}" }
+          ]
+        },
+        {
+          "id": "variable_growth_process",
+          "title": "How to solve it step by step",
+          "body": "This is the most useful model for companies in transition, but it also requires the most structure.",
+          "bullets": [
+            "Project dividends from t = 1 through t = N using g₁.",
+            "Discount each of those dividends to the present using k_s.",
+            "Compute Dₙ₊₁ with the terminal growth rate g₂ and then estimate Pₙ.",
+            "Discount Pₙ to the present and add it to the discounted dividends."
+          ]
+        },
+        {
+          "id": "variable_growth_variables",
+          "title": "Model variables by stage",
+          "body": "Here it is not enough to identify one dividend and one rate. You must separate the initial phase from the terminal phase.",
+          "exampleTable": {
+            "title": "Key variables",
+            "columns": ["Variable", "Meaning", "Comment"],
+            "rows": [
+              { "cells": ["D₀", "Last dividend paid", "It is the base used to project D₁, D₂, and so on."] },
+              { "cells": ["g₁", "Initial growth", "It can be higher than the terminal rate and last only a few periods."] },
+              { "cells": ["N", "Number of high-growth periods", "Marks the end of the first stage."] },
+              { "cells": ["g₂", "Terminal growth", "It must be lower than k_s for the terminal value to be valid."] },
+              { "cells": ["k_s", "Required return", "Used to discount both dividends and terminal value."] }
+            ],
+            "footnote": "This model teaches that not every company grows at the same rate forever."
+          }
+        }
+      ]
+    },
+    {
+      "id": "preferred_share",
+      "title": "Preferred shares",
+      "summary": "If the preferred dividend is fixed, valuation resembles a simple perpetuity.",
+      "sections": [
+        {
+          "id": "preferred_share_formula",
+          "title": "Preferred dividends",
+          "body": "Preferred shares usually pay a fixed dividend. If that cash flow is stable, valuation follows a perpetuity structure.",
+          "bullets": [
+            "The relevant dividend here is D, not D₀ or D₁.",
+            "No dividend growth is assumed.",
+            "The required return reflects the risk of the preferred instrument."
+          ],
+          "formulas": [
+            { "label": "Preferred share", "tex": "P_0 = \\frac{D}{k_s}" }
+          ]
+        },
+        {
+          "id": "preferred_share_variables",
+          "title": "What to watch in a preferred share",
+          "body": "Even though the formula is simple, you still need to separate the fixed cash flow from the rate demanded by the market.",
+          "exampleTable": {
+            "title": "Model variables",
+            "columns": ["Variable", "Meaning", "How to read it"],
+            "rows": [
+              { "cells": ["P₀", "Current price", "Value of the preferred share today."] },
+              { "cells": ["D", "Fixed preferred dividend", "Periodic cash flow promised to investors."] },
+              { "cells": ["k_s", "Required return", "Return that compensates for the instrument's risk."] }
+            ],
+            "footnote": "Conceptually it resembles the zero-growth model, but here the fixed dividend is treated as a perpetual preferred payment."
+          }
+        }
+      ]
+    }
+  ],
+  "calculator": {
+    "id": "share_value",
+    "title": "Share calculator",
+    "summary": "Choose the right model and use the dividend definition, growth, and required return that belong to that case.",
+    "note": "Each mode uses a different dividend input: D₁ for zero and constant growth, D₀ for variable growth, and D for preferred shares.",
+    "submitLabel": "Calculate share value",
+    "modes": [
+      {
+        "id": "zero_growth",
+        "label": "Zero growth",
+        "summary": "Simple perpetuity with fixed D₁ and no growth."
+      },
+      {
+        "id": "constant_growth",
+        "label": "Constant growth",
+        "summary": "Gordon model with D₁ and a growth rate g lower than k_s."
+      },
+      {
+        "id": "variable_growth",
+        "label": "Variable growth",
+        "summary": "Two stages: an initial phase with g₁ and a terminal phase with g₂."
+      },
+      {
+        "id": "preferred_share",
+        "label": "Preferred",
+        "summary": "Perpetuity with fixed dividend D and no growth."
+      }
+    ],
+    "sections": [
+      {
+        "id": "zero_growth_base",
+        "title": "Model inputs",
+        "modeIds": ["zero_growth"],
+        "fields": [
+          {
+            "id": "dividend",
+            "label": "Expected dividend next year (D₁)",
+            "hint": "3.0",
+            "helperText": "Use the next expected dividend, not the historical one."
+          },
+          {
+            "id": "requiredReturn",
+            "label": "Required return (k_s, %)",
+            "hint": "15",
+            "helperText": "Return investors demand for the share's risk."
+          }
+        ]
+      },
+      {
+        "id": "constant_growth_base",
+        "title": "Model inputs",
+        "modeIds": ["constant_growth"],
+        "fields": [
+          {
+            "id": "dividend",
+            "label": "Expected dividend next year (D₁)",
+            "hint": "3.0",
+            "helperText": "This model starts from the next expected dividend."
+          },
+          {
+            "id": "requiredReturn",
+            "label": "Required return (k_s, %)",
+            "hint": "15",
+            "helperText": "It must stay above the constant growth rate."
+          }
+        ]
+      },
+      {
+        "id": "constant_growth_rate",
+        "title": "Growth",
+        "modeIds": ["constant_growth"],
+        "fields": [
+          {
+            "id": "initialGrowthRate",
+            "label": "Constant growth rate (g, %)",
+            "hint": "5",
+            "helperText": "Use a sustainable rate that remains below k_s."
+          }
+        ]
+      },
+      {
+        "id": "variable_growth_base",
+        "title": "Starting point",
+        "modeIds": ["variable_growth"],
+        "fields": [
+          {
+            "id": "dividend",
+            "label": "Last dividend paid (D₀)",
+            "hint": "1.5",
+            "helperText": "This model starts from the last dividend already paid."
+          },
+          {
+            "id": "requiredReturn",
+            "label": "Required return (k_s, %)",
+            "hint": "15",
+            "helperText": "It is used to discount projected dividends and terminal value."
+          }
+        ]
+      },
+      {
+        "id": "variable_growth_inputs",
+        "title": "Growth stages",
+        "modeIds": ["variable_growth"],
+        "fields": [
+          {
+            "id": "initialGrowthRate",
+            "label": "Initial growth (g₁, %)",
+            "hint": "10",
+            "helperText": "Rate used only during the first stage."
+          },
+          {
+            "id": "periods",
+            "label": "Number of periods (N)",
+            "hint": "3",
+            "acceptsDecimal": false,
+            "helperText": "Number of years in the first stage."
+          },
+          {
+            "id": "terminalGrowthRate",
+            "label": "Terminal growth (g₂, %)",
+            "hint": "5",
+            "helperText": "It must be lower than k_s for the terminal value to stay valid."
+          }
+        ]
+      },
+      {
+        "id": "preferred_base",
+        "title": "Model inputs",
+        "modeIds": ["preferred_share"],
+        "fields": [
+          {
+            "id": "dividend",
+            "label": "Annual preferred dividend (D)",
+            "hint": "8.0",
+            "helperText": "Fixed cash flow paid by the preferred share."
+          },
+          {
+            "id": "requiredReturn",
+            "label": "Required return (k_s, %)",
+            "hint": "12",
+            "helperText": "Return demanded for the preferred security's risk."
+          }
+        ]
+      }
+    ],
+    "results": [
+      { "id": "presentValue", "label": "Estimated present value" },
+      {
+        "id": "terminalDividend",
+        "label": "Terminal dividend",
+        "modeIds": ["variable_growth"]
+      },
+      {
+        "id": "terminalPrice",
+        "label": "Terminal price",
+        "modeIds": ["variable_growth"]
+      },
+      {
+        "id": "terminalPresentValue",
+        "label": "Terminal present value",
+        "modeIds": ["variable_growth"]
+      }
+    ]
+  }
+}

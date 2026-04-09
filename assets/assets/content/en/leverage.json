@@ -1,0 +1,410 @@
+{
+  "id": "leverage",
+  "accent": "lime",
+  "eyebrow": "Earnings sensitivity",
+  "title": "Leverage",
+  "summary": "Leverage shows how strongly earnings react when sales, fixed costs, or financial commitments change.",
+  "heroPoints": [
+    "Operating",
+    "Financial",
+    "Total",
+    "Amplified risk"
+  ],
+  "topics": [
+    {
+      "id": "operating_leverage",
+      "title": "Operating leverage",
+      "summary": "Explains how fixed costs make EBIT react more strongly than sales.",
+      "sections": [
+        {
+          "id": "operating_formula",
+          "title": "Degree of operating leverage",
+          "body": "DOL compares total contribution margin with EBIT. It is useful when you want to measure how sensitive operations are before interest and taxes.",
+          "bullets": [
+            "The higher the weight of fixed costs, the more EBIT is amplified when sales change.",
+            "DOL does not measure profitability by itself. It measures sensitivity."
+          ],
+          "formulas": [
+            {
+              "label": "DOL",
+              "tex": "DOL = \\frac{Q(P-VC)}{Q(P-VC)-FC}"
+            },
+            {
+              "label": "Operating EBIT",
+              "tex": "EBIT = Q(P-VC)-FC"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "Q",
+              "meaning": "units sold during the period"
+            },
+            {
+              "symbol": "P",
+              "meaning": "selling price per unit"
+            },
+            {
+              "symbol": "VC",
+              "meaning": "variable cost per unit"
+            },
+            {
+              "symbol": "FC",
+              "meaning": "total fixed costs"
+            },
+            {
+              "symbol": "Q(P-VC)",
+              "meaning": "total contribution margin"
+            }
+          ]
+        },
+        {
+          "id": "operating_variables",
+          "title": "What each part means",
+          "body": "The DOL logic becomes easier when you first separate revenue, variable costs, and fixed costs.",
+          "bullets": [
+            "Total contribution margin shows how much remains to cover fixed costs and create EBIT.",
+            "Once fixed costs are covered, each extra sale pushes EBIT faster.",
+            "If EBIT is close to zero, DOL spikes and the company becomes more fragile."
+          ],
+          "exampleTable": {
+            "title": "Quick reading of the operating structure",
+            "columns": [
+              "Element",
+              "Interpretation"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "High contribution margin",
+                  "Each extra unit helps more with fixed costs"
+                ]
+              },
+              {
+                "cells": [
+                  "High fixed costs",
+                  "More EBIT sensitivity"
+                ]
+              },
+              {
+                "cells": [
+                  "Small EBIT",
+                  "More operating fragility"
+                ]
+              }
+            ],
+            "footnote": "That is why operating leverage is usually higher in businesses with heavy plant, logistics, or fixed infrastructure."
+          }
+        },
+        {
+          "id": "operating_case",
+          "title": "Mini guided case",
+          "body": "Assume you sell 1,200 units at 30 each, with a variable cost of 18 per unit and fixed costs of 9,000.",
+          "bullets": [
+            "First compute total contribution margin: 1,200(30-18) = 14,400.",
+            "Then compute EBIT: 14,400 - 9,000 = 5,400.",
+            "Finally compute DOL: 14,400 / 5,400 = 2.67.",
+            "That means a 1% change in sales would move EBIT by roughly 2.67%."
+          ]
+        },
+        {
+          "id": "operating_mistakes",
+          "title": "Common mistakes",
+          "body": "These mistakes usually appear when students first study DOL.",
+          "bullets": [
+            "Confusing unit variable cost with total variable cost.",
+            "Entering sales revenue in Q when the formula expects units.",
+            "Interpreting DOL when EBIT is zero or negative.",
+            "Assuming that a high DOL is always good, when it also means higher risk."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "financial_leverage",
+      "title": "Financial leverage",
+      "summary": "Describes how debt, interest, and preferred dividends amplify earnings available to common shareholders.",
+      "sections": [
+        {
+          "id": "financial_formula",
+          "title": "Degree of financial leverage",
+          "body": "DFL compares EBIT with the base that remains available to common shareholders after financial commitments are covered.",
+          "bullets": [
+            "Interest and preferred dividends do not move directly with sales, so they make common-shareholder earnings more sensitive.",
+            "The smaller the base available to common shareholders, the higher DFL becomes."
+          ],
+          "formulas": [
+            {
+              "label": "DFL",
+              "tex": "DFL = \\frac{EBIT}{EBIT-I-PD\\left(\\frac{1}{1-T}\\right)}"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "EBIT",
+              "meaning": "earnings before interest and taxes"
+            },
+            {
+              "symbol": "I",
+              "meaning": "interest expense for the period"
+            },
+            {
+              "symbol": "PD",
+              "meaning": "preferred dividends"
+            },
+            {
+              "symbol": "T",
+              "meaning": "tax rate expressed as a decimal"
+            }
+          ]
+        },
+        {
+          "id": "financial_variables",
+          "title": "What DFL tells you",
+          "body": "DFL does not focus on sales. It focuses on how earnings available to common shareholders react when EBIT changes.",
+          "bullets": [
+            "If DFL = 2.5, a 1% change in EBIT causes roughly a 2.5% change in earnings available to common shareholders.",
+            "Financial risk rises when interest and preferred dividends consume a large share of EBIT.",
+            "That is why a debt-heavy structure can raise expected return but also raise fragility."
+          ],
+          "exampleTable": {
+            "title": "Quick reading of DFL",
+            "columns": [
+              "Scenario",
+              "Interpretation"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "DFL close to 1",
+                  "Low financial sensitivity"
+                ]
+              },
+              {
+                "cells": [
+                  "DFL between 1.5 and 3",
+                  "Moderate financial sensitivity"
+                ]
+              },
+              {
+                "cells": [
+                  "DFL above 3",
+                  "High financial sensitivity"
+                ]
+              }
+            ],
+            "footnote": "A high DFL can help in favorable scenarios, but it also increases the penalty when EBIT drops."
+          }
+        },
+        {
+          "id": "financial_case",
+          "title": "Mini guided case",
+          "body": "Assume EBIT is 10,000, interest is 2,000, preferred dividends are 2,400, and the tax rate is 40%.",
+          "bullets": [
+            "First adjust preferred dividends for taxes: 2,400 × (1 / 0.60) = 4,000.",
+            "Then compute the base available to common shareholders: 10,000 - 2,000 - 4,000 = 4,000.",
+            "Finally compute DFL: 10,000 / 4,000 = 2.5.",
+            "That means earnings available to common shareholders move 2.5 times faster than EBIT."
+          ]
+        },
+        {
+          "id": "financial_mistakes",
+          "title": "Common mistakes",
+          "body": "These issues often appear in classroom exercises.",
+          "bullets": [
+            "Using net income instead of EBIT.",
+            "Forgetting to adjust preferred dividends for taxes.",
+            "Entering the tax rate as 0.40 when the field expects 40.",
+            "Accepting any result without checking whether the common-shareholder base remains positive."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "combined_leverage",
+      "title": "Combined leverage",
+      "summary": "Combines operations and financing to show how much earnings per share may change when sales change.",
+      "sections": [
+        {
+          "id": "combined_formula",
+          "title": "Degree of combined leverage",
+          "body": "DCL joins the operating and financial effects. Use it when you want to connect sales with earnings per share or earnings available to common shareholders.",
+          "bullets": [
+            "DCL summarizes two different decisions: cost structure and financing structure.",
+            "If both degrees are high, total sensitivity multiplies."
+          ],
+          "formulas": [
+            {
+              "label": "DCL",
+              "tex": "DCL = DOL \\times DFL"
+            },
+            {
+              "label": "Percentage reading",
+              "tex": "DCL = \\frac{\\%\\Delta EPS}{\\%\\Delta Sales}"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "DOL",
+              "meaning": "degree of operating leverage"
+            },
+            {
+              "symbol": "DFL",
+              "meaning": "degree of financial leverage"
+            },
+            {
+              "symbol": "DCL",
+              "meaning": "degree of combined leverage"
+            },
+            {
+              "symbol": "EPS",
+              "meaning": "earnings per share or common-shareholder earnings per share"
+            }
+          ]
+        },
+        {
+          "id": "combined_reading",
+          "title": "How to interpret it",
+          "body": "DCL tells you how much shareholder earnings change when sales change by 1%.",
+          "bullets": [
+            "If DCL = 4, a 1% change in sales can cause roughly a 4% change in earnings per share.",
+            "This does not mean the firm always earns more. It means the final result becomes more sensitive.",
+            "A high DCL may be attractive in expansion, but also riskier in slowdown."
+          ],
+          "exampleTable": {
+            "title": "Example of the combined effect",
+            "columns": [
+              "Input",
+              "Value"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "DOL",
+                  "2.2"
+                ]
+              },
+              {
+                "cells": [
+                  "DFL",
+                  "1.8"
+                ]
+              },
+              {
+                "cells": [
+                  "DCL",
+                  "3.96"
+                ]
+              }
+            ],
+            "footnote": "That DCL suggests that a 5% sales change could move earnings per share by about 19.8%."
+          }
+        },
+        {
+          "id": "combined_use",
+          "title": "When it is useful",
+          "body": "DCL is useful for strategy, not just for solving exercises.",
+          "bullets": [
+            "Compare firms with different cost structures and debt levels.",
+            "Evaluate whether an increase in total risk is still reasonable for the business.",
+            "Understand why an asset-heavy and highly levered firm may have very volatile outcomes."
+          ]
+        }
+      ]
+    }
+  ],
+  "calculator": {
+    "id": "leverage",
+    "title": "Leverage calculator",
+    "summary": "Evaluate operating or financial sensitivity with a guided flow that changes by leverage type.",
+    "submitLabel": "Calculate leverage",
+    "note": "The degree tells you how many times a percentage change is amplified in the model's base outcome.",
+    "modes": [
+      {
+        "id": "operating",
+        "label": "Operating",
+        "summary": "Starts from sales, contribution margin, and fixed costs to estimate EBIT sensitivity."
+      },
+      {
+        "id": "financial",
+        "label": "Financial",
+        "summary": "Starts from EBIT, interest, preferred dividends, and taxes to measure financial sensitivity."
+      }
+    ],
+    "sections": [
+      {
+        "id": "operating_fields",
+        "title": "Operating leverage inputs",
+        "modeIds": [
+          "operating"
+        ],
+        "fields": [
+          {
+            "id": "salesVolume",
+            "label": "Q Units sold",
+            "hint": "1200",
+            "acceptsDecimal": false,
+            "helperText": "Number of units you expect to sell during the period."
+          },
+          {
+            "id": "salePrice",
+            "label": "P Selling price per unit",
+            "hint": "30",
+            "helperText": "Selling price of each unit."
+          },
+          {
+            "id": "variableCost",
+            "label": "VC Variable cost per unit",
+            "hint": "18",
+            "helperText": "Cost that changes directly with each unit sold."
+          },
+          {
+            "id": "fixedCost",
+            "label": "FC Total fixed costs",
+            "hint": "9000",
+            "helperText": "Costs that do not change with volume inside the relevant range."
+          }
+        ]
+      },
+      {
+        "id": "financial_fields",
+        "title": "Financial leverage inputs",
+        "modeIds": [
+          "financial"
+        ],
+        "fields": [
+          {
+            "id": "earningsBeforeInterestAndTaxes",
+            "label": "EBIT",
+            "hint": "10000",
+            "helperText": "Earnings before interest and taxes."
+          },
+          {
+            "id": "interest",
+            "label": "I Interest expense",
+            "hint": "2000",
+            "helperText": "Interest payments committed for the period."
+          },
+          {
+            "id": "preferredDividends",
+            "label": "PD Preferred dividends",
+            "hint": "2400",
+            "helperText": "Dividends that must be paid to preferred shareholders."
+          },
+          {
+            "id": "taxRate",
+            "label": "T Tax rate",
+            "hint": "40",
+            "suffix": "%",
+            "helperText": "Enter the tax rate as a percentage. The formula will convert it to decimal form."
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "id": "degree",
+        "label": "Estimated degree"
+      }
+    ]
+  }
+}

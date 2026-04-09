@@ -1,0 +1,194 @@
+{
+  "id": "bonds",
+  "accent": "blue",
+  "eyebrow": "Instrumentos de deuda",
+  "title": "Bonos",
+  "summary": "Un bono vale el presente de los cupones y del valor a la par descontados al rendimiento requerido por el mercado.",
+  "heroPoints": [
+    "Descuento de flujos",
+    "Sensibilidad a la tasa requerida",
+    "Base para decisiones de inversión"
+  ],
+  "topics": [
+    {
+      "id": "bond_valuation",
+      "title": "Valuación e interpretación del bono",
+      "summary": "Aprende qué representa cada variable, cómo se descuenta cada flujo y cómo interpretar si el bono cotiza con prima, a la par o con descuento.",
+      "sections": [
+        {
+          "id": "bond_core",
+          "title": "Idea central",
+          "body": "El valor del bono surge al descontar cada pago periódico y el principal final con el rendimiento requerido del inversionista. Antes de usar la fórmula, conviene leer cada símbolo como si fuera una parte del problema.",
+          "bullets": [
+            "B₀: precio del bono hoy. Es el valor presente que estás tratando de estimar.",
+            "I: cupón anual en dinero. Representa el pago periódico que recibes cada año.",
+            "N: años al vencimiento. Indica cuántos periodos faltan hasta recuperar el principal.",
+            "k_d: rendimiento requerido. Es la tasa que exige el mercado según el riesgo del bono.",
+            "M: valor a la par o principal. Es el monto que el emisor devuelve al final."
+          ],
+          "formulas": [
+            {
+              "label": "Valor presente del bono",
+              "tex": "B_0 = I\\sum_{t=1}^{N}\\frac{1}{(1+k_d)^t}+\\frac{M}{(1+k_d)^N}"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "B₀",
+              "meaning": "precio del bono hoy. Es el valor presente que estás tratando de calcular."
+            },
+            {
+              "symbol": "I",
+              "meaning": "cupón anual en dinero. Es el pago periódico que recibes cada año."
+            },
+            {
+              "symbol": "N",
+              "meaning": "años al vencimiento. Indica cuántos periodos faltan para recuperar el principal."
+            },
+            {
+              "symbol": "k_d",
+              "meaning": "rendimiento requerido por el mercado. Es la tasa que exige el inversionista según el riesgo del bono."
+            },
+            {
+              "symbol": "M",
+              "meaning": "valor a la par o principal. Es el monto que el emisor devuelve al final."
+            }
+          ],
+          "exampleTable": {
+            "title": "Lectura rápida",
+            "columns": ["Escenario", "Interpretación"],
+            "rows": [
+              { "cells": ["Cupón > rendimiento", "Precio con prima"] },
+              { "cells": ["Cupón = rendimiento", "Precio cercano al valor a la par"] },
+              { "cells": ["Cupón < rendimiento", "Precio con descuento"] }
+            ],
+            "footnote": "La sensibilidad aumenta mientras más largo sea el plazo al vencimiento."
+          }
+        },
+        {
+          "id": "bond_variables",
+          "title": "Qué significa cada variable",
+          "body": "Antes de usar la fórmula, conviene entender qué representa cada símbolo y cómo se conecta con los datos del problema.",
+          "exampleTable": {
+            "title": "Variables de la fórmula",
+            "columns": ["Variable", "Significado", "Cómo leerla"],
+            "rows": [
+              { "cells": ["B₀", "Precio del bono hoy", "Es el valor presente que estás buscando."] },
+              { "cells": ["I", "Cupón anual en dinero", "Si el bono paga 8% sobre 1000, entonces I = 80."] },
+              { "cells": ["N", "Años al vencimiento", "Cantidad de años restantes hasta recuperar el principal."] },
+              { "cells": ["k_d", "Rendimiento requerido", "Tasa que exige el mercado según el riesgo del bono."] },
+              { "cells": ["M", "Valor a la par", "Monto que se devuelve al vencimiento, por ejemplo 1000."] }
+            ],
+            "footnote": "En esta app usamos un modelo base con cupones anuales para que el cálculo sea más fácil de aprender."
+          }
+        },
+        {
+          "id": "bond_process",
+          "title": "Cómo leer la fórmula paso a paso",
+          "body": "La valuación del bono no ocurre en una sola operación mental. Conviene separar el problema en flujos, tiempo y descuento.",
+          "bullets": [
+            "Primero identifica el cupón anual I: es el dinero que recibes cada año mientras el bono siga vigente.",
+            "Luego ubica el plazo N: indica cuántas veces vas a descontar esos cupones antes del vencimiento.",
+            "Después fija k_d: es la tasa que exige el mercado y funciona como costo de oportunidad del inversionista.",
+            "Finalmente suma el valor presente de todos los cupones más el valor presente del principal M."
+          ],
+          "formulas": [
+            {
+              "label": "Lectura de los flujos",
+              "tex": "B_0 = \\underbrace{\\frac{I}{(1+k_d)^1}+\\frac{I}{(1+k_d)^2}+\\cdots+\\frac{I}{(1+k_d)^N}}_{\\text{cupones}}+\\underbrace{\\frac{M}{(1+k_d)^N}}_{\\text{principal al vencimiento}}"
+            }
+          ]
+        },
+        {
+          "id": "bond_guided_case",
+          "title": "Mini caso guiado",
+          "body": "Supón un bono con valor a la par de 1000, cupón anual de 80, plazo de 5 años y rendimiento requerido del 10%.",
+          "exampleTable": {
+            "title": "Datos y lectura del caso",
+            "columns": ["Dato", "Valor", "Lectura"],
+            "rows": [
+              { "cells": ["I", "80", "Cada año el bono paga 80 en intereses."] },
+              { "cells": ["N", "5", "Hay 5 cupones por descontar."] },
+              { "cells": ["M", "1000", "Al final recuperas el principal."] },
+              { "cells": ["k_d", "10%", "El mercado exige un rendimiento mayor al cupón implícito."] }
+            ],
+            "footnote": "Como el cupón implícito es 8% y el mercado exige 10%, el precio tenderá a quedar por debajo de 1000."
+          }
+        },
+        {
+          "id": "bond_common_mistakes",
+          "title": "Errores comunes al estudiar bonos",
+          "body": "Muchos errores vienen de mezclar tasas con montos o de interpretar mal el rendimiento requerido.",
+          "bullets": [
+            "Confundir el cupón anual en dinero con la tasa cupón. En esta calculadora I se ingresa como monto, no como porcentaje.",
+            "Usar la tasa cupón como si fuera k_d. El rendimiento requerido depende del mercado y del riesgo, no del contrato original.",
+            "Olvidar que el principal M solo se recibe al final y por eso se descuenta una sola vez en N.",
+            "Pensar que un bono con precio menor a 1000 es “malo”. En realidad puede reflejar que el mercado exige un retorno mayor."
+          ]
+        }
+      ]
+    }
+  ],
+  "calculator": {
+    "id": "bond_value",
+    "title": "Calculadora de bonos",
+    "summary": "Ingresa el monto del cupón anual, el plazo, el valor a la par y el rendimiento requerido para estimar el valor presente del bono.",
+    "note": "Supuesto base: esta calculadora usa cupones anuales y devuelve el valor a la par al vencimiento.",
+    "submitLabel": "Calcular valor del bono",
+    "formulas": [
+      {
+        "label": "Fórmula usada",
+        "tex": "B_0 = I\\sum_{t=1}^{N}\\frac{1}{(1+k_d)^t}+\\frac{M}{(1+k_d)^N}"
+      }
+    ],
+    "modes": [
+      {
+        "id": "standard",
+        "label": "Valuación estándar",
+        "summary": "Usa un cupón anual y descuento compuesto."
+      }
+    ],
+    "sections": [
+      {
+        "id": "bond_cash_flow",
+        "title": "1. Flujo del bono",
+        "fields": [
+          {
+            "id": "annualInterest",
+            "label": "Cupón anual (monto)",
+            "hint": "80",
+            "helperText": "Monto del pago anual. Si el bono paga 8% sobre 1000, ingresa 80."
+          },
+          {
+            "id": "parValue",
+            "label": "Valor a la par",
+            "hint": "1000",
+            "helperText": "Monto que el emisor devuelve al vencimiento."
+          }
+        ]
+      },
+      {
+        "id": "bond_market_context",
+        "title": "2. Tiempo y rendimiento requerido",
+        "fields": [
+          {
+            "id": "yearsToMaturity",
+            "label": "Años al vencimiento",
+            "hint": "5",
+            "acceptsDecimal": false,
+            "helperText": "Usa años completos para esta versión de la calculadora."
+          },
+          {
+            "id": "requiredReturn",
+            "label": "Rendimiento requerido (%)",
+            "hint": "10",
+            "helperText": "Tasa que exige el mercado al bono según su riesgo, no la tasa cupón."
+          }
+        ]
+      }
+    ],
+    "results": [
+      { "id": "presentValue", "label": "Valor presente estimado" }
+    ]
+  }
+}

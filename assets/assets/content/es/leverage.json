@@ -1,0 +1,410 @@
+{
+  "id": "leverage",
+  "accent": "lime",
+  "eyebrow": "Sensibilidad del beneficio",
+  "title": "Apalancamiento",
+  "summary": "El apalancamiento muestra cuánto se amplifica el beneficio cuando cambian ventas, costos fijos o compromisos financieros.",
+  "heroPoints": [
+    "Operativo",
+    "Financiero",
+    "Total",
+    "Riesgo amplificado"
+  ],
+  "topics": [
+    {
+      "id": "operating_leverage",
+      "title": "Apalancamiento operativo",
+      "summary": "Explica cómo los costos fijos hacen que el EBIT reaccione con más fuerza que las ventas.",
+      "sections": [
+        {
+          "id": "operating_formula",
+          "title": "Grado de apalancamiento operativo",
+          "body": "El GAO compara el margen de contribución total con el EBIT. Es útil cuando quieres medir cuán sensible es la operación antes de intereses e impuestos.",
+          "bullets": [
+            "Mientras más alto sea el peso de los costos fijos, más se amplifica el EBIT ante cambios en ventas.",
+            "El GAO no mide rentabilidad por sí solo: mide sensibilidad."
+          ],
+          "formulas": [
+            {
+              "label": "GAO",
+              "tex": "GAO = \\frac{Q(P-CV)}{Q(P-CV)-CF}"
+            },
+            {
+              "label": "EBIT operativo",
+              "tex": "EBIT = Q(P-CV)-CF"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "Q",
+              "meaning": "unidades vendidas en el periodo"
+            },
+            {
+              "symbol": "P",
+              "meaning": "precio de venta por unidad"
+            },
+            {
+              "symbol": "CV",
+              "meaning": "costo variable por unidad"
+            },
+            {
+              "symbol": "CF",
+              "meaning": "costos fijos totales"
+            },
+            {
+              "symbol": "Q(P-CV)",
+              "meaning": "margen de contribución total"
+            }
+          ]
+        },
+        {
+          "id": "operating_variables",
+          "title": "Qué significa cada parte",
+          "body": "La lógica del GAO es más fácil si primero separas ingresos, costos variables y costos fijos.",
+          "bullets": [
+            "El margen de contribución total muestra cuánto queda para cubrir costos fijos y generar EBIT.",
+            "Si los costos fijos ya están cubiertos, una venta adicional empuja más rápido el EBIT.",
+            "Si el EBIT está cerca de cero, el GAO se dispara y la empresa se vuelve más frágil ante cualquier cambio en ventas."
+          ],
+          "exampleTable": {
+            "title": "Lectura rápida de la estructura operativa",
+            "columns": [
+              "Elemento",
+              "Interpretación"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Margen de contribución alto",
+                  "Cada unidad extra ayuda más a cubrir costos fijos"
+                ]
+              },
+              {
+                "cells": [
+                  "Costos fijos altos",
+                  "Más sensibilidad del EBIT"
+                ]
+              },
+              {
+                "cells": [
+                  "EBIT pequeño",
+                  "Mayor fragilidad operativa"
+                ]
+              }
+            ],
+            "footnote": "Por eso el apalancamiento operativo suele ser más alto en negocios intensivos en planta, logística o estructura fija."
+          }
+        },
+        {
+          "id": "operating_case",
+          "title": "Mini caso guiado",
+          "body": "Supón que vendes 1,200 unidades a 30 cada una, con costo variable de 18 por unidad y costos fijos de 9,000.",
+          "bullets": [
+            "Primero calculas el margen de contribución total: 1,200(30-18) = 14,400.",
+            "Luego obtienes el EBIT: 14,400 - 9,000 = 5,400.",
+            "Finalmente calculas el GAO: 14,400 / 5,400 = 2.67.",
+            "Eso significa que un cambio de 1% en ventas movería aproximadamente 2.67% el EBIT."
+          ]
+        },
+        {
+          "id": "operating_mistakes",
+          "title": "Errores comunes",
+          "body": "Estos errores suelen aparecer cuando se estudia el GAO por primera vez.",
+          "bullets": [
+            "Confundir costo variable unitario con costo variable total.",
+            "Ingresar ventas monetarias en Q cuando la fórmula pide unidades.",
+            "Interpretar el GAO cuando el EBIT es cero o negativo.",
+            "Concluir que un GAO alto siempre es bueno, cuando en realidad también implica mayor riesgo."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "financial_leverage",
+      "title": "Apalancamiento financiero",
+      "summary": "Describe cómo la deuda, los intereses y los dividendos preferentes amplifican la utilidad disponible para accionistas comunes.",
+      "sections": [
+        {
+          "id": "financial_formula",
+          "title": "Grado de apalancamiento financiero",
+          "body": "El GAF compara la UAII con la base que queda disponible para accionistas comunes después de atender compromisos financieros.",
+          "bullets": [
+            "Intereses y dividendos preferentes no dependen directamente de las ventas, por eso vuelven más sensible el resultado para comunes.",
+            "Mientras más pequeña sea la base disponible para comunes, más alto será el GAF."
+          ],
+          "formulas": [
+            {
+              "label": "GAF",
+              "tex": "GAF = \\frac{UAII}{UAII-I-DP\\left(\\frac{1}{1-T}\\right)}"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "UAII",
+              "meaning": "utilidad antes de intereses e impuestos"
+            },
+            {
+              "symbol": "I",
+              "meaning": "intereses del periodo"
+            },
+            {
+              "symbol": "DP",
+              "meaning": "dividendos preferentes"
+            },
+            {
+              "symbol": "T",
+              "meaning": "tasa de impuestos expresada en decimal"
+            }
+          ]
+        },
+        {
+          "id": "financial_variables",
+          "title": "Qué muestra el GAF",
+          "body": "El GAF no se concentra en ventas, sino en cuánto cambia la utilidad disponible para accionistas comunes cuando cambia la UAII.",
+          "bullets": [
+            "Si GAF = 2.5, un cambio de 1% en UAII provoca aproximadamente un cambio de 2.5% en la utilidad para comunes.",
+            "El riesgo financiero sube cuando intereses y dividendos preferentes consumen una porción grande de la UAII.",
+            "Por eso una estructura con mucha deuda puede elevar el retorno esperado, pero también la vulnerabilidad."
+          ],
+          "exampleTable": {
+            "title": "Lectura rápida del GAF",
+            "columns": [
+              "Escenario",
+              "Interpretación"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "GAF cercano a 1",
+                  "Sensibilidad financiera baja"
+                ]
+              },
+              {
+                "cells": [
+                  "GAF entre 1.5 y 3",
+                  "Sensibilidad financiera intermedia"
+                ]
+              },
+              {
+                "cells": [
+                  "GAF por encima de 3",
+                  "Sensibilidad financiera alta"
+                ]
+              }
+            ],
+            "footnote": "Un GAF alto puede ser útil en escenarios favorables, pero también aumenta el castigo cuando la UAII cae."
+          }
+        },
+        {
+          "id": "financial_case",
+          "title": "Mini caso guiado",
+          "body": "Supón una UAII de 10,000, intereses por 2,000, dividendos preferentes por 2,400 y tasa fiscal de 40%.",
+          "bullets": [
+            "Primero ajustas los dividendos preferentes por impuestos: 2,400 × (1 / 0.60) = 4,000.",
+            "Luego calculas la base disponible para comunes: 10,000 - 2,000 - 4,000 = 4,000.",
+            "Finalmente obtienes el GAF: 10,000 / 4,000 = 2.5.",
+            "Eso significa que la utilidad para comunes se mueve 2.5 veces más rápido que la UAII."
+          ]
+        },
+        {
+          "id": "financial_mistakes",
+          "title": "Errores comunes",
+          "body": "En ejercicios de clase suelen repetirse estos problemas.",
+          "bullets": [
+            "Usar utilidad neta en lugar de UAII.",
+            "Olvidar ajustar los dividendos preferentes por impuestos.",
+            "Ingresar la tasa fiscal como 0.40 cuando el campo pide porcentaje y debes escribir 40.",
+            "Aceptar cualquier resultado sin revisar si la base para comunes sigue siendo positiva."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "combined_leverage",
+      "title": "Apalancamiento total",
+      "summary": "Integra operación y financiamiento para mostrar cuánto puede cambiar la utilidad por acción cuando cambian las ventas.",
+      "sections": [
+        {
+          "id": "combined_formula",
+          "title": "Grado de apalancamiento total",
+          "body": "El GAT une el efecto operativo y el financiero. Se usa cuando quieres conectar ventas con utilidad por acción o utilidad disponible para accionistas comunes.",
+          "bullets": [
+            "El GAT resume dos decisiones distintas: estructura de costos y estructura de financiamiento.",
+            "Si ambos grados son altos, la sensibilidad total se multiplica."
+          ],
+          "formulas": [
+            {
+              "label": "GAT",
+              "tex": "GAT = GAO \\times GAF"
+            },
+            {
+              "label": "Lectura porcentual",
+              "tex": "GAT = \\frac{\\%\\Delta UPA}{\\%\\Delta Ventas}"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "GAO",
+              "meaning": "grado de apalancamiento operativo"
+            },
+            {
+              "symbol": "GAF",
+              "meaning": "grado de apalancamiento financiero"
+            },
+            {
+              "symbol": "GAT",
+              "meaning": "grado de apalancamiento total"
+            },
+            {
+              "symbol": "UPA",
+              "meaning": "utilidad por acción o utilidad disponible para comunes por acción"
+            }
+          ]
+        },
+        {
+          "id": "combined_reading",
+          "title": "Cómo interpretarlo",
+          "body": "El GAT indica cuánto cambia la utilidad para accionistas cuando las ventas cambian en 1%.",
+          "bullets": [
+            "Si GAT = 4, un cambio de 1% en ventas puede provocar aproximadamente un cambio de 4% en la utilidad por acción.",
+            "Esto no significa que la empresa gane más en todos los escenarios, sino que el resultado se vuelve más sensible.",
+            "Un GAT alto puede ser atractivo en expansión, pero también más riesgoso en desaceleración."
+          ],
+          "exampleTable": {
+            "title": "Ejemplo de combinación",
+            "columns": [
+              "Dato",
+              "Valor"
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "GAO",
+                  "2.2"
+                ]
+              },
+              {
+                "cells": [
+                  "GAF",
+                  "1.8"
+                ]
+              },
+              {
+                "cells": [
+                  "GAT",
+                  "3.96"
+                ]
+              }
+            ],
+            "footnote": "Ese GAT sugiere que una variación de 5% en ventas podría mover cerca de 19.8% la utilidad por acción."
+          }
+        },
+        {
+          "id": "combined_use",
+          "title": "Cuándo conviene usarlo",
+          "body": "El GAT sirve para discutir estrategia, no solo para resolver ejercicios.",
+          "bullets": [
+            "Compara empresas con estructuras de costo y deuda diferentes.",
+            "Evalúa si un aumento de riesgo total sigue siendo razonable para el negocio.",
+            "Ayuda a entender por qué una empresa intensiva en activos y además endeudada puede tener resultados muy volátiles."
+          ]
+        }
+      ]
+    }
+  ],
+  "calculator": {
+    "id": "leverage",
+    "title": "Calculadora de apalancamiento",
+    "summary": "Evalúa sensibilidad operativa o financiera con un flujo guiado según el tipo de apalancamiento.",
+    "submitLabel": "Calcular apalancamiento",
+    "note": "El grado indica cuántas veces se amplifica un cambio porcentual en la variable base del modelo.",
+    "modes": [
+      {
+        "id": "operating",
+        "label": "Operativo",
+        "summary": "Parte de ventas, margen de contribución y costo fijo para estimar la sensibilidad del EBIT."
+      },
+      {
+        "id": "financial",
+        "label": "Financiero",
+        "summary": "Parte de UAII, intereses, dividendos preferentes e impuestos para medir sensibilidad financiera."
+      }
+    ],
+    "sections": [
+      {
+        "id": "operating_fields",
+        "title": "Datos del apalancamiento operativo",
+        "modeIds": [
+          "operating"
+        ],
+        "fields": [
+          {
+            "id": "salesVolume",
+            "label": "Q Unidades vendidas",
+            "hint": "1200",
+            "acceptsDecimal": false,
+            "helperText": "Cantidad de unidades que esperas vender en el periodo."
+          },
+          {
+            "id": "salePrice",
+            "label": "P Precio de venta por unidad",
+            "hint": "30",
+            "helperText": "Precio de venta de cada unidad."
+          },
+          {
+            "id": "variableCost",
+            "label": "CV Costo variable por unidad",
+            "hint": "18",
+            "helperText": "Costo que cambia directamente con cada unidad vendida."
+          },
+          {
+            "id": "fixedCost",
+            "label": "CF Costos fijos totales",
+            "hint": "9000",
+            "helperText": "Costos que no cambian con el volumen dentro del rango analizado."
+          }
+        ]
+      },
+      {
+        "id": "financial_fields",
+        "title": "Datos del apalancamiento financiero",
+        "modeIds": [
+          "financial"
+        ],
+        "fields": [
+          {
+            "id": "earningsBeforeInterestAndTaxes",
+            "label": "UAII",
+            "hint": "10000",
+            "helperText": "Utilidad antes de intereses e impuestos."
+          },
+          {
+            "id": "interest",
+            "label": "I Intereses del periodo",
+            "hint": "2000",
+            "helperText": "Pagos de intereses comprometidos para el periodo."
+          },
+          {
+            "id": "preferredDividends",
+            "label": "DP Dividendos preferentes",
+            "hint": "2400",
+            "helperText": "Dividendos que deben pagarse a las acciones preferentes."
+          },
+          {
+            "id": "taxRate",
+            "label": "T Tasa de impuestos",
+            "hint": "40",
+            "suffix": "%",
+            "helperText": "Ingresa el porcentaje de impuestos. La fórmula lo convertirá a decimal."
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "id": "degree",
+        "label": "Grado estimado"
+      }
+    ]
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "id": "lease",
+  "accent": "teal",
+  "eyebrow": "Alternative financing",
+  "title": "Finance lease",
+  "summary": "A finance lease should be studied by comparing the present value of lease payments against the alternative of buying today and recovering a residual value at the end.",
+  "heroPoints": [
+    "Use the asset without immediate purchase",
+    "Compare alternatives in present value terms",
+    "Balance flexibility against total cost"
+  ],
+  "topics": [
+    {
+      "id": "lease_foundations",
+      "title": "What it is and when to analyze it",
+      "summary": "A comfortable periodic payment is not enough. The real decision comes from comparing full alternatives on a present value basis.",
+      "sections": [
+        {
+          "id": "lease_role",
+          "title": "Core idea",
+          "body": "A finance lease allows the firm to use an asset without buying it immediately, but that does not mean it is always cheaper. The right decision comes from comparing the present value of lease payments against the net cost of buying today and recovering a residual value later.",
+          "bullets": [
+            "It helps preserve initial liquidity when the firm does not want to lock cash into the asset.",
+            "It can shift part of the operating or obsolescence risk into a more flexible payment structure.",
+            "It must be compared with buying, not judged only by the periodic payment."
+          ]
+        },
+        {
+          "id": "lease_when_to_use",
+          "title": "When this analysis matters",
+          "body": "This framework is useful when the asset generates benefits over several periods and there is a real choice between leasing and buying. The goal is not to decide by intuition, but to measure which option consumes less present value.",
+          "bullets": [
+            "Equipment or machinery with a defined useful life.",
+            "Vehicles or assets where obsolescence matters.",
+            "Situations where expected residual value materially affects the decision."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lease_valuation",
+      "title": "Present value of lease payments",
+      "summary": "The lease is analyzed as a stream of future payments discounted at a rate consistent with the project's opportunity cost.",
+      "sections": [
+        {
+          "id": "lease_present_value",
+          "title": "Present value of the lease",
+          "body": "If the lease requires a constant periodic payment, the relevant economic cost is the present value of all those payments. That converts the rent stream into a single amount that can be compared today.",
+          "bullets": [
+            "The higher the discount rate, the lower the weight of distant payments.",
+            "If periods increase, lease present value rises because more payments are added.",
+            "The key is to use a discount rate that matches the asset's risk and horizon."
+          ],
+          "formulas": [
+            {
+              "label": "Present value of the lease",
+              "tex": "VP_{lease}=\\sum_{t=1}^{N}\\frac{Payment_t}{(1+k)^t}"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "VP_{lease}",
+              "meaning": "present value of all lease payments."
+            },
+            {
+              "symbol": "Payment_t",
+              "meaning": "lease payment in period t. If rent is uniform, it is the same amount each period."
+            },
+            {
+              "symbol": "N",
+              "meaning": "total number of periods in the lease analysis."
+            },
+            {
+              "symbol": "k",
+              "meaning": "discount rate representing the opportunity cost or required return."
+            }
+          ],
+          "exampleTable": {
+            "title": "Mini guided case",
+            "columns": ["Period", "Payment", "Discount factor", "Present value"],
+            "rows": [
+              {
+                "cells": ["1", "450", "1 / 1.11", "405.41"]
+              },
+              {
+                "cells": ["2", "450", "1 / 1.11²", "365.24"]
+              },
+              {
+                "cells": ["3", "450", "1 / 1.11³", "329.05"]
+              }
+            ],
+            "footnote": "Adding all discounted periods gives the present cost of the lease."
+          }
+        },
+        {
+          "id": "lease_formula_reading",
+          "title": "How to read the formula step by step",
+          "body": "The formula follows a simple idea: each future payment is worth less today than the same amount paid immediately. That is why each payment is divided by \\((1+k)^t\\).",
+          "bullets": [
+            "First identify the actual periodic lease payment.",
+            "Then align periods and discount rate: if payments are annual, the rate should also be annual.",
+            "Finally add discounted payments to obtain one comparable amount today."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lease_decision",
+      "title": "Compare leasing versus buying",
+      "summary": "The basic classroom decision comes from comparing lease present value against the net cost of buying today and recovering a discounted residual value.",
+      "sections": [
+        {
+          "id": "lease_buy_option",
+          "title": "Net cost of buying",
+          "body": "If you buy today, you make an immediate cash outflow, but you may still recover a residual value at the end through resale or remaining use. That future value must also be discounted.",
+          "bullets": [
+            "The purchase price is paid today, so it enters without discounting.",
+            "The residual value reduces the net cost of buying.",
+            "The comparison is only fair if both alternatives are converted to present value."
+          ],
+          "formulas": [
+            {
+              "label": "Net cost of buying",
+              "tex": "VP_{buy}=P_0-\\frac{VR}{(1+k)^N}"
+            },
+            {
+              "label": "Difference between alternatives",
+              "tex": "\\Delta=VP_{buy}-VP_{lease}"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "P_0",
+              "meaning": "purchase price of the asset today."
+            },
+            {
+              "symbol": "VR",
+              "meaning": "expected residual value at the end of the analysis horizon."
+            },
+            {
+              "symbol": "\\Delta",
+              "meaning": "relative advantage: if positive, leasing costs less in present value; if negative, buying costs less."
+            }
+          ],
+          "exampleTable": {
+            "title": "Decision rule",
+            "columns": ["Comparison", "Reading"],
+            "rows": [
+              {
+                "cells": ["VP_{lease} < VP_{buy}", "Leasing is the lower-cost alternative in present value terms."]
+              },
+              {
+                "cells": ["VP_{lease} > VP_{buy}", "Buying today is the lower-cost alternative in present value terms."]
+              },
+              {
+                "cells": ["VP_{lease} \\approx VP_{buy}", "Both alternatives are very similar and the choice may depend on flexibility or risk."]
+              }
+            ],
+            "footnote": "This rule does not yet include taxes or differential maintenance costs."
+          }
+        },
+        {
+          "id": "lease_common_mistakes",
+          "title": "Common mistakes when studying leases",
+          "body": "The comparison fails when inconsistent assumptions are mixed or when only the periodic payment is inspected without converting everything to present value.",
+          "bullets": [
+            "Comparing the lease payment with the full purchase price without discounting.",
+            "Using rates and periods that are not aligned.",
+            "Ignoring residual value and concluding that buying is always more expensive.",
+            "Assuming a lower periodic payment always means a lower economic cost."
+          ]
+        }
+      ]
+    }
+  ],
+  "calculator": {
+    "id": "lease_comparison",
+    "title": "Compare leasing vs buying",
+    "summary": "Bring both alternatives to present value and identify which one consumes less economic value today.",
+    "submitLabel": "Compare alternatives",
+    "note": "Use the same discount rate for both options. For an advanced analysis, add maintenance, taxes, and operating savings separately.",
+    "formulas": [
+      {
+        "label": "Present value of the lease",
+        "tex": "VP_{lease}=\\sum_{t=1}^{N}\\frac{Payment_t}{(1+k)^t}"
+      },
+      {
+        "label": "Net cost of buying",
+        "tex": "VP_{buy}=P_0-\\frac{VR}{(1+k)^N}"
+      },
+      {
+        "label": "Decision rule",
+        "tex": "\\Delta=VP_{buy}-VP_{lease}"
+      }
+    ],
+    "sections": [
+      {
+        "id": "lease_cash_flows",
+        "title": "Lease cash flow",
+        "summary": "Enter the periodic payment, total periods, and the rate used to discount both alternatives.",
+        "fields": [
+          {
+            "id": "leasePayment",
+            "label": "Periodic lease payment",
+            "hint": "Ex. 450",
+            "helperText": "Amount paid in each lease period."
+          },
+          {
+            "id": "periods",
+            "label": "Number of periods",
+            "hint": "Ex. 4",
+            "acceptsDecimal": false,
+            "helperText": "Total analysis periods. Use positive integers."
+          },
+          {
+            "id": "discountRate",
+            "label": "Discount rate",
+            "hint": "Ex. 11",
+            "suffix": "%",
+            "helperText": "Opportunity cost or required return used to compare both options."
+          }
+        ]
+      },
+      {
+        "id": "purchase_alternative",
+        "title": "Purchase alternative",
+        "summary": "Capture the initial outflow and the value you expect to recover at the end of the asset's life.",
+        "fields": [
+          {
+            "id": "purchasePrice",
+            "label": "Purchase price today",
+            "hint": "Ex. 1450",
+            "helperText": "Immediate cash outflow if the firm buys the asset."
+          },
+          {
+            "id": "residualValue",
+            "label": "Expected residual value",
+            "hint": "Ex. 300",
+            "helperText": "Amount expected at the end through resale, recovery, or remaining use."
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "id": "leasePresentValue",
+        "label": "Present value of the lease",
+        "summary": "Present cost of all lease payments."
+      },
+      {
+        "id": "purchaseNetCost",
+        "label": "Net cost of buying",
+        "summary": "Purchase price minus discounted residual value."
+      },
+      {
+        "id": "difference",
+        "label": "Difference between alternatives",
+        "summary": "Positive favors leasing; negative favors buying."
+      },
+      {
+        "id": "recommendedOption",
+        "label": "Suggested alternative",
+        "summary": "Decision based only on present value."
+      }
+    ]
+  }
+}

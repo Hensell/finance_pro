@@ -1,0 +1,267 @@
+{
+  "id": "lease",
+  "accent": "teal",
+  "eyebrow": "Financiamiento alternativo",
+  "title": "Arrendamiento financiero",
+  "summary": "El arrendamiento financiero se estudia comparando el valor presente de sus pagos contra la alternativa de comprar hoy y recuperar un valor residual al final.",
+  "heroPoints": [
+    "Uso del activo sin compra inmediata",
+    "Comparación en valor presente",
+    "Decisión entre flexibilidad y costo total"
+  ],
+  "topics": [
+    {
+      "id": "lease_foundations",
+      "title": "Qué es y cuándo conviene analizarlo",
+      "summary": "No basta con ver si la cuota mensual parece cómoda: hay que comparar la alternativa completa en términos de costo y flexibilidad.",
+      "sections": [
+        {
+          "id": "lease_role",
+          "title": "Idea central",
+          "body": "Un arrendamiento financiero permite usar un activo sin comprarlo de inmediato, pero eso no significa que siempre sea más barato. La decisión correcta surge al comparar el valor presente de los pagos del lease contra el costo neto de comprar hoy y recuperar un valor residual al final.",
+          "bullets": [
+            "Ayuda a preservar liquidez inicial cuando la empresa no quiere inmovilizar caja.",
+            "Puede trasladar parte del riesgo operativo o tecnológico a una estructura de pagos más flexible.",
+            "Debe compararse con la compra, no solo con la cuota aislada."
+          ]
+        },
+        {
+          "id": "lease_when_to_use",
+          "title": "Cuándo usar este análisis",
+          "body": "El análisis es útil cuando el activo genera beneficios durante varios periodos y existe una alternativa real entre arrendar o comprar. El objetivo no es decidir solo por intuición, sino medir qué opción consume menos valor presente.",
+          "bullets": [
+            "Maquinaria o equipo con vida útil definida.",
+            "Vehículos o activos cuya obsolescencia importa.",
+            "Situaciones donde el valor residual esperado influye en la decisión."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lease_valuation",
+      "title": "Valor presente de los pagos",
+      "summary": "El lease se analiza como una serie de pagos futuros descontados a una tasa coherente con el costo de oportunidad del proyecto.",
+      "sections": [
+        {
+          "id": "lease_present_value",
+          "title": "Valor presente del arrendamiento",
+          "body": "Si el lease exige un pago periódico constante, el costo económico relevante es el valor presente de todos esos pagos. Así conviertes la secuencia de cuotas en una sola cifra comparable hoy.",
+          "bullets": [
+            "Mientras mayor sea la tasa de descuento, menor será el peso de los pagos lejanos.",
+            "Si aumentan los periodos, el valor presente del lease crece porque acumulas más cuotas.",
+            "Lo importante es usar una tasa consistente con el riesgo y el horizonte del activo."
+          ],
+          "formulas": [
+            {
+              "label": "Valor presente del arrendamiento",
+              "tex": "VP_{lease}=\\sum_{t=1}^{N}\\frac{Pago_t}{(1+k)^t}"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "VP_{lease}",
+              "meaning": "valor presente de todos los pagos del arrendamiento."
+            },
+            {
+              "symbol": "Pago_t",
+              "meaning": "pago del lease en el periodo t. Si la renta es uniforme, es la misma cuota cada periodo."
+            },
+            {
+              "symbol": "N",
+              "meaning": "número total de periodos durante los que se pagará el arrendamiento."
+            },
+            {
+              "symbol": "k",
+              "meaning": "tasa de descuento que representa el costo de oportunidad o el rendimiento requerido."
+            }
+          ],
+          "exampleTable": {
+            "title": "Mini caso guiado",
+            "columns": ["Periodo", "Pago", "Factor de descuento", "Valor presente"],
+            "rows": [
+              {
+                "cells": ["1", "450", "1 / 1.11", "405.41"]
+              },
+              {
+                "cells": ["2", "450", "1 / 1.11²", "365.24"]
+              },
+              {
+                "cells": ["3", "450", "1 / 1.11³", "329.05"]
+              }
+            ],
+            "footnote": "La suma completa de todos los periodos produce el costo presente del lease."
+          }
+        },
+        {
+          "id": "lease_formula_reading",
+          "title": "Cómo leer la fórmula paso a paso",
+          "body": "La fórmula responde a una idea simple: cada cuota futura vale menos hoy que el mismo monto cobrado de inmediato. Por eso cada pago se divide entre \\((1+k)^t\\).",
+          "bullets": [
+            "Primero identifica la cuota periódica real del lease.",
+            "Luego homologa periodos y tasa: si los pagos son anuales, la tasa también debe ser anual.",
+            "Después suma los valores presentes para obtener una sola cifra comparable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lease_decision",
+      "title": "Comparar arrendar contra comprar",
+      "summary": "La decisión docente básica surge al comparar el costo presente del lease contra el costo neto de comprar hoy y recuperar un valor residual descontado.",
+      "sections": [
+        {
+          "id": "lease_buy_option",
+          "title": "Costo neto de comprar",
+          "body": "Si compras hoy, haces un desembolso inmediato, pero al final todavía podrías recuperar un valor residual por la venta o aprovechamiento del activo. Ese valor futuro también debe descontarse.",
+          "bullets": [
+            "El precio de compra se paga hoy, por eso entra sin descuento.",
+            "El valor residual futuro reduce el costo neto de comprar.",
+            "La comparación solo es justa si ambas alternativas se llevan a valor presente."
+          ],
+          "formulas": [
+            {
+              "label": "Costo neto de comprar",
+              "tex": "VP_{buy}=P_0-\\frac{VR}{(1+k)^N}"
+            },
+            {
+              "label": "Diferencia entre alternativas",
+              "tex": "\\Delta=VP_{buy}-VP_{lease}"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "P_0",
+              "meaning": "precio de compra del activo hoy."
+            },
+            {
+              "symbol": "VR",
+              "meaning": "valor residual esperado al final de la vida de análisis."
+            },
+            {
+              "symbol": "\\Delta",
+              "meaning": "ventaja relativa: si es positiva, arrendar cuesta menos en valor presente; si es negativa, comprar cuesta menos."
+            }
+          ],
+          "exampleTable": {
+            "title": "Regla de decisión",
+            "columns": ["Comparación", "Lectura"],
+            "rows": [
+              {
+                "cells": ["VP_{lease} < VP_{buy}", "Arrendar es la alternativa menos costosa en valor presente."]
+              },
+              {
+                "cells": ["VP_{lease} > VP_{buy}", "Comprar hoy es menos costoso en valor presente."]
+              },
+              {
+                "cells": ["VP_{lease} \\approx VP_{buy}", "Las dos alternativas son muy parecidas y la decisión puede depender de flexibilidad o riesgo."]
+              }
+            ],
+            "footnote": "Esta regla no incorpora todavía efectos fiscales ni mantenimiento diferencial."
+          }
+        },
+        {
+          "id": "lease_common_mistakes",
+          "title": "Errores comunes al estudiar leases",
+          "body": "La comparación falla cuando se mezclan supuestos incompatibles o cuando se mira solo la cuota periódica sin convertir todo a valor presente.",
+          "bullets": [
+            "Comparar la cuota del lease contra el precio total del activo sin descontar.",
+            "Usar tasas y periodos que no están homologados.",
+            "Olvidar el valor residual y concluir que comprar siempre es más caro.",
+            "Pensar que menor pago mensual siempre significa menor costo económico."
+          ]
+        }
+      ]
+    }
+  ],
+  "calculator": {
+    "id": "lease_comparison",
+    "title": "Comparar arrendamiento vs compra",
+    "summary": "Convierte ambas alternativas a valor presente para decidir cuál consume menos valor económico hoy.",
+    "submitLabel": "Comparar alternativas",
+    "note": "Usa la misma tasa de descuento para ambas alternativas. Si quieres un análisis más avanzado, incorpora mantenimiento, impuestos y ahorros operativos por separado.",
+    "formulas": [
+      {
+        "label": "Valor presente del arrendamiento",
+        "tex": "VP_{lease}=\\sum_{t=1}^{N}\\frac{Pago_t}{(1+k)^t}"
+      },
+      {
+        "label": "Costo neto de comprar",
+        "tex": "VP_{buy}=P_0-\\frac{VR}{(1+k)^N}"
+      },
+      {
+        "label": "Regla de decisión",
+        "tex": "\\Delta=VP_{buy}-VP_{lease}"
+      }
+    ],
+    "sections": [
+      {
+        "id": "lease_cash_flows",
+        "title": "Flujo del arrendamiento",
+        "summary": "Ingresa la cuota periódica, los periodos y la tasa usada para traer todo a valor presente.",
+        "fields": [
+          {
+            "id": "leasePayment",
+            "label": "Pago periódico del lease",
+            "hint": "Ej. 450",
+            "helperText": "Monto que pagarías en cada periodo del arrendamiento."
+          },
+          {
+            "id": "periods",
+            "label": "Número de periodos",
+            "hint": "Ej. 4",
+            "acceptsDecimal": false,
+            "helperText": "Cantidad total de periodos del análisis. Usa enteros positivos."
+          },
+          {
+            "id": "discountRate",
+            "label": "Tasa de descuento",
+            "hint": "Ej. 11",
+            "suffix": "%",
+            "helperText": "Costo de oportunidad o rendimiento requerido para comparar ambas opciones."
+          }
+        ]
+      },
+      {
+        "id": "purchase_alternative",
+        "title": "Alternativa de compra",
+        "summary": "Captura el desembolso inicial y el valor que esperas recuperar al final de la vida del activo.",
+        "fields": [
+          {
+            "id": "purchasePrice",
+            "label": "Precio de compra hoy",
+            "hint": "Ej. 1450",
+            "helperText": "Desembolso inmediato si decides comprar el activo."
+          },
+          {
+            "id": "residualValue",
+            "label": "Valor residual esperado",
+            "hint": "Ej. 300",
+            "helperText": "Monto que esperas recuperar al final por venta, rescate o valor de uso remanente."
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "id": "leasePresentValue",
+        "label": "Valor presente del arrendamiento",
+        "summary": "Costo presente de todos los pagos del lease."
+      },
+      {
+        "id": "purchaseNetCost",
+        "label": "Costo neto de comprar",
+        "summary": "Precio de compra menos el valor residual descontado."
+      },
+      {
+        "id": "difference",
+        "label": "Diferencia entre alternativas",
+        "summary": "Positivo favorece arrendar; negativo favorece comprar."
+      },
+      {
+        "id": "recommendedOption",
+        "label": "Alternativa sugerida",
+        "summary": "Decisión basada solo en valor presente."
+      }
+    ]
+  }
+}

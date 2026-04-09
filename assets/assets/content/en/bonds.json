@@ -1,0 +1,194 @@
+{
+  "id": "bonds",
+  "accent": "blue",
+  "eyebrow": "Debt instruments",
+  "title": "Bonds",
+  "summary": "A bond is worth the present value of coupons and par value discounted at the market required return.",
+  "heroPoints": [
+    "Cash-flow discounting",
+    "Sensitivity to required return",
+    "Investment decision baseline"
+  ],
+  "topics": [
+    {
+      "id": "bond_valuation",
+      "title": "Bond valuation and interpretation",
+      "summary": "Learn what each variable means, how each cash flow is discounted, and how to interpret whether a bond trades at a premium, near par, or at a discount.",
+      "sections": [
+        {
+          "id": "bond_core",
+          "title": "Core idea",
+          "body": "Bond value comes from discounting each periodic payment and the final principal using the investor's required return. Before using the formula, it helps to read each symbol as a piece of the problem.",
+          "bullets": [
+            "B₀: bond price today. It is the present value you are trying to estimate.",
+            "I: annual coupon in money. It represents the periodic cash payment received each year.",
+            "N: years to maturity. It tells you how many periods remain until principal is repaid.",
+            "k_d: required return. It is the rate demanded by the market based on the bond's risk.",
+            "M: par value or principal. It is the amount the issuer repays at the end."
+          ],
+          "formulas": [
+            {
+              "label": "Present value of the bond",
+              "tex": "B_0 = I\\sum_{t=1}^{N}\\frac{1}{(1+k_d)^t}+\\frac{M}{(1+k_d)^N}"
+            }
+          ],
+          "formulaLegend": [
+            {
+              "symbol": "B₀",
+              "meaning": "bond price today. It is the present value you are trying to calculate."
+            },
+            {
+              "symbol": "I",
+              "meaning": "annual coupon in money. It is the periodic cash payment you receive each year."
+            },
+            {
+              "symbol": "N",
+              "meaning": "years to maturity. It tells you how many periods remain before principal is repaid."
+            },
+            {
+              "symbol": "k_d",
+              "meaning": "market required return. It is the rate investors demand based on the bond's risk."
+            },
+            {
+              "symbol": "M",
+              "meaning": "par value or principal. It is the amount the issuer repays at the end."
+            }
+          ],
+          "exampleTable": {
+            "title": "Quick reading",
+            "columns": ["Scenario", "Interpretation"],
+            "rows": [
+              { "cells": ["Coupon > required return", "Premium price"] },
+              { "cells": ["Coupon = required return", "Price near par"] },
+              { "cells": ["Coupon < required return", "Discount price"] }
+            ],
+            "footnote": "Sensitivity grows as time to maturity becomes longer."
+          }
+        },
+        {
+          "id": "bond_variables",
+          "title": "What each variable means",
+          "body": "Before using the formula, it helps to understand what each symbol represents and how it connects to the problem data.",
+          "exampleTable": {
+            "title": "Formula variables",
+            "columns": ["Variable", "Meaning", "How to read it"],
+            "rows": [
+              { "cells": ["B₀", "Bond price today", "This is the present value you want to estimate."] },
+              { "cells": ["I", "Annual coupon amount", "If the bond pays 8% on 1000, then I = 80."] },
+              { "cells": ["N", "Years to maturity", "Number of years left until principal is repaid."] },
+              { "cells": ["k_d", "Required return", "Rate the market demands based on the bond's risk."] },
+              { "cells": ["M", "Par value", "Amount repaid at maturity, for example 1000."] }
+            ],
+            "footnote": "This app uses a base annual-coupon model to keep the calculation easier to learn."
+          }
+        },
+        {
+          "id": "bond_process",
+          "title": "How to read the formula step by step",
+          "body": "Bond valuation is easier to understand when you separate the problem into cash flows, time, and discounting.",
+          "bullets": [
+            "First identify the annual coupon I: it is the cash amount you receive each year while the bond is outstanding.",
+            "Then locate the horizon N: it tells you how many coupon payments must be discounted before maturity.",
+            "Next define k_d: this is the market required return and works as the investor's opportunity cost.",
+            "Finally add the present value of all coupons and the present value of principal M."
+          ],
+          "formulas": [
+            {
+              "label": "Cash-flow reading",
+              "tex": "B_0 = \\underbrace{\\frac{I}{(1+k_d)^1}+\\frac{I}{(1+k_d)^2}+\\cdots+\\frac{I}{(1+k_d)^N}}_{\\text{coupons}}+\\underbrace{\\frac{M}{(1+k_d)^N}}_{\\text{principal at maturity}}"
+            }
+          ]
+        },
+        {
+          "id": "bond_guided_case",
+          "title": "Mini guided case",
+          "body": "Assume a bond with par value 1000, annual coupon 80, maturity of 5 years, and required return of 10%.",
+          "exampleTable": {
+            "title": "Case data and interpretation",
+            "columns": ["Data", "Value", "Reading"],
+            "rows": [
+              { "cells": ["I", "80", "The bond pays 80 in interest each year."] },
+              { "cells": ["N", "5", "There are 5 coupons to discount."] },
+              { "cells": ["M", "1000", "You recover principal at the end."] },
+              { "cells": ["k_d", "10%", "The market demands a return above the implied coupon rate."] }
+            ],
+            "footnote": "Because the implied coupon rate is 8% and the market requires 10%, price should tend to fall below 1000."
+          }
+        },
+        {
+          "id": "bond_common_mistakes",
+          "title": "Common mistakes when studying bonds",
+          "body": "Most mistakes come from mixing up rates and amounts or misreading required return.",
+          "bullets": [
+            "Confusing the annual coupon amount with the coupon rate. In this calculator, I is entered as money, not as a percentage.",
+            "Using the coupon rate as if it were k_d. Required return comes from the market and the bond's risk, not from the original contract.",
+            "Forgetting that principal M is received only once at the end, so it is discounted a single time at N.",
+            "Thinking that a bond priced below 1000 is automatically bad. It may simply mean the market requires a higher return."
+          ]
+        }
+      ]
+    }
+  ],
+  "calculator": {
+    "id": "bond_value",
+    "title": "Bond calculator",
+    "summary": "Enter the annual coupon amount, maturity, par value, and required return to estimate the present value of the bond.",
+    "note": "Base assumption: this calculator uses annual coupons and repays par value at maturity.",
+    "submitLabel": "Calculate bond value",
+    "formulas": [
+      {
+        "label": "Formula used",
+        "tex": "B_0 = I\\sum_{t=1}^{N}\\frac{1}{(1+k_d)^t}+\\frac{M}{(1+k_d)^N}"
+      }
+    ],
+    "modes": [
+      {
+        "id": "standard",
+        "label": "Standard valuation",
+        "summary": "Uses an annual coupon and compound discounting."
+      }
+    ],
+    "sections": [
+      {
+        "id": "bond_cash_flow",
+        "title": "1. Bond cash flows",
+        "fields": [
+          {
+            "id": "annualInterest",
+            "label": "Annual coupon (amount)",
+            "hint": "80",
+            "helperText": "Annual cash payment. If the bond pays 8% on 1000, enter 80."
+          },
+          {
+            "id": "parValue",
+            "label": "Par value",
+            "hint": "1000",
+            "helperText": "Amount returned by the issuer at maturity."
+          }
+        ]
+      },
+      {
+        "id": "bond_market_context",
+        "title": "2. Time and required return",
+        "fields": [
+          {
+            "id": "yearsToMaturity",
+            "label": "Years to maturity",
+            "hint": "5",
+            "acceptsDecimal": false,
+            "helperText": "Use whole years for this version of the calculator."
+          },
+          {
+            "id": "requiredReturn",
+            "label": "Required return (%)",
+            "hint": "10",
+            "helperText": "Rate the market demands from the bond based on its risk, not the coupon rate."
+          }
+        ]
+      }
+    ],
+    "results": [
+      { "id": "presentValue", "label": "Estimated present value" }
+    ]
+  }
+}
