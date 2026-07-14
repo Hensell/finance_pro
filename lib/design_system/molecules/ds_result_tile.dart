@@ -21,7 +21,7 @@ class DsResultTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           DsText(
-            label.toUpperCase(),
+            label,
             tone: DsTextTone.caption,
             color: context.tokens.colors.onSurfaceMuted,
           ),

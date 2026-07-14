@@ -1,5 +1,5 @@
 import 'package:finance_pro/core/extensions/build_context_x.dart';
-import 'package:finance_pro/design_system/atoms/ds_text.dart';
+import 'package:finance_pro/design_system/molecules/ds_guide_steps.dart';
 import 'package:finance_pro/design_system/molecules/ds_reading_section.dart';
 import 'package:flutter/material.dart';
 
@@ -10,20 +10,16 @@ class BondCalculatorGuide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tokens = context.tokens;
-    final List<_GuideStepData> steps = <_GuideStepData>[
-      _GuideStepData(
-        number: 1,
+    final List<DsGuideStep> steps = <DsGuideStep>[
+      DsGuideStep(
         title: context.l10n.bondCalculatorGuideStepCashTitle,
         body: context.l10n.bondCalculatorGuideStepCashBody,
       ),
-      _GuideStepData(
-        number: 2,
+      DsGuideStep(
         title: context.l10n.bondCalculatorGuideStepMarketTitle,
         body: context.l10n.bondCalculatorGuideStepMarketBody,
       ),
-      _GuideStepData(
-        number: 3,
+      DsGuideStep(
         title: context.l10n.bondCalculatorGuideStepDecisionTitle,
         body: context.l10n.bondCalculatorGuideStepDecisionBody,
       ),
@@ -32,90 +28,7 @@ class BondCalculatorGuide extends StatelessWidget {
     return DsReadingSection(
       title: context.l10n.bondCalculatorGuideTitle,
       summary: note,
-      child: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          final bool stacked = constraints.maxWidth < 720;
-
-          if (stacked) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: steps
-                  .map(
-                    (_GuideStepData step) => Padding(
-                      padding: EdgeInsets.only(bottom: tokens.spacing.md),
-                      child: _GuideStepCard(step: step),
-                    ),
-                  )
-                  .toList(),
-            );
-          }
-
-          return Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              for (int index = 0; index < steps.length; index += 1) ...<Widget>[
-                if (index > 0) SizedBox(width: tokens.layout.gridGap),
-                Expanded(child: _GuideStepCard(step: steps[index])),
-              ],
-            ],
-          );
-        },
-      ),
+      child: DsGuideSteps(steps: steps),
     );
   }
-}
-
-class _GuideStepCard extends StatelessWidget {
-  const _GuideStepCard({required this.step});
-
-  final _GuideStepData step;
-
-  @override
-  Widget build(BuildContext context) {
-    final tokens = context.tokens;
-
-    return Container(
-      padding: EdgeInsets.all(tokens.spacing.md),
-      decoration: BoxDecoration(
-        color: tokens.colors.surfaceRaised,
-        borderRadius: BorderRadius.circular(tokens.radii.md),
-        border: Border.all(color: tokens.colors.border),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            width: 28,
-            height: 28,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: tokens.colors.primarySoft,
-              borderRadius: BorderRadius.circular(tokens.radii.round),
-            ),
-            child: DsText(
-              step.number.toString(),
-              tone: DsTextTone.label,
-              color: tokens.colors.primary,
-            ),
-          ),
-          SizedBox(height: tokens.spacing.sm),
-          DsText(step.title, tone: DsTextTone.label),
-          SizedBox(height: tokens.spacing.xs),
-          DsText(step.body, tone: DsTextTone.bodyMuted),
-        ],
-      ),
-    );
-  }
-}
-
-class _GuideStepData {
-  const _GuideStepData({
-    required this.body,
-    required this.number,
-    required this.title,
-  });
-
-  final String body;
-  final int number;
-  final String title;
 }

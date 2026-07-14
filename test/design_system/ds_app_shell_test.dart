@@ -56,6 +56,10 @@ void main() {
 
     expect(tester.takeException(), isNull);
     expect(find.byIcon(Icons.menu_rounded), findsOneWidget);
+    expect(find.text('Finanzas corporativas'), findsOneWidget);
+    expect(find.text('Módulos'), findsOneWidget);
+    expect(find.text('Calculadoras guiadas'), findsNothing);
+    expect(find.text('ES / EN'), findsNothing);
 
     final Rect menuBounds = tester.getRect(find.byIcon(Icons.menu_rounded));
     expect(menuBounds.right, lessThanOrEqualTo(390));

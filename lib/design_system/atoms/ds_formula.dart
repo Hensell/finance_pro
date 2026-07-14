@@ -26,7 +26,7 @@ class DsFormula extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           DsText(
-            label.toUpperCase(),
+            label,
             tone: DsTextTone.caption,
             color: tokens.colors.secondary,
           ),

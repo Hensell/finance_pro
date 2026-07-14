@@ -113,7 +113,7 @@ abstract class AppLocalizations {
   /// No description provided for @appPrimaryAction.
   ///
   /// In es, this message translates to:
-  /// **'Entrar al laboratorio'**
+  /// **'Comenzar'**
   String get appPrimaryAction;
 
   /// No description provided for @appSecondaryAction.
@@ -197,7 +197,7 @@ abstract class AppLocalizations {
   /// No description provided for @appSplashLabel.
   ///
   /// In es, this message translates to:
-  /// **'Preparando el laboratorio financiero.'**
+  /// **'Cargando contenido.'**
   String get appSplashLabel;
 
   /// No description provided for @appErrorTitle.
@@ -275,13 +275,13 @@ abstract class AppLocalizations {
   /// No description provided for @appFooterPrimary.
   ///
   /// In es, this message translates to:
-  /// **'Arquitectura limpia, contenido localizable y componentes con design system.'**
+  /// **'Material de estudio de finanzas corporativas.'**
   String get appFooterPrimary;
 
   /// No description provided for @appFooterSecondary.
   ///
   /// In es, this message translates to:
-  /// **'Pensado para web y preparado para crecer por features.'**
+  /// **'Teoría, fórmulas y práctica guiada.'**
   String get appFooterSecondary;
 
   /// No description provided for @appFooterCreditsLabel.
@@ -305,19 +305,19 @@ abstract class AppLocalizations {
   /// No description provided for @homeStartAction.
   ///
   /// In es, this message translates to:
-  /// **'Comenzar la ruta'**
+  /// **'Comenzar'**
   String get homeStartAction;
 
   /// No description provided for @homePracticeAction.
   ///
   /// In es, this message translates to:
-  /// **'Ir a la calculadora'**
+  /// **'Abrir calculadora'**
   String get homePracticeAction;
 
   /// No description provided for @homeModulesSection.
   ///
   /// In es, this message translates to:
-  /// **'Rutas de aprendizaje'**
+  /// **'Módulos'**
   String get homeModulesSection;
 
   /// No description provided for @notFoundTitle.

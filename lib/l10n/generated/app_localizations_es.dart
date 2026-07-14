@@ -15,7 +15,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get appTagline => 'Finanzas corporativas';
 
   @override
-  String get appPrimaryAction => 'Entrar al laboratorio';
+  String get appPrimaryAction => 'Comenzar';
 
   @override
   String get appSecondaryAction => 'Ir al inicio';
@@ -57,7 +57,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get appLoadingBody => 'Preparando módulos, fórmulas y calculadoras.';
 
   @override
-  String get appSplashLabel => 'Preparando el laboratorio financiero.';
+  String get appSplashLabel => 'Cargando contenido.';
 
   @override
   String get appErrorTitle => 'No pudimos cargar esta vista';
@@ -99,11 +99,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get appFooterPrimary =>
-      'Arquitectura limpia, contenido localizable y componentes con design system.';
+      'Material de estudio de finanzas corporativas.';
 
   @override
-  String get appFooterSecondary =>
-      'Pensado para web y preparado para crecer por features.';
+  String get appFooterSecondary => 'Teoría, fórmulas y práctica guiada.';
 
   @override
   String get appFooterCreditsLabel => '© 2026 Hensell Dev';
@@ -115,13 +114,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get shellModulesLabel => 'Módulos';
 
   @override
-  String get homeStartAction => 'Comenzar la ruta';
+  String get homeStartAction => 'Comenzar';
 
   @override
-  String get homePracticeAction => 'Ir a la calculadora';
+  String get homePracticeAction => 'Abrir calculadora';
 
   @override
-  String get homeModulesSection => 'Rutas de aprendizaje';
+  String get homeModulesSection => 'Módulos';
 
   @override
   String get notFoundTitle => 'Esta ruta no existe';

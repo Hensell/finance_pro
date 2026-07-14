@@ -9,50 +9,33 @@ class DsAcademicNote extends StatelessWidget {
   Widget build(BuildContext context) {
     final tokens = context.tokens;
 
-    return Container(
-      padding: EdgeInsets.all(tokens.spacing.lg),
+    return DecoratedBox(
       decoration: BoxDecoration(
-        color: tokens.colors.primarySoft,
-        borderRadius: BorderRadius.circular(tokens.radii.lg),
-        border: Border.all(
-          color: tokens.colors.primary.withValues(alpha: 0.18),
-        ),
+        border: Border(top: BorderSide(color: tokens.colors.divider)),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Icon(
-                Icons.menu_book_outlined,
-                size: 22,
-                color: tokens.colors.primary,
-              ),
-              SizedBox(width: tokens.spacing.sm),
-              Expanded(
-                child: DsText(
-                  context.l10n.academicContextTitle,
-                  tone: DsTextTone.detail,
-                  color: tokens.colors.primary,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: tokens.spacing.sm),
-          DsText(context.l10n.academicContextBody, tone: DsTextTone.bodyMuted),
-          SizedBox(height: tokens.spacing.md),
-          DsText(
-            context.l10n.academicReferencesLabel.toUpperCase(),
-            tone: DsTextTone.caption,
-            color: tokens.colors.primary,
-          ),
-          SizedBox(height: tokens.spacing.xs),
-          DsText(
-            context.l10n.academicReferencesBody,
-            tone: DsTextTone.bodyMuted,
-          ),
-        ],
+      child: Padding(
+        padding: EdgeInsets.only(top: tokens.spacing.lg),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            DsText(context.l10n.academicContextTitle, tone: DsTextTone.detail),
+            SizedBox(height: tokens.spacing.sm),
+            DsText(
+              context.l10n.academicContextBody,
+              tone: DsTextTone.bodyMuted,
+            ),
+            SizedBox(height: tokens.spacing.md),
+            DsText(
+              context.l10n.academicReferencesLabel,
+              tone: DsTextTone.label,
+            ),
+            SizedBox(height: tokens.spacing.xs),
+            DsText(
+              context.l10n.academicReferencesBody,
+              tone: DsTextTone.bodyMuted,
+            ),
+          ],
+        ),
       ),
     );
   }

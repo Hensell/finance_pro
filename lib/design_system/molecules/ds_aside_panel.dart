@@ -26,14 +26,13 @@ class DsAsidePanel extends StatelessWidget {
         color: tokens.colors.surfaceRaised,
         borderRadius: BorderRadius.circular(tokens.radii.lg),
         border: Border.all(color: tokens.colors.border),
-        boxShadow: <BoxShadow>[tokens.shadows.soft],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           if (eyebrow != null) ...<Widget>[
             DsText(
-              eyebrow!.toUpperCase(),
+              eyebrow!,
               tone: DsTextTone.caption,
               color: tokens.colors.secondary,
             ),

@@ -41,7 +41,7 @@ void main() {
     await _pressButton(tester, 'Calcular apalancamiento');
     await tester.pumpAndSettle();
 
-    final Rect resultRect = tester.getRect(find.text('GRADO ESTIMADO'));
+    final Rect resultRect = tester.getRect(find.text('Grado estimado'));
     final double viewportHeight =
         tester.view.physicalSize.height / tester.view.devicePixelRatio;
 
@@ -120,7 +120,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(AppNumberFormatter.decimal(2.5)), findsOneWidget);
-    expect(find.text('BASE DISPONIBLE PARA COMUNES'), findsOneWidget);
+    expect(find.text('Base disponible para comunes'), findsOneWidget);
   });
 
   testWidgets(

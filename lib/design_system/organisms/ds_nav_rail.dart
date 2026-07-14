@@ -127,9 +127,7 @@ class _NavItem extends StatelessWidget {
                 ? (active
                       ? tokens.colors.primary.withValues(alpha: 0.24)
                       : tokens.colors.border)
-                : (active
-                      ? tokens.colors.primary.withValues(alpha: 0.16)
-                      : Colors.transparent),
+                : Colors.transparent,
           ),
         ),
         clipBehavior: Clip.antiAlias,

@@ -43,9 +43,11 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Liquidez'), findsAtLeastNWidgets(1));
-    expect(find.text('Liquidez corriente'), findsOneWidget);
+    expect(find.text('Liquidez corriente'), findsAtLeastNWidgets(1));
 
-    final Rect resultRect = tester.getRect(find.text('Liquidez corriente'));
+    final Rect resultRect = tester.getRect(
+      find.text('Liquidez corriente').first,
+    );
     final double viewportHeight =
         tester.view.physicalSize.height / tester.view.devicePixelRatio;
 
@@ -77,7 +79,7 @@ void main() {
       await _pressButton(tester, 'Llenar con datos de prueba');
       await tester.pumpAndSettle();
 
-      expect(find.text('Liquidez corriente'), findsOneWidget);
+      expect(find.text('Liquidez corriente'), findsAtLeastNWidgets(1));
       expect(find.text('2,15x'), findsOneWidget);
       expect(find.text('Volver'), findsOneWidget);
     },

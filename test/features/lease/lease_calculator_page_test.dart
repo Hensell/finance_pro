@@ -81,7 +81,7 @@ void main() {
     expect(find.text('Cómo leer el resultado'), findsOneWidget);
     expect(find.text('Conviene comprar'), findsWidgets);
     expect(find.text(AppNumberFormatter.decimal(1252.38)), findsOneWidget);
-    final Finder recommendationLabel = find.text('ALTERNATIVA SUGERIDA').first;
+    final Finder recommendationLabel = find.text('Alternativa sugerida').first;
     expect(recommendationLabel, findsOneWidget);
 
     final Rect resultRect = tester.getRect(recommendationLabel);

@@ -33,31 +33,31 @@ class AppColorTokens extends ThemeExtension<AppColorTokens> {
   });
 
   const AppColorTokens.premiumFinance()
-    : background = const Color(0xFFF6F1E9),
-      shellBackground = const Color(0xFFF2EDE4),
-      surface = const Color(0xFFFBF8F2),
-      surfaceRaised = const Color(0xFFFFFCF8),
-      surfaceMuted = const Color(0xFFF1EBE2),
-      surfaceStrong = const Color(0xFFE5DDD1),
-      primary = const Color(0xFF1F5C50),
-      primarySoft = const Color(0xFFE4EEE8),
-      secondary = const Color(0xFF50675F),
-      tertiary = const Color(0xFF4E6875),
-      onPrimary = const Color(0xFFFFFCF8),
-      onSecondary = const Color(0xFFFFFCF8),
+    : background = const Color(0xFFF7F8F6),
+      shellBackground = const Color(0xFFF4F5F3),
+      surface = const Color(0xFFFAFBF9),
+      surfaceRaised = const Color(0xFFFFFFFF),
+      surfaceMuted = const Color(0xFFF0F2EF),
+      surfaceStrong = const Color(0xFFE5E9E5),
+      primary = const Color(0xFF1E5A4D),
+      primarySoft = const Color(0xFFE8F0ED),
+      secondary = const Color(0xFF52615C),
+      tertiary = const Color(0xFF53666F),
+      onPrimary = const Color(0xFFFFFFFF),
+      onSecondary = const Color(0xFFFFFFFF),
       onTertiary = const Color(0xFFFBFCFD),
-      onSurface = const Color(0xFF22302C),
-      onSurfaceMuted = const Color(0xFF52635D),
-      border = const Color(0xFFD9D0C4),
-      borderStrong = const Color(0xFFC7BEAF),
-      divider = const Color(0xFFE3DCD2),
-      focus = const Color(0xFF275E54),
+      onSurface = const Color(0xFF17211E),
+      onSurfaceMuted = const Color(0xFF5C6864),
+      border = const Color(0xFFDCE1DD),
+      borderStrong = const Color(0xFFC8D0CA),
+      divider = const Color(0xFFE6E9E6),
+      focus = const Color(0xFF1E5A4D),
       error = const Color(0xFFAB594A),
       onError = const Color(0xFFFFF8F6),
-      formulaSurface = const Color(0xFFF3EEE6),
-      limeAccent = const Color(0xFFB5C693),
-      tealAccent = const Color(0xFF8AA79F),
-      blueAccent = const Color(0xFF91A7B5);
+      formulaSurface = const Color(0xFFF5F6F4),
+      limeAccent = const Color(0xFFDCE5D2),
+      tealAccent = const Color(0xFFD7E4DF),
+      blueAccent = const Color(0xFFDCE5EA);
 
   final Color background;
   final Color blueAccent;
@@ -283,10 +283,10 @@ class AppRadiusTokens extends ThemeExtension<AppRadiusTokens> {
   });
 
   const AppRadiusTokens.standard()
-    : sm = 10,
-      md = 14,
-      lg = 18,
-      xl = 24,
+    : sm = 6,
+      md = 8,
+      lg = 10,
+      xl = 12,
       round = 999;
 
   final double lg;
@@ -349,16 +349,16 @@ class AppLayoutTokens extends ThemeExtension<AppLayoutTokens> {
   });
 
   const AppLayoutTokens.web()
-    : maxContentWidth = 1280,
-      maxReadingWidth = 720,
-      railWidth = 292,
-      asideWidth = 344,
+    : maxContentWidth = 1120,
+      maxReadingWidth = 680,
+      railWidth = 260,
+      asideWidth = 320,
       gridGap = 24,
       pagePadding = 32,
       compactPagePadding = 20,
       sectionGap = 40,
       featureCardHeight = 292,
-      breakpointRail = 1120,
+      breakpointRail = 1040,
       breakpointTwoColumn = 920,
       breakpointGridTwoColumn = 760;
 
@@ -503,14 +503,14 @@ class AppShadowTokens extends ThemeExtension<AppShadowTokens> {
 
   const AppShadowTokens.premium()
     : soft = const BoxShadow(
-        color: Color(0x120E1513),
-        blurRadius: 24,
-        offset: Offset(0, 10),
+        color: Color(0x00000000),
+        blurRadius: 0,
+        offset: Offset.zero,
       ),
       floating = const BoxShadow(
-        color: Color(0x180E1513),
-        blurRadius: 34,
-        offset: Offset(0, 18),
+        color: Color(0x00000000),
+        blurRadius: 0,
+        offset: Offset.zero,
       );
 
   final BoxShadow floating;

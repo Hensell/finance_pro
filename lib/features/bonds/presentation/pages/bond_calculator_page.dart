@@ -140,8 +140,7 @@ class BondCalculatorPage extends StatelessWidget {
                           ],
                         ),
                         aside: DsAsidePanel(
-                          eyebrow: context.l10n.appFormulaSection,
-                          title: context.l10n.bondCalculatorLiveFormulaLabel,
+                          title: context.l10n.appFormulaSection,
                           summary: calculator.summary,
                           child: BondFormulaPanel(
                             draft: draft,

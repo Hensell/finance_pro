@@ -15,7 +15,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTagline => 'Corporate finance';
 
   @override
-  String get appPrimaryAction => 'Enter the lab';
+  String get appPrimaryAction => 'Start';
 
   @override
   String get appSecondaryAction => 'Go to home';
@@ -57,7 +57,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appLoadingBody => 'Preparing modules, formulas, and calculators.';
 
   @override
-  String get appSplashLabel => 'Preparing the finance lab.';
+  String get appSplashLabel => 'Loading content.';
 
   @override
   String get appErrorTitle => 'We could not load this view';
@@ -96,12 +96,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTopicSection => 'Topic';
 
   @override
-  String get appFooterPrimary =>
-      'Clean architecture, localizable content, and design system components.';
+  String get appFooterPrimary => 'Corporate finance study material.';
 
   @override
-  String get appFooterSecondary =>
-      'Built for web and ready to scale by feature.';
+  String get appFooterSecondary => 'Theory, formulas, and guided practice.';
 
   @override
   String get appFooterCreditsLabel => '© 2026 Hensell Dev';
@@ -113,13 +111,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get shellModulesLabel => 'Modules';
 
   @override
-  String get homeStartAction => 'Start the learning path';
+  String get homeStartAction => 'Start';
 
   @override
-  String get homePracticeAction => 'Go to calculator';
+  String get homePracticeAction => 'Open calculator';
 
   @override
-  String get homeModulesSection => 'Learning paths';
+  String get homeModulesSection => 'Modules';
 
   @override
   String get notFoundTitle => 'This route does not exist';

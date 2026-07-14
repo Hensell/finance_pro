@@ -40,7 +40,7 @@ void main() {
     await tester.pumpAndSettle();
 
     final Rect resultRect = tester.getRect(
-      find.text('VALOR PRESENTE ESTIMADO'),
+      find.text('Valor presente estimado'),
     );
     final double viewportHeight =
         tester.view.physicalSize.height / tester.view.devicePixelRatio;
@@ -79,7 +79,7 @@ void main() {
     await _pressButton(tester, 'Calcular valor de la acción');
     await tester.pumpAndSettle();
 
-    expect(find.text('VALOR PRESENTE ESTIMADO'), findsOneWidget);
+    expect(find.text('Valor presente estimado'), findsOneWidget);
     expect(find.text(AppNumberFormatter.decimal(20)), findsOneWidget);
   });
 

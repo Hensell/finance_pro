@@ -5,9 +5,9 @@
     "dir": "ltr",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#F2EDE4",
-    "theme_color": "#1F5C50",
-    "description": "Laboratorio bilingüe de finanzas corporativas con teoría, fórmulas y calculadoras guiadas.",
+    "background_color": "#F4F5F3",
+    "theme_color": "#1E5A4D",
+    "description": "Conceptos, fórmulas y calculadoras para estudiar finanzas corporativas en español e inglés.",
     "orientation": "any",
     "prefer_related_applications": false,
     "icons": [

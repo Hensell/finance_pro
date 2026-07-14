@@ -3,7 +3,7 @@ import 'package:finance_pro/app/bootstrap/app_dependencies.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('App opens the learning lab without a forced splash', (
+  testWidgets('App opens the home page without a forced splash', (
     WidgetTester tester,
   ) async {
     await tester.pumpWidget(
@@ -18,6 +18,6 @@ void main() {
 
     expect(find.text('Inicio'), findsOneWidget);
     expect(find.text('© 2026 Hensell Dev'), findsOneWidget);
-    expect(find.text('Preparando el laboratorio financiero.'), findsNothing);
+    expect(find.text('Cargando contenido.'), findsNothing);
   });
 }

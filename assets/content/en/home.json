@@ -1,12 +1,7 @@
 {
-  "eyebrow": "University learning lab",
-  "title": "Learn corporate finance with sound judgment",
-  "summary": "Move from concept to formula and from formula to decision. Every path combines essential theory, guided practice, and financial interpretation.",
-  "highlights": [
-    { "label": "Learning paths", "value": "5" },
-    { "label": "Guided calculators", "value": "5" },
-    { "label": "Content", "value": "ES / EN" }
-  ],
+  "eyebrow": "Course",
+  "title": "Corporate finance",
+  "summary": "Concepts, formulas, and calculators for studying bonds, shares, leverage, financial ratios, and leasing.",
   "modules": [
     {
       "id": "bonds",

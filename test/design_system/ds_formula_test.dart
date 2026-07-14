@@ -19,7 +19,7 @@ void main() {
 
     await tester.pump();
 
-    expect(find.text('VALOR PRESENTE'), findsOneWidget);
+    expect(find.text('Valor presente'), findsOneWidget);
 
     // We find DsFormula because Math widget doesn't expose its texString
     final dsFormula = tester.widget<DsFormula>(find.byType(DsFormula));

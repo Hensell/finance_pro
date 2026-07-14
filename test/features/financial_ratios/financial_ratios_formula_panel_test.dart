@@ -33,10 +33,10 @@ void main() {
     );
     await tester.pump();
 
-    expect(find.text('ACTIVOS CORRIENTES'), findsOneWidget);
-    expect(find.text('ECUACIÓN CONTABLE'), findsOneWidget);
-    expect(find.text('VENTAS NETAS'), findsNothing);
-    expect(find.text('LIQUIDEZ CORRIENTE'), findsNothing);
+    expect(find.text('Activos corrientes'), findsOneWidget);
+    expect(find.text('Ecuación contable'), findsOneWidget);
+    expect(find.text('Ventas netas'), findsNothing);
+    expect(find.text('Liquidez corriente'), findsNothing);
   });
 
   testWidgets('FinancialRatiosFormulaPanel filters formulas by result group', (
@@ -61,9 +61,9 @@ void main() {
     );
     await tester.pump();
 
-    expect(find.text('DUPONT'), findsOneWidget);
+    expect(find.text('DuPont'), findsOneWidget);
     expect(find.text('ROE'), findsNothing);
-    expect(find.text('LIQUIDEZ CORRIENTE'), findsNothing);
+    expect(find.text('Liquidez corriente'), findsNothing);
   });
 
   testWidgets(

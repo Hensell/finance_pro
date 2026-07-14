@@ -136,63 +136,62 @@ class _DesktopRail extends StatelessWidget {
   Widget build(BuildContext context) {
     final tokens = context.tokens;
 
-    return Padding(
-      padding: EdgeInsets.all(tokens.spacing.lg),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: tokens.colors.surfaceRaised,
-          borderRadius: BorderRadius.circular(tokens.radii.xl),
-          border: Border.all(color: tokens.colors.border),
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: tokens.colors.surfaceRaised,
+        border: Border(right: BorderSide(color: tokens.colors.border)),
+      ),
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(
+          tokens.spacing.lg,
+          tokens.spacing.xl,
+          tokens.spacing.lg,
+          tokens.spacing.md,
         ),
-        child: Padding(
-          padding: EdgeInsets.all(tokens.spacing.lg),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              const _BrandLockup(),
-              SizedBox(height: tokens.spacing.lg),
-              Divider(color: tokens.colors.divider, height: 1),
-              SizedBox(height: tokens.spacing.lg),
-              DsText(
-                context.l10n.shellModulesLabel.toUpperCase(),
-                tone: DsTextTone.caption,
-                color: tokens.colors.onSurfaceMuted,
-              ),
-              SizedBox(height: tokens.spacing.sm),
-              Expanded(
-                child: ScrollConfiguration(
-                  behavior: ScrollConfiguration.of(
-                    context,
-                  ).copyWith(scrollbars: false),
-                  child: SingleChildScrollView(
-                    physics: const ClampingScrollPhysics(),
-                    child: DsNavRail(
-                      currentLocation: currentLocation,
-                      destinations: destinations,
-                      onSelected: onSelected,
-                    ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            const _BrandLockup(),
+            SizedBox(height: tokens.spacing.xl),
+            DsText(
+              context.l10n.shellModulesLabel,
+              tone: DsTextTone.caption,
+              color: tokens.colors.onSurfaceMuted,
+            ),
+            SizedBox(height: tokens.spacing.sm),
+            Expanded(
+              child: ScrollConfiguration(
+                behavior: ScrollConfiguration.of(
+                  context,
+                ).copyWith(scrollbars: false),
+                child: SingleChildScrollView(
+                  physics: const ClampingScrollPhysics(),
+                  child: DsNavRail(
+                    currentLocation: currentLocation,
+                    destinations: destinations,
+                    onSelected: onSelected,
                   ),
                 ),
               ),
-              SizedBox(height: tokens.spacing.md),
-              const _LanguagePicker(stretch: true),
-              SizedBox(height: tokens.spacing.sm),
-              Link(
-                uri: _creditsUri,
-                target: LinkTarget.blank,
-                builder: (BuildContext context, FollowLink? openLink) {
-                  return TextButton(
-                    onPressed: openLink,
-                    child: DsText(
-                      context.l10n.appFooterCreditsLabel,
-                      tone: DsTextTone.bodyMuted,
-                      color: tokens.colors.onSurfaceMuted,
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
+            ),
+            SizedBox(height: tokens.spacing.md),
+            const _LanguagePicker(stretch: true),
+            SizedBox(height: tokens.spacing.xs),
+            Link(
+              uri: _creditsUri,
+              target: LinkTarget.blank,
+              builder: (BuildContext context, FollowLink? openLink) {
+                return TextButton(
+                  onPressed: openLink,
+                  child: DsText(
+                    context.l10n.appFooterCreditsLabel,
+                    tone: DsTextTone.bodyMuted,
+                    color: tokens.colors.onSurfaceMuted,
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
@@ -234,8 +233,6 @@ class _CompactTopBar extends StatelessWidget {
           ),
           child: Row(
             children: <Widget>[
-              const _BrandMark(size: 40),
-              SizedBox(width: tokens.spacing.sm),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -378,54 +375,17 @@ class _BrandLockup extends StatelessWidget {
   Widget build(BuildContext context) {
     final tokens = context.tokens;
 
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const _BrandMark(size: 46),
-        SizedBox(width: tokens.spacing.sm),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              DsText(context.l10n.appTitle, tone: DsTextTone.detail),
-              SizedBox(height: tokens.spacing.xs / 2),
-              DsText(
-                context.l10n.appTagline,
-                tone: DsTextTone.bodyMuted,
-                maxLines: 2,
-              ),
-            ],
-          ),
+        DsText(context.l10n.appTitle, tone: DsTextTone.title),
+        SizedBox(height: tokens.spacing.xs / 2),
+        DsText(
+          context.l10n.appTagline,
+          tone: DsTextTone.bodyMuted,
+          maxLines: 1,
         ),
       ],
-    );
-  }
-}
-
-class _BrandMark extends StatelessWidget {
-  const _BrandMark({required this.size});
-
-  final double size;
-
-  @override
-  Widget build(BuildContext context) {
-    final tokens = context.tokens;
-
-    return Semantics(
-      image: true,
-      label: context.l10n.appTitle,
-      child: Container(
-        width: size,
-        height: size,
-        decoration: BoxDecoration(
-          color: tokens.colors.primary,
-          borderRadius: BorderRadius.circular(tokens.radii.md),
-        ),
-        child: Icon(
-          Icons.auto_graph_rounded,
-          size: size * 0.52,
-          color: tokens.colors.onPrimary,
-        ),
-      ),
     );
   }
 }
@@ -463,7 +423,7 @@ class _LanguagePicker extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               color: tokens.colors.surfaceRaised,
-              borderRadius: BorderRadius.circular(tokens.radii.round),
+              borderRadius: BorderRadius.circular(tokens.radii.md),
               border: Border.all(color: tokens.colors.border),
             ),
             child: Row(

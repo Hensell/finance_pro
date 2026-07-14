@@ -8,16 +8,10 @@ class DsFeatureTile extends StatelessWidget {
     required this.summary,
     required this.actionLabel,
     required this.onPressed,
-    this.eyebrow,
-    this.featured = false,
-    this.leading,
     super.key,
   });
 
   final String actionLabel;
-  final String? eyebrow;
-  final bool featured;
-  final Widget? leading;
   final VoidCallback onPressed;
   final String summary;
   final String title;
@@ -25,70 +19,49 @@ class DsFeatureTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
-    final BorderRadius borderRadius = BorderRadius.circular(tokens.radii.lg);
+    final BorderRadius borderRadius = BorderRadius.circular(tokens.radii.sm);
 
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        final bool split =
-            featured && leading != null && constraints.maxWidth >= 720;
-        final Widget content = _FeatureTileContent(
-          actionLabel: actionLabel,
-          eyebrow: eyebrow,
-          summary: summary,
-          title: title,
-        );
-
-        return Semantics(
-          button: true,
+    return Semantics(
+      button: true,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onPressed,
+          borderRadius: borderRadius,
           child: DecoratedBox(
             decoration: BoxDecoration(
-              borderRadius: borderRadius,
-              boxShadow: featured ? <BoxShadow>[tokens.shadows.soft] : null,
+              border: Border(bottom: BorderSide(color: tokens.colors.divider)),
             ),
-            child: Material(
-              color: featured
-                  ? tokens.colors.surfaceRaised
-                  : tokens.colors.surface,
-              shape: RoundedRectangleBorder(
-                borderRadius: borderRadius,
-                side: BorderSide(
-                  color: featured
-                      ? tokens.colors.borderStrong
-                      : tokens.colors.border,
-                ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: tokens.spacing.sm,
+                vertical: tokens.spacing.lg,
               ),
-              clipBehavior: Clip.antiAlias,
-              child: InkWell(
-                onTap: onPressed,
-                child: Padding(
-                  padding: EdgeInsets.all(
-                    featured ? tokens.spacing.xl : tokens.spacing.lg,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Expanded(
+                    child: _FeatureTileContent(
+                      actionLabel: actionLabel,
+                      summary: summary,
+                      title: title,
+                    ),
                   ),
-                  child: !split || leading == null
-                      ? Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            if (leading != null) ...<Widget>[
-                              leading!,
-                              SizedBox(height: tokens.spacing.xl),
-                            ],
-                            content,
-                          ],
-                        )
-                      : Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Expanded(child: content),
-                            SizedBox(width: tokens.spacing.xl),
-                            leading!,
-                          ],
-                        ),
-                ),
+                  SizedBox(width: tokens.spacing.md),
+                  Padding(
+                    padding: EdgeInsets.only(top: tokens.spacing.xs),
+                    child: Icon(
+                      Icons.arrow_forward_rounded,
+                      size: 20,
+                      color: tokens.colors.onSurfaceMuted,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }
@@ -98,11 +71,9 @@ class _FeatureTileContent extends StatelessWidget {
     required this.actionLabel,
     required this.summary,
     required this.title,
-    this.eyebrow,
   });
 
   final String actionLabel;
-  final String? eyebrow;
   final String summary;
   final String title;
 
@@ -113,29 +84,14 @@ class _FeatureTileContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        if (eyebrow != null) ...<Widget>[
-          DsText(
-            eyebrow!.toUpperCase(),
-            tone: DsTextTone.caption,
-            color: tokens.colors.secondary,
-          ),
-          SizedBox(height: tokens.spacing.sm),
-        ],
-        DsText(title, tone: DsTextTone.headline),
+        DsText(title, tone: DsTextTone.title),
         SizedBox(height: tokens.spacing.sm),
         DsText(summary, tone: DsTextTone.bodyMuted),
-        SizedBox(height: tokens.spacing.xl),
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            DsText(actionLabel, tone: DsTextTone.label),
-            SizedBox(width: tokens.spacing.xs),
-            Icon(
-              Icons.arrow_outward_rounded,
-              size: 18,
-              color: tokens.colors.onSurface,
-            ),
-          ],
+        SizedBox(height: tokens.spacing.md),
+        DsText(
+          actionLabel,
+          tone: DsTextTone.label,
+          color: tokens.colors.primary,
         ),
       ],
     );

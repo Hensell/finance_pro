@@ -79,6 +79,7 @@ class _FeatureOverviewBody extends StatelessWidget {
     final TopicContent? singleTopic = content.topics.length == 1
         ? content.topics.first
         : null;
+    final CalculatorDescriptor? calculator = content.calculator;
     final Widget main = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -89,11 +90,10 @@ class _FeatureOverviewBody extends StatelessWidget {
           compact: true,
         ),
         SizedBox(height: tokens.spacing.xl),
-        Wrap(
-          spacing: tokens.spacing.sm,
-          runSpacing: tokens.spacing.sm,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: content.heroPoints
-              .map((String point) => _PointChip(label: point))
+              .map((String point) => _LearningPoint(label: point))
               .toList(),
         ),
         SizedBox(height: tokens.layout.sectionGap),
@@ -101,17 +101,14 @@ class _FeatureOverviewBody extends StatelessWidget {
           DsDividerRule(label: context.l10n.appTopicsSection),
           SizedBox(height: tokens.spacing.lg),
           ...content.topics.map(
-            (TopicContent topic) => Padding(
-              padding: EdgeInsets.only(bottom: tokens.spacing.md),
-              child: DsFeatureTile(
-                actionLabel: context.l10n.appReadTopicAction,
-                title: topic.title,
-                summary: topic.summary,
-                onPressed: () => context.go(
-                  AppRoutePaths.topicLocation(
-                    featureId: content.id,
-                    topicId: topic.id,
-                  ),
+            (TopicContent topic) => DsFeatureTile(
+              actionLabel: context.l10n.appReadTopicAction,
+              title: topic.title,
+              summary: topic.summary,
+              onPressed: () => context.go(
+                AppRoutePaths.topicLocation(
+                  featureId: content.id,
+                  topicId: topic.id,
                 ),
               ),
             ),
@@ -126,51 +123,32 @@ class _FeatureOverviewBody extends StatelessWidget {
       ],
     );
 
-    final Widget aside = DsAsidePanel(
-      eyebrow: content.calculator == null
-          ? context.l10n.appHighlightsSection
-          : context.l10n.appCalculatorSection,
-      title: content.calculator?.title ?? content.title,
-      summary: content.calculator?.summary ?? content.summary,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          if (content.calculator == null)
-            ...content.heroPoints.map(
-              (String point) => Padding(
-                padding: EdgeInsets.only(bottom: tokens.spacing.sm),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(top: tokens.spacing.xs),
-                      child: Icon(
-                        Icons.check_circle_outline_rounded,
-                        size: 18,
-                        color: tokens.colors.primary,
-                      ),
-                    ),
-                    SizedBox(width: tokens.spacing.sm),
-                    Expanded(child: DsText(point, tone: DsTextTone.bodyMuted)),
-                  ],
+    final Widget? aside = calculator == null
+        ? null
+        : DsAsidePanel(
+            eyebrow: context.l10n.appCalculatorSection,
+            title: calculator.title,
+            summary: calculator.summary,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                DsButton(
+                  label: context.l10n.appOpenCalculatorAction,
+                  onPressed: () =>
+                      context.go(AppRoutePaths.calculatorLocation(content.id)),
+                  stretch: true,
                 ),
-              ),
+              ],
             ),
-          if (content.calculator != null) ...<Widget>[
-            DsButton(
-              label: context.l10n.appOpenCalculatorAction,
-              onPressed: () =>
-                  context.go(AppRoutePaths.calculatorLocation(content.id)),
-              stretch: true,
-            ),
-          ],
-        ],
-      ),
-    );
+          );
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final bool splitLayout = constraints.maxWidth >= 1040;
+        final bool splitLayout = aside != null && constraints.maxWidth >= 1040;
+
+        if (aside == null) {
+          return main;
+        }
 
         if (!splitLayout) {
           return Column(
@@ -223,24 +201,35 @@ class _SingleTopicOverview extends StatelessWidget {
   }
 }
 
-class _PointChip extends StatelessWidget {
-  const _PointChip({required this.label});
+class _LearningPoint extends StatelessWidget {
+  const _LearningPoint({required this.label});
 
   final String label;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: context.tokens.spacing.md,
-        vertical: context.tokens.spacing.sm,
+    final tokens = context.tokens;
+
+    return Padding(
+      padding: EdgeInsets.only(bottom: tokens.spacing.sm),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(top: tokens.spacing.sm),
+            child: Container(
+              width: 4,
+              height: 4,
+              decoration: BoxDecoration(
+                color: tokens.colors.primary,
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+          SizedBox(width: tokens.spacing.sm),
+          Expanded(child: DsText(label, tone: DsTextTone.bodyMuted)),
+        ],
       ),
-      decoration: BoxDecoration(
-        color: context.tokens.colors.surfaceRaised,
-        borderRadius: BorderRadius.circular(context.tokens.radii.round),
-        border: Border.all(color: context.tokens.colors.border),
-      ),
-      child: DsText(label, tone: DsTextTone.label),
     );
   }
 }

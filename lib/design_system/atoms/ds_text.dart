@@ -50,7 +50,6 @@ class DsText extends StatelessWidget {
       DsTextTone.bodyMuted => textTheme.bodyMedium!,
       DsTextTone.label => textTheme.labelLarge!,
       DsTextTone.caption => textTheme.labelMedium!.copyWith(
-        letterSpacing: 1.4,
         color: context.tokens.colors.onSurfaceMuted,
       ),
       DsTextTone.detail => textTheme.titleMedium!,

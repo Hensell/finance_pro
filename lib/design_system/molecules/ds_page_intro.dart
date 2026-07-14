@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 
 class DsPageIntro extends StatelessWidget {
   const DsPageIntro({
-    required this.eyebrow,
     required this.title,
     required this.summary,
     this.compact = false,
+    this.eyebrow,
     this.maxWidth,
     super.key,
   });
 
   final bool compact;
-  final String eyebrow;
+  final String? eyebrow;
   final double? maxWidth;
   final String summary;
   final String title;
@@ -31,12 +31,14 @@ class DsPageIntro extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          DsText(
-            eyebrow.toUpperCase(),
-            tone: DsTextTone.caption,
-            color: tokens.colors.secondary,
-          ),
-          SizedBox(height: tokens.spacing.sm),
+          if (eyebrow?.trim().isNotEmpty ?? false) ...<Widget>[
+            DsText(
+              eyebrow!,
+              tone: DsTextTone.caption,
+              color: tokens.colors.secondary,
+            ),
+            SizedBox(height: tokens.spacing.sm),
+          ],
           DsText(
             title,
             tone: useDisplayTitle ? DsTextTone.display : DsTextTone.headline,

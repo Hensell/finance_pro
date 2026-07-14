@@ -91,8 +91,7 @@ class LeaseCalculatorForm extends StatelessWidget {
             ],
           ),
           aside: DsAsidePanel(
-            eyebrow: context.l10n.appFormulaSection,
-            title: context.l10n.leaseCalculatorLiveFormulaLabel,
+            title: context.l10n.appFormulaSection,
             summary: calculator.summary,
             child: LeaseFormulaPanel(
               draft: draft,

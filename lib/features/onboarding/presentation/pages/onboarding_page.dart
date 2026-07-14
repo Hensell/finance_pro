@@ -55,41 +55,30 @@ class _OnboardingPageState extends State<OnboardingPage> {
               constraints: BoxConstraints(
                 maxWidth: tokens.layout.maxReadingWidth,
               ),
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: tokens.colors.surfaceRaised,
-                  borderRadius: BorderRadius.circular(tokens.radii.xl),
-                  border: Border.all(color: tokens.colors.border),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(tokens.spacing.xxl),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      DsText(
-                        context.l10n.appTitle,
-                        tone: DsTextTone.display,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(height: tokens.spacing.md),
-                      DsText(
-                        context.l10n.appSplashLabel,
-                        tone: DsTextTone.bodyMuted,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(height: tokens.spacing.xl),
-                      SizedBox(
-                        width: 36,
-                        height: 36,
-                        child: CircularProgressIndicator(
-                          value: 0.72,
-                          strokeWidth: 2.4,
-                          color: tokens.colors.primary,
-                        ),
-                      ),
-                    ],
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  DsText(
+                    context.l10n.appTitle,
+                    tone: DsTextTone.headline,
+                    textAlign: TextAlign.center,
                   ),
-                ),
+                  SizedBox(height: tokens.spacing.sm),
+                  DsText(
+                    context.l10n.appSplashLabel,
+                    tone: DsTextTone.bodyMuted,
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: tokens.spacing.lg),
+                  SizedBox(
+                    width: 22,
+                    height: 22,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: tokens.colors.primary,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

@@ -20,7 +20,7 @@ class DsSectionHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         DsText(
-          eyebrow.toUpperCase(),
+          eyebrow,
           tone: DsTextTone.caption,
           color: context.tokens.colors.secondary,
         ),

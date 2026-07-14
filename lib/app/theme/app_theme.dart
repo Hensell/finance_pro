@@ -67,7 +67,7 @@ class AppTheme {
           backgroundColor: colors.primary,
           foregroundColor: colors.onPrimary,
           elevation: 0,
-          minimumSize: const Size(0, 52),
+          minimumSize: const Size(0, 48),
           padding: EdgeInsets.symmetric(
             horizontal: spacing.lg,
             vertical: spacing.md,
@@ -83,7 +83,7 @@ class AppTheme {
           foregroundColor: colors.onSurface,
           backgroundColor: colors.surfaceRaised,
           elevation: 0,
-          minimumSize: const Size(0, 52),
+          minimumSize: const Size(0, 48),
           side: BorderSide(color: colors.borderStrong),
           padding: EdgeInsets.symmetric(
             horizontal: spacing.lg,
@@ -229,7 +229,7 @@ class AppTheme {
     required bool useGoogleFonts,
   }) {
     final TextTheme sans = useGoogleFonts
-        ? GoogleFonts.plusJakartaSansTextTheme(
+        ? GoogleFonts.instrumentSansTextTheme(
             base,
           ).apply(bodyColor: colors.onSurface, displayColor: colors.onSurface)
         : base.apply(
@@ -242,47 +242,51 @@ class AppTheme {
         useGoogleFonts,
         textStyle: sans.displayLarge?.copyWith(
           color: colors.onSurface,
-          fontSize: 62,
-          height: 1.02,
+          fontSize: 48,
+          height: 1.08,
           fontWeight: FontWeight.w600,
+          letterSpacing: -1.4,
         ),
       ),
       displayMedium: _headlineFont(
         useGoogleFonts,
         textStyle: sans.displayMedium?.copyWith(
           color: colors.onSurface,
-          fontSize: 50,
-          height: 1.04,
+          fontSize: 40,
+          height: 1.1,
           fontWeight: FontWeight.w600,
+          letterSpacing: -1,
         ),
       ),
       headlineLarge: _headlineFont(
         useGoogleFonts,
         textStyle: sans.headlineLarge?.copyWith(
           color: colors.onSurface,
-          fontSize: 38,
-          height: 1.08,
+          fontSize: 32,
+          height: 1.15,
           fontWeight: FontWeight.w600,
+          letterSpacing: -0.7,
         ),
       ),
       headlineMedium: _headlineFont(
         useGoogleFonts,
         textStyle: sans.headlineMedium?.copyWith(
           color: colors.onSurface,
-          fontSize: 30,
-          height: 1.08,
+          fontSize: 26,
+          height: 1.18,
           fontWeight: FontWeight.w600,
+          letterSpacing: -0.4,
         ),
       ),
       titleLarge: sans.titleLarge?.copyWith(
         color: colors.onSurface,
-        fontSize: 23,
-        height: 1.24,
+        fontSize: 21,
+        height: 1.3,
         fontWeight: FontWeight.w600,
       ),
       titleMedium: sans.titleMedium?.copyWith(
         color: colors.onSurface,
-        fontSize: 18,
+        fontSize: 17,
         height: 1.32,
         fontWeight: FontWeight.w600,
       ),
@@ -293,10 +297,10 @@ class AppTheme {
         useGoogleFonts,
         textStyle: sans.labelMedium?.copyWith(
           color: colors.onSurfaceMuted,
-          fontSize: 11.5,
-          height: 1.2,
+          fontSize: 12,
+          height: 1.3,
           fontWeight: FontWeight.w600,
-          letterSpacing: 1.5,
+          letterSpacing: 0.2,
         ),
       ),
     );
@@ -311,7 +315,7 @@ class AppTheme {
       textStyle: TextStyle(
         color: colors.onSurface,
         fontSize: 16,
-        height: 1.66,
+        height: 1.55,
         fontWeight: FontWeight.w400,
       ),
     );
@@ -325,8 +329,8 @@ class AppTheme {
       useGoogleFonts,
       textStyle: TextStyle(
         color: colors.onSurfaceMuted,
-        fontSize: 15,
-        height: 1.62,
+        fontSize: 15.5,
+        height: 1.55,
         fontWeight: FontWeight.w400,
       ),
     );
@@ -355,7 +359,7 @@ class AppTheme {
       return textStyle ?? const TextStyle();
     }
 
-    return GoogleFonts.newsreader(textStyle: textStyle);
+    return GoogleFonts.instrumentSans(textStyle: textStyle);
   }
 
   static TextStyle _uiFont(
@@ -366,7 +370,7 @@ class AppTheme {
       return textStyle ?? const TextStyle();
     }
 
-    return GoogleFonts.plusJakartaSans(textStyle: textStyle);
+    return GoogleFonts.instrumentSans(textStyle: textStyle);
   }
 }
 
