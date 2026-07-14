@@ -1,11 +1,11 @@
 {
-  "eyebrow": "Learning center",
-  "title": "Explore corporate finance through a clearer structure",
-  "summary": "Each module combines essential theory, LaTeX formulas, and calculators focused on real decision making.",
+  "eyebrow": "University learning lab",
+  "title": "Learn corporate finance with sound judgment",
+  "summary": "Move from concept to formula and from formula to decision. Every path combines essential theory, guided practice, and financial interpretation.",
   "highlights": [
-    { "label": "Core modules", "value": "5" },
-    { "label": "Calculators", "value": "4" },
-    { "label": "Initial languages", "value": "2" }
+    { "label": "Learning paths", "value": "5" },
+    { "label": "Guided calculators", "value": "5" },
+    { "label": "Content", "value": "ES / EN" }
   ],
   "modules": [
     {
