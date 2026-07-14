@@ -12,8 +12,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTitle => 'Finance Pro';
 
   @override
-  String get appTagline =>
-      'Corporate finance with clear routes, live formulas, and practical calculators.';
+  String get appTagline => 'Corporate finance';
 
   @override
   String get appPrimaryAction => 'Enter the lab';
@@ -28,7 +27,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appReadTopicAction => 'Read topic';
 
   @override
-  String get appOpenCalculatorAction => 'Open calculator';
+  String get appOpenCalculatorAction => 'Practice with the calculator';
 
   @override
   String get appRetryAction => 'Retry';
@@ -38,6 +37,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appBackHomeAction => 'Back to home';
+
+  @override
+  String get appBackToModuleAction => 'Back to module';
 
   @override
   String get appToggleLanguageLabel => 'Language';
@@ -109,6 +111,39 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get shellModulesLabel => 'Modules';
+
+  @override
+  String get homeStartAction => 'Start the learning path';
+
+  @override
+  String get homePracticeAction => 'Go to calculator';
+
+  @override
+  String get homeModulesSection => 'Learning paths';
+
+  @override
+  String get notFoundTitle => 'This route does not exist';
+
+  @override
+  String get notFoundBody =>
+      'The link may be incomplete or the content may have moved.';
+
+  @override
+  String get notFoundAction => 'Back to home';
+
+  @override
+  String get academicContextTitle => 'Academic context';
+
+  @override
+  String get academicContextBody =>
+      'The models and ranges in this app simplify reality to support learning. Interpret every result against the industry, reporting period, accounting policies, and case assumptions; this is not a substitute for professional financial advice.';
+
+  @override
+  String get academicReferencesLabel => 'Recommended reading';
+
+  @override
+  String get academicReferencesBody =>
+      'Gitman and Zutter, Principles of Managerial Finance · Brealey, Myers, and Allen, Principles of Corporate Finance.';
 
   @override
   String get validationPositiveNumbers =>

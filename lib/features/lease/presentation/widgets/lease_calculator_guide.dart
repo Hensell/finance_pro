@@ -11,8 +11,6 @@ class LeaseCalculatorGuide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
-    final bool stacked =
-        MediaQuery.sizeOf(context).width < tokens.layout.breakpointTwoColumn;
     final List<_GuideStepData> steps = <_GuideStepData>[
       _GuideStepData(
         number: 1,
@@ -34,9 +32,13 @@ class LeaseCalculatorGuide extends StatelessWidget {
     return DsReadingSection(
       title: context.l10n.leaseCalculatorGuideTitle,
       summary: note,
-      child: stacked
-          ? Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          final bool stacked = constraints.maxWidth < 720;
+
+          if (stacked) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: steps
                   .map(
                     (_GuideStepData step) => Padding(
@@ -45,17 +47,20 @@ class LeaseCalculatorGuide extends StatelessWidget {
                     ),
                   )
                   .toList(),
-            )
-          : Wrap(
-              spacing: tokens.layout.gridGap,
-              runSpacing: tokens.spacing.md,
-              children: steps
-                  .map(
-                    (_GuideStepData step) =>
-                        SizedBox(width: 220, child: _GuideStepCard(step: step)),
-                  )
-                  .toList(),
-            ),
+            );
+          }
+
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              for (int index = 0; index < steps.length; index += 1) ...<Widget>[
+                if (index > 0) SizedBox(width: tokens.layout.gridGap),
+                Expanded(child: _GuideStepCard(step: steps[index])),
+              ],
+            ],
+          );
+        },
+      ),
     );
   }
 }

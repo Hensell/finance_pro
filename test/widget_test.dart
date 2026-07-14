@@ -3,7 +3,7 @@ import 'package:finance_pro/app/bootstrap/app_dependencies.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('App redirects from splash to home and keeps footer visible', (
+  testWidgets('App opens the learning lab without a forced splash', (
     WidgetTester tester,
   ) async {
     await tester.pumpWidget(
@@ -13,17 +13,11 @@ void main() {
       ),
     );
 
-    expect(find.text('Preparing the finance lab.'), findsNothing);
-    expect(find.text('Preparando el laboratorio financiero.'), findsOneWidget);
-    expect(find.text('© 2026 Hensell Dev'), findsNothing);
-
-    await tester.pump(const Duration(milliseconds: 950));
+    await tester.pump(const Duration(milliseconds: 100));
     await tester.pumpAndSettle();
 
-    expect(
-      find.text('Explora finanzas corporativas con una estructura clara'),
-      findsOneWidget,
-    );
+    expect(find.text('Inicio'), findsOneWidget);
     expect(find.text('© 2026 Hensell Dev'), findsOneWidget);
+    expect(find.text('Preparando el laboratorio financiero.'), findsNothing);
   });
 }

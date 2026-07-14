@@ -3,11 +3,7 @@ import 'package:finance_pro/design_system/atoms/ds_text.dart';
 import 'package:flutter/material.dart';
 
 class DsResultTile extends StatelessWidget {
-  const DsResultTile({
-    required this.label,
-    required this.value,
-    super.key,
-  });
+  const DsResultTile({required this.label, required this.value, super.key});
 
   final String label;
   final String value;

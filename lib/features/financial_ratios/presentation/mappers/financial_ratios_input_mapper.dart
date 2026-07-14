@@ -1,3 +1,4 @@
+import 'package:finance_pro/core/utils/input_parsers.dart';
 import 'package:finance_pro/features/financial_ratios/domain/entities/financial_ratios_models.dart';
 import 'package:finance_pro/features/financial_ratios/presentation/models/financial_ratios_builder_step.dart';
 import 'package:finance_pro/features/financial_ratios/presentation/models/financial_statements_draft.dart';
@@ -138,7 +139,7 @@ class FinancialRatiosInputMapper {
       return 0;
     }
 
-    return double.tryParse(normalized) ?? 0;
+    return parseFiniteNumber(normalized) ?? 0;
   }
 
   bool _isInvalidNumber(String? raw) {
@@ -151,6 +152,6 @@ class FinancialRatiosInputMapper {
       return false;
     }
 
-    return double.tryParse(normalized) == null;
+    return parseFiniteNumber(normalized) == null;
   }
 }

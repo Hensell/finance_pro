@@ -55,18 +55,27 @@ class FinancialRatioGroupView extends StatelessWidget {
           DsText(topic.summary, tone: DsTextTone.bodyMuted),
           SizedBox(height: context.tokens.spacing.lg),
         ],
-        Wrap(
-          spacing: context.tokens.layout.gridGap,
-          runSpacing: context.tokens.spacing.md,
-          children: selectedGroup.metrics
-              .map(
-                (FinancialRatioMetric metric) => _MetricCard(
-                  descriptor: descriptors[metric.id],
-                  metric: metric,
-                  presenter: presenter,
-                ),
-              )
-              .toList(),
+        LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            final double width = constraints.maxWidth >= 680
+                ? (constraints.maxWidth - context.tokens.layout.gridGap) / 2
+                : constraints.maxWidth;
+
+            return Wrap(
+              spacing: context.tokens.layout.gridGap,
+              runSpacing: context.tokens.spacing.md,
+              children: selectedGroup.metrics
+                  .map(
+                    (FinancialRatioMetric metric) => _MetricCard(
+                      descriptor: descriptors[metric.id],
+                      metric: metric,
+                      presenter: presenter,
+                      width: width,
+                    ),
+                  )
+                  .toList(),
+            );
+          },
         ),
       ],
     );
@@ -120,11 +129,13 @@ class _MetricCard extends StatelessWidget {
     required this.descriptor,
     required this.metric,
     required this.presenter,
+    required this.width,
   });
 
   final ResultDescriptor? descriptor;
   final FinancialRatioMetric metric;
   final FinancialRatiosLearningPresenter presenter;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -137,11 +148,7 @@ class _MetricCard extends StatelessWidget {
     final tokens = context.tokens;
 
     return SizedBox(
-      width:
-          MediaQuery.sizeOf(context).width >=
-              tokens.layout.breakpointGridTwoColumn
-          ? (tokens.layout.maxReadingWidth - tokens.layout.gridGap) / 2
-          : double.infinity,
+      width: width,
       child: DsReadingSection(
         title: resolvedDescriptor.label,
         summary: resolvedDescriptor.summary,

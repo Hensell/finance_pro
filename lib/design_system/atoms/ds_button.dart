@@ -1,12 +1,7 @@
 import 'package:finance_pro/core/extensions/build_context_x.dart';
 import 'package:flutter/material.dart';
 
-enum DsButtonVariant {
-  primary,
-  secondary,
-  ghost,
-  quiet,
-}
+enum DsButtonVariant { primary, secondary, ghost, quiet }
 
 class DsButton extends StatelessWidget {
   const DsButton({
@@ -28,31 +23,28 @@ class DsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final Widget button = switch (variant) {
       DsButtonVariant.primary => _buildFilledButton(
-          context,
-          icon ?? Icons.arrow_outward_rounded,
-        ),
+        context,
+        icon ?? Icons.arrow_outward_rounded,
+      ),
       DsButtonVariant.secondary => _buildOutlinedButton(
-          context,
-          icon ?? Icons.arrow_outward_rounded,
-        ),
+        context,
+        icon ?? Icons.arrow_outward_rounded,
+      ),
       DsButtonVariant.ghost => _buildTextButton(
-          context,
-          icon ?? Icons.chevron_right_rounded,
-        ),
+        context,
+        icon ?? Icons.chevron_right_rounded,
+      ),
       DsButtonVariant.quiet => _buildQuietButton(
-          context,
-          icon ?? Icons.chevron_right_rounded,
-        ),
+        context,
+        icon ?? Icons.chevron_right_rounded,
+      ),
     };
 
     if (!stretch) {
       return button;
     }
 
-    return SizedBox(
-      width: double.infinity,
-      child: button,
-    );
+    return SizedBox(width: double.infinity, child: button);
   }
 
   Widget _buildFilledButton(BuildContext context, IconData resolvedIcon) {

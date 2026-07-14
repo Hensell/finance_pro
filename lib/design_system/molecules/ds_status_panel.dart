@@ -33,10 +33,7 @@ class DsStatusPanel extends StatelessWidget {
               ? const SizedBox.shrink()
               : Padding(
                   padding: EdgeInsets.only(top: context.tokens.spacing.lg),
-                  child: DsButton(
-                    label: actionLabel!,
-                    onPressed: onAction,
-                  ),
+                  child: DsButton(label: actionLabel!, onPressed: onAction),
                 ),
         ),
       ),

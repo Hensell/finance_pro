@@ -3,6 +3,7 @@ import 'package:finance_pro/app/router/app_route_paths.dart';
 import 'package:finance_pro/core/extensions/build_context_x.dart';
 import 'package:finance_pro/core/state/app_load_status.dart';
 import 'package:finance_pro/design_system/atoms/ds_button.dart';
+import 'package:finance_pro/design_system/molecules/ds_academic_note.dart';
 import 'package:finance_pro/design_system/molecules/ds_aside_panel.dart';
 import 'package:finance_pro/design_system/molecules/ds_page_intro.dart';
 import 'package:finance_pro/design_system/molecules/ds_status_panel.dart';
@@ -123,13 +124,11 @@ class _TopicBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
-    final bool splitLayout =
-        MediaQuery.sizeOf(context).width >= tokens.layout.breakpointTwoColumn;
     final Widget main = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         DsButton(
-          label: context.l10n.appBackHomeAction,
+          label: context.l10n.appBackToModuleAction,
           onPressed: () =>
               context.go(AppRoutePaths.featureLocation(content.id)),
           variant: DsButtonVariant.ghost,
@@ -149,6 +148,8 @@ class _TopicBody extends StatelessWidget {
             child: ContentSectionView(section: section),
           ),
         ),
+        SizedBox(height: tokens.spacing.lg),
+        const DsAcademicNote(),
       ],
     );
 
@@ -166,30 +167,32 @@ class _TopicBody extends StatelessWidget {
             ),
     );
 
-    if (!splitLayout) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          if (content.calculator != null) ...<Widget>[
-            aside,
-            SizedBox(height: tokens.layout.sectionGap),
-          ],
-          main,
-          if (content.calculator == null) ...<Widget>[
-            SizedBox(height: tokens.layout.sectionGap),
-            aside,
-          ],
-        ],
-      );
-    }
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final bool splitLayout = constraints.maxWidth >= 1040;
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Expanded(child: main),
-        SizedBox(width: tokens.layout.gridGap),
-        SizedBox(width: tokens.layout.asideWidth, child: aside),
-      ],
+        if (!splitLayout) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              main,
+              if (content.calculator != null) ...<Widget>[
+                SizedBox(height: tokens.layout.sectionGap),
+                aside,
+              ],
+            ],
+          );
+        }
+
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Expanded(child: main),
+            SizedBox(width: tokens.layout.gridGap),
+            SizedBox(width: tokens.layout.asideWidth, child: aside),
+          ],
+        );
+      },
     );
   }
 }

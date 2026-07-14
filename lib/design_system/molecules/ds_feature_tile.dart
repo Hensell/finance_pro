@@ -25,62 +25,70 @@ class DsFeatureTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
-    final bool split = featured &&
-        leading != null &&
-        MediaQuery.sizeOf(context).width >=
-            context.tokens.layout.breakpointTwoColumn;
-    final Widget content = _FeatureTileContent(
-      actionLabel: actionLabel,
-      eyebrow: eyebrow,
-      summary: summary,
-      title: title,
-    );
+    final BorderRadius borderRadius = BorderRadius.circular(tokens.radii.lg);
 
-    return Semantics(
-      button: true,
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: onPressed,
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final bool split =
+            featured && leading != null && constraints.maxWidth >= 720;
+        final Widget content = _FeatureTileContent(
+          actionLabel: actionLabel,
+          eyebrow: eyebrow,
+          summary: summary,
+          title: title,
+        );
+
+        return Semantics(
+          button: true,
           child: DecoratedBox(
             decoration: BoxDecoration(
-              color:
-                  featured ? tokens.colors.surfaceRaised : tokens.colors.surface,
-              borderRadius: BorderRadius.circular(tokens.radii.lg),
-              border: Border.all(
-                color:
-                    featured ? tokens.colors.borderStrong : tokens.colors.border,
-              ),
+              borderRadius: borderRadius,
               boxShadow: featured ? <BoxShadow>[tokens.shadows.soft] : null,
             ),
-            child: Padding(
-              padding: EdgeInsets.all(
-                featured ? tokens.spacing.xl : tokens.spacing.lg,
+            child: Material(
+              color: featured
+                  ? tokens.colors.surfaceRaised
+                  : tokens.colors.surface,
+              shape: RoundedRectangleBorder(
+                borderRadius: borderRadius,
+                side: BorderSide(
+                  color: featured
+                      ? tokens.colors.borderStrong
+                      : tokens.colors.border,
+                ),
               ),
-              child: !split || leading == null
-                  ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        if (leading != null) ...<Widget>[
-                          leading!,
-                          SizedBox(height: tokens.spacing.xl),
-                        ],
-                        content,
-                      ],
-                    )
-                  : Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Expanded(child: content),
-                        SizedBox(width: tokens.spacing.xl),
-                        leading!,
-                      ],
-                    ),
+              clipBehavior: Clip.antiAlias,
+              child: InkWell(
+                onTap: onPressed,
+                child: Padding(
+                  padding: EdgeInsets.all(
+                    featured ? tokens.spacing.xl : tokens.spacing.lg,
+                  ),
+                  child: !split || leading == null
+                      ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            if (leading != null) ...<Widget>[
+                              leading!,
+                              SizedBox(height: tokens.spacing.xl),
+                            ],
+                            content,
+                          ],
+                        )
+                      : Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Expanded(child: content),
+                            SizedBox(width: tokens.spacing.xl),
+                            leading!,
+                          ],
+                        ),
+                ),
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

@@ -11,7 +11,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../test_support/test_app_harness.dart';
 
 void main() {
-  testWidgets('Splash hides footer and redirects to home before footer appears', (
+  testWidgets('Root route opens home without an artificial splash delay', (
     WidgetTester tester,
   ) async {
     final AppDependencies dependencies = createGoldenDependencies();
@@ -48,16 +48,11 @@ void main() {
       ),
     );
 
-    await tester.pump();
-
-    expect(find.text('Finance Pro'), findsOneWidget);
-    expect(find.text('© 2026 Hensell Dev'), findsNothing);
-
-    await tester.pump(const Duration(milliseconds: 950));
     await tester.pumpAndSettle();
 
     expect(appRouter.config.routeInformationProvider.value.uri.path, '/home');
     expect(find.text('© 2026 Hensell Dev'), findsOneWidget);
     expect(find.text('Inicio'), findsOneWidget);
+    expect(find.text('Preparando el laboratorio financiero.'), findsNothing);
   });
 }

@@ -19,10 +19,8 @@ abstract class HomeContent with _$HomeContent {
 
 @freezed
 abstract class HomeHighlight with _$HomeHighlight {
-  const factory HomeHighlight({
-    required String label,
-    required String value,
-  }) = _HomeHighlight;
+  const factory HomeHighlight({required String label, required String value}) =
+      _HomeHighlight;
 
   factory HomeHighlight.fromJson(Map<String, dynamic> json) =>
       _$HomeHighlightFromJson(json);

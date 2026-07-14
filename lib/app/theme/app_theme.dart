@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  static ThemeData build({
-    bool useGoogleFonts = true,
-  }) {
+  static ThemeData build({bool useGoogleFonts = true}) {
     const AppColorTokens colors = AppColorTokens.premiumFinance();
     const AppSpacingTokens spacing = AppSpacingTokens.standard();
     const AppRadiusTokens radii = AppRadiusTokens.standard();
@@ -16,26 +14,27 @@ class AppTheme {
 
     final ThemeData base = ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
-        brightness: Brightness.light,
-        seedColor: colors.primary,
-        primary: colors.primary,
-        secondary: colors.secondary,
-        tertiary: colors.tertiary,
-        surface: colors.surfaceRaised,
-        error: colors.error,
-      ).copyWith(
-        primary: colors.primary,
-        onPrimary: colors.onPrimary,
-        secondary: colors.secondary,
-        onSecondary: colors.onSecondary,
-        tertiary: colors.tertiary,
-        onTertiary: colors.onTertiary,
-        surface: colors.surfaceRaised,
-        onSurface: colors.onSurface,
-        error: colors.error,
-        onError: colors.onError,
-      ),
+      colorScheme:
+          ColorScheme.fromSeed(
+            brightness: Brightness.light,
+            seedColor: colors.primary,
+            primary: colors.primary,
+            secondary: colors.secondary,
+            tertiary: colors.tertiary,
+            surface: colors.surfaceRaised,
+            error: colors.error,
+          ).copyWith(
+            primary: colors.primary,
+            onPrimary: colors.onPrimary,
+            secondary: colors.secondary,
+            onSecondary: colors.onSecondary,
+            tertiary: colors.tertiary,
+            onTertiary: colors.onTertiary,
+            surface: colors.surfaceRaised,
+            onSurface: colors.onSurface,
+            error: colors.error,
+            onError: colors.onError,
+          ),
       scaffoldBackgroundColor: colors.shellBackground,
       canvasColor: colors.surfaceRaised,
       splashFactory: NoSplash.splashFactory,
@@ -76,11 +75,8 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(radii.md),
           ),
-        textStyle: _labelLargeStyle(
-          colors,
-          useGoogleFonts: useGoogleFonts,
+          textStyle: _labelLargeStyle(colors, useGoogleFonts: useGoogleFonts),
         ),
-      ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
@@ -96,11 +92,8 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(radii.md),
           ),
-        textStyle: _labelLargeStyle(
-          colors,
-          useGoogleFonts: useGoogleFonts,
+          textStyle: _labelLargeStyle(colors, useGoogleFonts: useGoogleFonts),
         ),
-      ),
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
@@ -113,11 +106,8 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(radii.round),
           ),
-        textStyle: _labelLargeStyle(
-          colors,
-          useGoogleFonts: useGoogleFonts,
+          textStyle: _labelLargeStyle(colors, useGoogleFonts: useGoogleFonts),
         ),
-      ),
       ),
       iconButtonTheme: IconButtonThemeData(
         style: IconButton.styleFrom(
@@ -156,10 +146,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(radii.lg),
           side: BorderSide(color: colors.border),
         ),
-        textStyle: _bodyStyle(
-          colors,
-          useGoogleFonts: useGoogleFonts,
-        ),
+        textStyle: _bodyStyle(colors, useGoogleFonts: useGoogleFonts),
       ),
       dataTableTheme: DataTableThemeData(
         headingRowColor: WidgetStatePropertyAll<Color>(colors.surfaceMuted),
@@ -168,10 +155,7 @@ class AppTheme {
           colors,
           useGoogleFonts: useGoogleFonts,
         ),
-        dataTextStyle: _bodyStyle(
-          colors,
-          useGoogleFonts: useGoogleFonts,
-        ),
+        dataTextStyle: _bodyStyle(colors, useGoogleFonts: useGoogleFonts),
         dividerThickness: 0.6,
         dataRowMinHeight: 56,
         dataRowMaxHeight: 72,
@@ -196,34 +180,22 @@ class AppTheme {
   static InputDecorationTheme _buildInputDecorationTheme(
     AppColorTokens colors,
     AppSpacingTokens spacing,
-    AppRadiusTokens radii,
-    {
+    AppRadiusTokens radii, {
     required bool useGoogleFonts,
-    }
-  ) {
+  }) {
     return InputDecorationTheme(
       filled: true,
       fillColor: colors.surfaceRaised,
-      hintStyle: _bodyMutedStyle(
-        colors,
-        useGoogleFonts: useGoogleFonts,
-      ),
-      labelStyle: _bodyMutedStyle(
-        colors,
-        useGoogleFonts: useGoogleFonts,
-      ),
+      hintStyle: _bodyMutedStyle(colors, useGoogleFonts: useGoogleFonts),
+      labelStyle: _bodyMutedStyle(colors, useGoogleFonts: useGoogleFonts),
       floatingLabelStyle: _labelLargeStyle(
         colors,
         useGoogleFonts: useGoogleFonts,
-      ).copyWith(
-        color: colors.primary,
-      ),
+      ).copyWith(color: colors.primary),
       suffixStyle: _labelLargeStyle(
         colors,
         useGoogleFonts: useGoogleFonts,
-      ).copyWith(
-        color: colors.onSurfaceMuted,
-      ),
+      ).copyWith(color: colors.onSurfaceMuted),
       contentPadding: EdgeInsets.symmetric(
         horizontal: spacing.md,
         vertical: spacing.md,
@@ -238,10 +210,7 @@ class AppTheme {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(radii.md),
-        borderSide: BorderSide(
-          color: colors.focus,
-          width: 1.3,
-        ),
+        borderSide: BorderSide(color: colors.focus, width: 1.3),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(radii.md),
@@ -249,10 +218,7 @@ class AppTheme {
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(radii.md),
-        borderSide: BorderSide(
-          color: colors.error,
-          width: 1.3,
-        ),
+        borderSide: BorderSide(color: colors.error, width: 1.3),
       ),
     );
   }
@@ -263,10 +229,9 @@ class AppTheme {
     required bool useGoogleFonts,
   }) {
     final TextTheme sans = useGoogleFonts
-        ? GoogleFonts.plusJakartaSansTextTheme(base).apply(
-            bodyColor: colors.onSurface,
-            displayColor: colors.onSurface,
-          )
+        ? GoogleFonts.plusJakartaSansTextTheme(
+            base,
+          ).apply(bodyColor: colors.onSurface, displayColor: colors.onSurface)
         : base.apply(
             bodyColor: colors.onSurface,
             displayColor: colors.onSurface,
@@ -277,8 +242,8 @@ class AppTheme {
         useGoogleFonts,
         textStyle: sans.displayLarge?.copyWith(
           color: colors.onSurface,
-          fontSize: 68,
-          height: 0.95,
+          fontSize: 62,
+          height: 1.02,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -286,8 +251,8 @@ class AppTheme {
         useGoogleFonts,
         textStyle: sans.displayMedium?.copyWith(
           color: colors.onSurface,
-          fontSize: 54,
-          height: 0.98,
+          fontSize: 50,
+          height: 1.04,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -295,8 +260,8 @@ class AppTheme {
         useGoogleFonts,
         textStyle: sans.headlineLarge?.copyWith(
           color: colors.onSurface,
-          fontSize: 40,
-          height: 1.02,
+          fontSize: 38,
+          height: 1.08,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -360,8 +325,8 @@ class AppTheme {
       useGoogleFonts,
       textStyle: TextStyle(
         color: colors.onSurfaceMuted,
-        fontSize: 14,
-        height: 1.68,
+        fontSize: 15,
+        height: 1.62,
         fontWeight: FontWeight.w400,
       ),
     );
@@ -430,7 +395,8 @@ final class _AppThemeData implements AppThemeContract {
 
   @override
   AppRadiusTokens get radii =>
-      _themeData.extension<AppRadiusTokens>() ?? const AppRadiusTokens.standard();
+      _themeData.extension<AppRadiusTokens>() ??
+      const AppRadiusTokens.standard();
 
   @override
   AppShadowTokens get shadows =>

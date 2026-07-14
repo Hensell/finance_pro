@@ -1,11 +1,11 @@
 {
-  "eyebrow": "Centro de aprendizaje",
-  "title": "Explora finanzas corporativas con una estructura clara",
-  "summary": "Cada módulo mezcla teoría esencial, fórmulas renderizadas con LaTeX y calculadoras enfocadas en decisiones reales.",
+  "eyebrow": "Laboratorio universitario",
+  "title": "Aprende finanzas corporativas con criterio",
+  "summary": "Avanza del concepto a la fórmula y de la fórmula a una decisión. Cada ruta combina teoría esencial, práctica guiada e interpretación financiera.",
   "highlights": [
-    { "label": "Módulos base", "value": "5" },
-    { "label": "Calculadoras", "value": "4" },
-    { "label": "Idiomas iniciales", "value": "2" }
+    { "label": "Rutas de aprendizaje", "value": "5" },
+    { "label": "Calculadoras guiadas", "value": "5" },
+    { "label": "Contenido", "value": "ES / EN" }
   ],
   "modules": [
     {

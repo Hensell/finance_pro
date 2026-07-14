@@ -26,9 +26,7 @@ class _FakeHomeRepository implements HomeRepository {
 
 void main() {
   test('HomeCubit loads content successfully', () async {
-    final HomeCubit cubit = HomeCubit(
-      LoadHomeContent(_FakeHomeRepository()),
-    );
+    final HomeCubit cubit = HomeCubit(LoadHomeContent(_FakeHomeRepository()));
 
     await cubit.load('es');
 

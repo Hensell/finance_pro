@@ -40,7 +40,12 @@ class DsFeatureCard extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.all(tokens.spacing.md),
-          child: Image.asset(AppAssets.iconForFeature(featureId)),
+          child: Image.asset(
+            AppAssets.iconForFeature(featureId),
+            cacheWidth:
+                ((featured ? 112 : 64) * MediaQuery.devicePixelRatioOf(context))
+                    .round(),
+          ),
         ),
       ),
       onPressed: onPressed,

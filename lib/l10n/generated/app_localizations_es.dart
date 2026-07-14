@@ -12,8 +12,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get appTitle => 'Finance Pro';
 
   @override
-  String get appTagline =>
-      'Finanzas corporativas con rutas claras, fórmulas vivas y calculadoras prácticas.';
+  String get appTagline => 'Finanzas corporativas';
 
   @override
   String get appPrimaryAction => 'Entrar al laboratorio';
@@ -28,7 +27,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get appReadTopicAction => 'Leer tema';
 
   @override
-  String get appOpenCalculatorAction => 'Abrir calculadora';
+  String get appOpenCalculatorAction => 'Practicar con la calculadora';
 
   @override
   String get appRetryAction => 'Reintentar';
@@ -38,6 +37,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get appBackHomeAction => 'Volver al inicio';
+
+  @override
+  String get appBackToModuleAction => 'Volver al módulo';
 
   @override
   String get appToggleLanguageLabel => 'Idioma';
@@ -111,6 +113,39 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get shellModulesLabel => 'Módulos';
+
+  @override
+  String get homeStartAction => 'Comenzar la ruta';
+
+  @override
+  String get homePracticeAction => 'Ir a la calculadora';
+
+  @override
+  String get homeModulesSection => 'Rutas de aprendizaje';
+
+  @override
+  String get notFoundTitle => 'Esta ruta no existe';
+
+  @override
+  String get notFoundBody =>
+      'El enlace puede estar incompleto o el contenido pudo cambiar de ubicación.';
+
+  @override
+  String get notFoundAction => 'Volver al inicio';
+
+  @override
+  String get academicContextTitle => 'Contexto académico';
+
+  @override
+  String get academicContextBody =>
+      'Los modelos y rangos de esta app simplifican la realidad para apoyar el aprendizaje. Contrasta cada resultado con la industria, el periodo analizado, las políticas contables y los supuestos del caso; no sustituye asesoría financiera profesional.';
+
+  @override
+  String get academicReferencesLabel => 'Lecturas recomendadas';
+
+  @override
+  String get academicReferencesBody =>
+      'Gitman y Zutter, Principios de administración financiera · Brealey, Myers y Allen, Principios de finanzas corporativas.';
 
   @override
   String get validationPositiveNumbers =>

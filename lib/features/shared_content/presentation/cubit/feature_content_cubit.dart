@@ -5,7 +5,7 @@ import 'package:finance_pro/features/shared_content/presentation/cubit/feature_c
 
 class FeatureContentCubit extends Cubit<FeatureContentState> {
   FeatureContentCubit(this._loadFeatureContent)
-      : super(const FeatureContentState());
+    : super(const FeatureContentState());
 
   final LoadFeatureContent _loadFeatureContent;
 
@@ -20,12 +20,7 @@ class FeatureContentCubit extends Cubit<FeatureContentState> {
         localeCode: localeCode,
         featureId: featureId,
       );
-      emit(
-        state.copyWith(
-          status: AppLoadStatus.success,
-          content: content,
-        ),
-      );
+      emit(state.copyWith(status: AppLoadStatus.success, content: content));
     } catch (_) {
       emit(
         state.copyWith(

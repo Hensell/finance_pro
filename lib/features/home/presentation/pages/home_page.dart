@@ -2,6 +2,7 @@ import 'package:finance_pro/app/bootstrap/app_dependencies.dart';
 import 'package:finance_pro/app/router/app_route_paths.dart';
 import 'package:finance_pro/core/extensions/build_context_x.dart';
 import 'package:finance_pro/core/state/app_load_status.dart';
+import 'package:finance_pro/design_system/atoms/ds_button.dart';
 import 'package:finance_pro/design_system/atoms/ds_divider_rule.dart';
 import 'package:finance_pro/design_system/molecules/ds_feature_card.dart';
 import 'package:finance_pro/design_system/molecules/ds_metric_strip.dart';
@@ -23,9 +24,9 @@ class HomePage extends StatelessWidget {
 
     return BlocProvider<HomeCubit>(
       key: ValueKey<String>('home:$localeCode'),
-      create: (BuildContext context) => HomeCubit(
-        context.read<AppDependencies>().loadHomeContent,
-      )..load(localeCode),
+      create: (BuildContext context) =>
+          HomeCubit(context.read<AppDependencies>().loadHomeContent)
+            ..load(localeCode),
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (BuildContext context, HomeState state) {
           switch (state.status) {
@@ -67,8 +68,9 @@ class _HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
-    final HomeModuleSummary? featuredModule =
-        content.modules.isEmpty ? null : content.modules.first;
+    final HomeModuleSummary? featuredModule = content.modules.isEmpty
+        ? null
+        : content.modules.first;
     final List<HomeModuleSummary> secondaryModules = content.modules.length > 1
         ? content.modules.skip(1).toList()
         : const <HomeModuleSummary>[];
@@ -81,6 +83,30 @@ class _HomeBody extends StatelessWidget {
           title: content.title,
           summary: content.summary,
         ),
+        if (featuredModule != null) ...<Widget>[
+          SizedBox(height: tokens.spacing.lg),
+          Wrap(
+            spacing: tokens.spacing.sm,
+            runSpacing: tokens.spacing.sm,
+            children: <Widget>[
+              DsButton(
+                label: context.l10n.homeStartAction,
+                icon: Icons.school_outlined,
+                onPressed: () => context.go(
+                  AppRoutePaths.featureLocation(featuredModule.id),
+                ),
+              ),
+              DsButton(
+                label: context.l10n.homePracticeAction,
+                icon: Icons.calculate_outlined,
+                variant: DsButtonVariant.secondary,
+                onPressed: () => context.go(
+                  AppRoutePaths.calculatorLocation(featuredModule.id),
+                ),
+              ),
+            ],
+          ),
+        ],
         SizedBox(height: tokens.layout.sectionGap),
         DsMetricStrip(
           items: content.highlights
@@ -94,7 +120,7 @@ class _HomeBody extends StatelessWidget {
         ),
         if (featuredModule != null) ...<Widget>[
           SizedBox(height: tokens.layout.sectionGap),
-          DsDividerRule(label: context.l10n.appTopicsSection),
+          DsDividerRule(label: context.l10n.homeModulesSection),
           SizedBox(height: tokens.spacing.lg),
           DsFeatureCard(
             accent: featuredModule.accent,
@@ -111,15 +137,15 @@ class _HomeBody extends StatelessWidget {
           SizedBox(height: tokens.layout.sectionGap),
           LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-              final int columns = constraints.maxWidth >=
-                      tokens.layout.breakpointGridTwoColumn
+              final int columns =
+                  constraints.maxWidth >= tokens.layout.breakpointGridTwoColumn
                   ? 2
                   : 1;
               final double cardWidth = columns == 1
                   ? constraints.maxWidth
                   : (constraints.maxWidth -
-                          ((columns - 1) * tokens.layout.gridGap)) /
-                      columns;
+                            ((columns - 1) * tokens.layout.gridGap)) /
+                        columns;
 
               return Wrap(
                 spacing: tokens.layout.gridGap,
@@ -132,8 +158,9 @@ class _HomeBody extends StatelessWidget {
                           accent: module.accent,
                           featureId: module.id,
                           kicker: module.kicker,
-                          onPressed: () =>
-                              context.go(AppRoutePaths.featureLocation(module.id)),
+                          onPressed: () => context.go(
+                            AppRoutePaths.featureLocation(module.id),
+                          ),
                           summary: module.summary,
                           title: module.title,
                         ),

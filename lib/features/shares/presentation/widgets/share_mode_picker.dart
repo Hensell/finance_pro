@@ -65,57 +65,58 @@ class _ModeCard extends StatelessWidget {
     final tokens = context.tokens;
 
     return Semantics(
-      button: true,
       selected: selected,
-      child: GestureDetector(
-        key: ValueKey<String>('share-mode:${mode.id}'),
-        onTap: onTap,
-        child: Container(
-          width: double.infinity,
-          padding: EdgeInsets.all(tokens.spacing.md),
-          decoration: BoxDecoration(
-            color: selected
-                ? tokens.colors.primarySoft
-                : tokens.colors.surfaceRaised,
-            borderRadius: BorderRadius.circular(tokens.radii.md),
-            border: Border.all(
-              color: selected ? tokens.colors.primary : tokens.colors.border,
-            ),
+      child: Material(
+        color: selected
+            ? tokens.colors.primarySoft
+            : tokens.colors.surfaceRaised,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(tokens.radii.md),
+          side: BorderSide(
+            color: selected ? tokens.colors.primary : tokens.colors.border,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(
-                    child: DsText(
-                      mode.label,
-                      tone: DsTextTone.label,
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          key: ValueKey<String>('share-mode:${mode.id}'),
+          onTap: onTap,
+          child: Padding(
+            padding: EdgeInsets.all(tokens.spacing.md),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Expanded(
+                      child: DsText(
+                        mode.label,
+                        tone: DsTextTone.label,
+                        color: selected
+                            ? tokens.colors.primary
+                            : tokens.colors.onSurface,
+                      ),
+                    ),
+                    Icon(
+                      selected
+                          ? Icons.keyboard_arrow_up
+                          : Icons.keyboard_arrow_down,
                       color: selected
                           ? tokens.colors.primary
-                          : tokens.colors.onSurface,
+                          : tokens.colors.onSurfaceMuted,
                     ),
-                  ),
-                  Icon(
-                    selected
-                        ? Icons.keyboard_arrow_up
-                        : Icons.keyboard_arrow_down,
-                    color: selected
-                        ? tokens.colors.primary
-                        : tokens.colors.onSurfaceMuted,
-                  ),
+                  ],
+                ),
+                SizedBox(height: tokens.spacing.xs),
+                DsText(mode.summary, tone: DsTextTone.bodyMuted),
+                if (expandedContent != null) ...<Widget>[
+                  SizedBox(height: tokens.spacing.md),
+                  Divider(color: tokens.colors.border),
+                  SizedBox(height: tokens.spacing.md),
+                  expandedContent!,
                 ],
-              ),
-              SizedBox(height: tokens.spacing.xs),
-              DsText(mode.summary, tone: DsTextTone.bodyMuted),
-              if (expandedContent != null) ...<Widget>[
-                SizedBox(height: tokens.spacing.md),
-                Divider(color: tokens.colors.border),
-                SizedBox(height: tokens.spacing.md),
-                expandedContent!,
               ],
-            ],
+            ),
           ),
         ),
       ),

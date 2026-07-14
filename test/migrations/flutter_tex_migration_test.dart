@@ -1,28 +1,24 @@
 import 'dart:io';
-
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('pubspec uses flutter_tex and no longer includes flutter_math_fork', () {
+  test('pubspec uses flutter_math_fork and no longer includes flutter_tex', () {
     final String pubspec = File('pubspec.yaml').readAsStringSync();
-    final String lockfile = File('pubspec.lock').readAsStringSync();
 
-    expect(pubspec, contains('flutter_tex:'));
-    expect(pubspec, isNot(contains('flutter_math_fork')));
-    expect(lockfile, isNot(contains('flutter_math_fork')));
+    expect(pubspec, contains('flutter_math_fork:'));
+    expect(pubspec, isNot(contains('flutter_tex:')));
   });
 
-  test('source tree does not reference the old math API', () {
+  test('source tree does not reference the old flutter_tex API', () {
     final List<String> forbiddenPatterns = <String>[
-      'flutter_math_fork',
-      'package:flutter_math',
-      'Math.tex',
-      'SelectableMath',
+      'flutter_tex',
+      'package:flutter_tex',
+      'TeXWidget',
+      'TeXRenderingServer',
     ];
 
     final Iterable<File> files = <File>[
       File('pubspec.yaml'),
-      File('pubspec.lock'),
       ..._dartFilesIn('lib'),
       ..._dartFilesIn('test').where(
         (File file) => !file.path.endsWith('flutter_tex_migration_test.dart'),
@@ -41,11 +37,11 @@ void main() {
     }
   });
 
-  test('web bootstrap includes flutter_tex runtime assets', () {
+  test('web bootstrap does not include flutter_tex runtime assets', () {
     final String indexHtml = File('web/index.html').readAsStringSync();
 
-    expect(indexHtml, contains('flutter_tex.js'));
-    expect(indexHtml, contains('mathjax_core.js'));
+    expect(indexHtml, isNot(contains('flutter_tex.js')));
+    expect(indexHtml, isNot(contains('mathjax_core.js')));
   });
 }
 
@@ -55,8 +51,10 @@ Iterable<File> _dartFilesIn(String path) sync* {
     return;
   }
 
-  for (final FileSystemEntity entity
-      in directory.listSync(recursive: true, followLinks: false)) {
+  for (final FileSystemEntity entity in directory.listSync(
+    recursive: true,
+    followLinks: false,
+  )) {
     if (entity is File && entity.path.endsWith('.dart')) {
       yield entity;
     }

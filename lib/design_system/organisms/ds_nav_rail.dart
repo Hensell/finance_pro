@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 
 class DsNavDestination {
   const DsNavDestination({
+    required this.icon,
     required this.label,
     required this.location,
+    this.selectedIcon,
   });
 
+  final IconData icon;
   final String label;
   final String location;
+  final IconData? selectedIcon;
 }
 
 class DsNavRail extends StatelessWidget {
@@ -35,9 +39,11 @@ class DsNavRail extends StatelessWidget {
           (DsNavDestination destination) => _NavItem(
             active: _isActive(destination.location),
             axis: axis,
+            icon: destination.icon,
             label: destination.label,
             location: destination.location,
             onTap: () => onSelected(destination.location),
+            selectedIcon: destination.selectedIcon,
           ),
         )
         .toList();
@@ -84,93 +90,90 @@ class _NavItem extends StatelessWidget {
   const _NavItem({
     required this.active,
     required this.axis,
+    required this.icon,
     required this.label,
     required this.location,
     required this.onTap,
+    this.selectedIcon,
   });
 
   final bool active;
   final Axis axis;
+  final IconData icon;
   final String label;
   final String location;
   final VoidCallback onTap;
+  final IconData? selectedIcon;
 
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
     final bool horizontal = axis == Axis.horizontal;
 
+    final BorderRadius borderRadius = BorderRadius.circular(
+      horizontal ? tokens.radii.round : tokens.radii.md,
+    );
+
     return Semantics(
-      button: true,
       selected: active,
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        child: GestureDetector(
+      child: Material(
+        color: horizontal
+            ? (active ? tokens.colors.primarySoft : tokens.colors.surfaceRaised)
+            : (active ? tokens.colors.primarySoft : Colors.transparent),
+        shape: RoundedRectangleBorder(
+          borderRadius: borderRadius,
+          side: BorderSide(
+            color: horizontal
+                ? (active
+                      ? tokens.colors.primary.withValues(alpha: 0.24)
+                      : tokens.colors.border)
+                : (active
+                      ? tokens.colors.primary.withValues(alpha: 0.16)
+                      : Colors.transparent),
+          ),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
           key: ValueKey<String>('nav-item:$location'),
-          behavior: HitTestBehavior.opaque,
+          borderRadius: borderRadius,
           onTap: onTap,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: horizontal
-                  ? (active
-                      ? tokens.colors.primarySoft
-                      : tokens.colors.surfaceRaised)
-                  : (active ? tokens.colors.primarySoft : Colors.transparent),
-              borderRadius: BorderRadius.circular(
-                horizontal ? tokens.radii.round : tokens.radii.md,
-              ),
-              border: Border.all(
-                color: horizontal
-                    ? (active
-                        ? tokens.colors.primary.withValues(alpha: 0.24)
-                        : tokens.colors.border)
-                    : (active
-                        ? tokens.colors.primary.withValues(alpha: 0.16)
-                        : Colors.transparent),
-              ),
-            ),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 48),
             child: Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: horizontal ? tokens.spacing.md : tokens.spacing.sm,
-                vertical:
-                    horizontal ? tokens.spacing.sm : tokens.spacing.sm + 2,
+                vertical: tokens.spacing.sm,
               ),
-              child: SizedBox(
-                width: horizontal ? null : double.infinity,
-                child: horizontal
-                    ? DsText(
+              child: Row(
+                mainAxisSize: horizontal ? MainAxisSize.min : MainAxisSize.max,
+                children: <Widget>[
+                  Icon(
+                    active ? selectedIcon ?? icon : icon,
+                    size: 20,
+                    color: active
+                        ? tokens.colors.primary
+                        : tokens.colors.onSurfaceMuted,
+                  ),
+                  SizedBox(width: tokens.spacing.sm),
+                  if (horizontal)
+                    DsText(
+                      label,
+                      tone: DsTextTone.label,
+                      color: active
+                          ? tokens.colors.primary
+                          : tokens.colors.onSurface,
+                    )
+                  else
+                    Expanded(
+                      child: DsText(
                         label,
                         tone: DsTextTone.label,
                         color: active
                             ? tokens.colors.primary
                             : tokens.colors.onSurface,
-                      )
-                    : Row(
-                        children: <Widget>[
-                          Container(
-                            width: 6,
-                            height: 6,
-                            decoration: BoxDecoration(
-                              color: active
-                                  ? tokens.colors.primary
-                                  : tokens.colors.borderStrong.withValues(
-                                      alpha: 0.7,
-                                    ),
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          SizedBox(width: tokens.spacing.sm),
-                          Expanded(
-                            child: DsText(
-                              label,
-                              tone: DsTextTone.label,
-                              color: active
-                                  ? tokens.colors.primary
-                                  : tokens.colors.onSurface,
-                            ),
-                          ),
-                        ],
                       ),
+                    ),
+                ],
               ),
             ),
           ),

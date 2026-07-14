@@ -13,12 +13,7 @@ class HomeCubit extends Cubit<HomeState> {
 
     try {
       final content = await _loadHomeContent(localeCode: localeCode);
-      emit(
-        state.copyWith(
-          status: AppLoadStatus.success,
-          content: content,
-        ),
-      );
+      emit(state.copyWith(status: AppLoadStatus.success, content: content));
     } catch (_) {
       emit(
         state.copyWith(

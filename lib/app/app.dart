@@ -53,9 +53,7 @@ class _FinanceProAppState extends State<FinanceProApp> {
                 GlobalCupertinoLocalizations.delegate,
               ],
               supportedLocales: AppLocalizations.supportedLocales,
-              theme: AppTheme.build(
-                useGoogleFonts: widget.useGoogleFonts,
-              ),
+              theme: AppTheme.build(useGoogleFonts: widget.useGoogleFonts),
               routerConfig: _appRouter.config,
             );
           },

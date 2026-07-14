@@ -7,10 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({
-    this.autoRedirect = true,
-    super.key,
-  });
+  const OnboardingPage({this.autoRedirect = true, super.key});
 
   final bool autoRedirect;
 
@@ -55,7 +52,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           child: Padding(
             padding: EdgeInsets.all(tokens.layout.compactPagePadding),
             child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: tokens.layout.maxReadingWidth),
+              constraints: BoxConstraints(
+                maxWidth: tokens.layout.maxReadingWidth,
+              ),
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: tokens.colors.surfaceRaised,

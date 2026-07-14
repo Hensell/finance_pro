@@ -21,9 +21,7 @@ class DsAppFooter extends StatelessWidget {
           color: tokens.colors.surfaceRaised,
           child: DecoratedBox(
             decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(color: tokens.colors.border),
-              ),
+              border: Border(top: BorderSide(color: tokens.colors.border)),
             ),
             child: Center(
               child: Link(

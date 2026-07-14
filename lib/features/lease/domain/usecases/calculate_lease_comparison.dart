@@ -37,11 +37,7 @@ class CalculateLeaseComparison {
       return leasePayment * periods;
     }
 
-    double presentValue = 0;
-    for (int period = 1; period <= periods; period++) {
-      presentValue += leasePayment / pow(1 + rate, period);
-    }
-    return presentValue;
+    return leasePayment * (1 - pow(1 + rate, -periods)) / rate;
   }
 
   double _discountResidualValue({

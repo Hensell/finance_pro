@@ -117,17 +117,26 @@ class FinancialStatementsSummaryPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Wrap(
-            spacing: context.tokens.spacing.md,
-            runSpacing: context.tokens.spacing.md,
-            children: items
-                .map(
-                  (_SummaryItem item) => _SummaryCard(
-                    label: item.label,
-                    value: AppNumberFormatter.decimal(item.value),
-                  ),
-                )
-                .toList(),
+          LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              final double width = constraints.maxWidth >= 680
+                  ? (constraints.maxWidth - context.tokens.spacing.md) / 2
+                  : constraints.maxWidth;
+
+              return Wrap(
+                spacing: context.tokens.spacing.md,
+                runSpacing: context.tokens.spacing.md,
+                children: items
+                    .map(
+                      (_SummaryItem item) => _SummaryCard(
+                        label: item.label,
+                        value: AppNumberFormatter.decimal(item.value),
+                        width: width,
+                      ),
+                    )
+                    .toList(),
+              );
+            },
           ),
           if (currentStep ==
               FinancialRatiosBuilderStep.balanceSheet) ...<Widget>[
@@ -180,21 +189,22 @@ class _BalanceStatusMessage extends StatelessWidget {
 }
 
 class _SummaryCard extends StatelessWidget {
-  const _SummaryCard({required this.label, required this.value});
+  const _SummaryCard({
+    required this.label,
+    required this.value,
+    required this.width,
+  });
 
   final String label;
   final String value;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
 
     return Container(
-      width:
-          MediaQuery.sizeOf(context).width >=
-              tokens.layout.breakpointGridTwoColumn
-          ? (tokens.layout.maxReadingWidth - tokens.layout.gridGap) / 2
-          : double.infinity,
+      width: width,
       padding: EdgeInsets.all(tokens.spacing.md),
       decoration: BoxDecoration(
         color: tokens.colors.surfaceRaised,

@@ -33,7 +33,7 @@
             },
             {
               "label": "Prueba ácida",
-              "tex": "\\text{Prueba\\ \\acute{a}cida}=\\frac{Activos\\ corrientes-Inventario}{Pasivos\\ corrientes}"
+              "tex": "\\text{Prueba ácida}=\\frac{Activos\\ corrientes-Inventario}{Pasivos\\ corrientes}"
             },
             {
               "label": "Razón de efectivo",
@@ -352,7 +352,7 @@
       },
       {
         "label": "Prueba ácida",
-        "tex": "\\text{Prueba\\ \\acute{a}cida}=\\frac{Activos\\ corrientes-Inventario}{Pasivos\\ corrientes}",
+        "tex": "\\text{Prueba ácida}=\\frac{Activos\\ corrientes-Inventario}{Pasivos\\ corrientes}",
         "groupIds": ["liquidity"]
       },
       {

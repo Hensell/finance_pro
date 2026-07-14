@@ -109,8 +109,6 @@ class BondCalculatorPage extends StatelessWidget {
                         main: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            BondCalculatorGuide(note: calculator.note),
-                            SizedBox(height: context.tokens.spacing.lg),
                             CalculatorSections(
                               inputs: calculatorState.inputs,
                               onChanged: (MapEntry<String, String> entry) =>
@@ -137,6 +135,8 @@ class BondCalculatorPage extends StatelessWidget {
                                   .read<BondCalculatorCubit>()
                                   .submit,
                             ),
+                            SizedBox(height: context.tokens.spacing.lg),
+                            BondCalculatorGuide(note: calculator.note),
                           ],
                         ),
                         aside: DsAsidePanel(

@@ -33,31 +33,31 @@ class AppColorTokens extends ThemeExtension<AppColorTokens> {
   });
 
   const AppColorTokens.premiumFinance()
-      : background = const Color(0xFFF6F1E9),
-        shellBackground = const Color(0xFFF2EDE4),
-        surface = const Color(0xFFFBF8F2),
-        surfaceRaised = const Color(0xFFFFFCF8),
-        surfaceMuted = const Color(0xFFF1EBE2),
-        surfaceStrong = const Color(0xFFE5DDD1),
-        primary = const Color(0xFF1F5C50),
-        primarySoft = const Color(0xFFE4EEE8),
-        secondary = const Color(0xFF6C7F79),
-        tertiary = const Color(0xFF4E6875),
-        onPrimary = const Color(0xFFFFFCF8),
-        onSecondary = const Color(0xFFFFFCF8),
-        onTertiary = const Color(0xFFFBFCFD),
-        onSurface = const Color(0xFF22302C),
-        onSurfaceMuted = const Color(0xFF65726D),
-        border = const Color(0xFFD9D0C4),
-        borderStrong = const Color(0xFFC7BEAF),
-        divider = const Color(0xFFE3DCD2),
-        focus = const Color(0xFF275E54),
-        error = const Color(0xFFAB594A),
-        onError = const Color(0xFFFFF8F6),
-        formulaSurface = const Color(0xFFF3EEE6),
-        limeAccent = const Color(0xFFB5C693),
-        tealAccent = const Color(0xFF8AA79F),
-        blueAccent = const Color(0xFF91A7B5);
+    : background = const Color(0xFFF6F1E9),
+      shellBackground = const Color(0xFFF2EDE4),
+      surface = const Color(0xFFFBF8F2),
+      surfaceRaised = const Color(0xFFFFFCF8),
+      surfaceMuted = const Color(0xFFF1EBE2),
+      surfaceStrong = const Color(0xFFE5DDD1),
+      primary = const Color(0xFF1F5C50),
+      primarySoft = const Color(0xFFE4EEE8),
+      secondary = const Color(0xFF50675F),
+      tertiary = const Color(0xFF4E6875),
+      onPrimary = const Color(0xFFFFFCF8),
+      onSecondary = const Color(0xFFFFFCF8),
+      onTertiary = const Color(0xFFFBFCFD),
+      onSurface = const Color(0xFF22302C),
+      onSurfaceMuted = const Color(0xFF52635D),
+      border = const Color(0xFFD9D0C4),
+      borderStrong = const Color(0xFFC7BEAF),
+      divider = const Color(0xFFE3DCD2),
+      focus = const Color(0xFF275E54),
+      error = const Color(0xFFAB594A),
+      onError = const Color(0xFFFFF8F6),
+      formulaSurface = const Color(0xFFF3EEE6),
+      limeAccent = const Color(0xFFB5C693),
+      tealAccent = const Color(0xFF8AA79F),
+      blueAccent = const Color(0xFF91A7B5);
 
   final Color background;
   final Color blueAccent;
@@ -155,7 +155,10 @@ class AppColorTokens extends ThemeExtension<AppColorTokens> {
   }
 
   @override
-  AppColorTokens lerp(covariant ThemeExtension<AppColorTokens>? other, double t) {
+  AppColorTokens lerp(
+    covariant ThemeExtension<AppColorTokens>? other,
+    double t,
+  ) {
     if (other is! AppColorTokens) {
       return this;
     }
@@ -164,7 +167,8 @@ class AppColorTokens extends ThemeExtension<AppColorTokens> {
       background: Color.lerp(background, other.background, t) ?? background,
       blueAccent: Color.lerp(blueAccent, other.blueAccent, t) ?? blueAccent,
       border: Color.lerp(border, other.border, t) ?? border,
-      borderStrong: Color.lerp(borderStrong, other.borderStrong, t) ?? borderStrong,
+      borderStrong:
+          Color.lerp(borderStrong, other.borderStrong, t) ?? borderStrong,
       divider: Color.lerp(divider, other.divider, t) ?? divider,
       error: Color.lerp(error, other.error, t) ?? error,
       focus: Color.lerp(focus, other.focus, t) ?? focus,
@@ -182,9 +186,11 @@ class AppColorTokens extends ThemeExtension<AppColorTokens> {
       primarySoft: Color.lerp(primarySoft, other.primarySoft, t) ?? primarySoft,
       secondary: Color.lerp(secondary, other.secondary, t) ?? secondary,
       shellBackground:
-          Color.lerp(shellBackground, other.shellBackground, t) ?? shellBackground,
+          Color.lerp(shellBackground, other.shellBackground, t) ??
+          shellBackground,
       surface: Color.lerp(surface, other.surface, t) ?? surface,
-      surfaceMuted: Color.lerp(surfaceMuted, other.surfaceMuted, t) ?? surfaceMuted,
+      surfaceMuted:
+          Color.lerp(surfaceMuted, other.surfaceMuted, t) ?? surfaceMuted,
       surfaceRaised:
           Color.lerp(surfaceRaised, other.surfaceRaised, t) ?? surfaceRaised,
       surfaceStrong:
@@ -208,13 +214,13 @@ class AppSpacingTokens extends ThemeExtension<AppSpacingTokens> {
   });
 
   const AppSpacingTokens.standard()
-      : xs = 8,
-        sm = 12,
-        md = 16,
-        lg = 24,
-        xl = 32,
-        xxl = 48,
-        xxxl = 72;
+    : xs = 8,
+      sm = 12,
+      md = 16,
+      lg = 24,
+      xl = 32,
+      xxl = 48,
+      xxxl = 72;
 
   final double lg;
   final double md;
@@ -246,7 +252,10 @@ class AppSpacingTokens extends ThemeExtension<AppSpacingTokens> {
   }
 
   @override
-  AppSpacingTokens lerp(covariant ThemeExtension<AppSpacingTokens>? other, double t) {
+  AppSpacingTokens lerp(
+    covariant ThemeExtension<AppSpacingTokens>? other,
+    double t,
+  ) {
     if (other is! AppSpacingTokens) {
       return this;
     }
@@ -274,11 +283,11 @@ class AppRadiusTokens extends ThemeExtension<AppRadiusTokens> {
   });
 
   const AppRadiusTokens.standard()
-      : sm = 14,
-        md = 18,
-        lg = 24,
-        xl = 32,
-        round = 999;
+    : sm = 10,
+      md = 14,
+      lg = 18,
+      xl = 24,
+      round = 999;
 
   final double lg;
   final double md;
@@ -304,7 +313,10 @@ class AppRadiusTokens extends ThemeExtension<AppRadiusTokens> {
   }
 
   @override
-  AppRadiusTokens lerp(covariant ThemeExtension<AppRadiusTokens>? other, double t) {
+  AppRadiusTokens lerp(
+    covariant ThemeExtension<AppRadiusTokens>? other,
+    double t,
+  ) {
     if (other is! AppRadiusTokens) {
       return this;
     }
@@ -337,18 +349,18 @@ class AppLayoutTokens extends ThemeExtension<AppLayoutTokens> {
   });
 
   const AppLayoutTokens.web()
-      : maxContentWidth = 1280,
-        maxReadingWidth = 720,
-        railWidth = 292,
-        asideWidth = 344,
-        gridGap = 24,
-        pagePadding = 32,
-        compactPagePadding = 20,
-        sectionGap = 40,
-        featureCardHeight = 292,
-        breakpointRail = 1120,
-        breakpointTwoColumn = 920,
-        breakpointGridTwoColumn = 760;
+    : maxContentWidth = 1280,
+      maxReadingWidth = 720,
+      railWidth = 292,
+      asideWidth = 344,
+      gridGap = 24,
+      pagePadding = 32,
+      compactPagePadding = 20,
+      sectionGap = 40,
+      featureCardHeight = 292,
+      breakpointRail = 1120,
+      breakpointTwoColumn = 920,
+      breakpointGridTwoColumn = 760;
 
   final double asideWidth;
   final double breakpointGridTwoColumn;
@@ -396,7 +408,10 @@ class AppLayoutTokens extends ThemeExtension<AppLayoutTokens> {
   }
 
   @override
-  AppLayoutTokens lerp(covariant ThemeExtension<AppLayoutTokens>? other, double t) {
+  AppLayoutTokens lerp(
+    covariant ThemeExtension<AppLayoutTokens>? other,
+    double t,
+  ) {
     if (other is! AppLayoutTokens) {
       return this;
     }
@@ -444,9 +459,9 @@ class AppMotionTokens extends ThemeExtension<AppMotionTokens> {
   });
 
   const AppMotionTokens.standard()
-      : fast = const Duration(milliseconds: 120),
-        regular = const Duration(milliseconds: 180),
-        slow = const Duration(milliseconds: 260);
+    : fast = const Duration(milliseconds: 120),
+      regular = const Duration(milliseconds: 180),
+      slow = const Duration(milliseconds: 260);
 
   final Duration fast;
   final Duration regular;
@@ -466,7 +481,10 @@ class AppMotionTokens extends ThemeExtension<AppMotionTokens> {
   }
 
   @override
-  AppMotionTokens lerp(covariant ThemeExtension<AppMotionTokens>? other, double t) {
+  AppMotionTokens lerp(
+    covariant ThemeExtension<AppMotionTokens>? other,
+    double t,
+  ) {
     if (other is! AppMotionTokens) {
       return this;
     }
@@ -481,31 +499,25 @@ class AppMotionTokens extends ThemeExtension<AppMotionTokens> {
 
 @immutable
 class AppShadowTokens extends ThemeExtension<AppShadowTokens> {
-  const AppShadowTokens({
-    required this.soft,
-    required this.floating,
-  });
+  const AppShadowTokens({required this.soft, required this.floating});
 
   const AppShadowTokens.premium()
-      : soft = const BoxShadow(
-          color: Color(0x120E1513),
-          blurRadius: 24,
-          offset: Offset(0, 10),
-        ),
-        floating = const BoxShadow(
-          color: Color(0x180E1513),
-          blurRadius: 34,
-          offset: Offset(0, 18),
-        );
+    : soft = const BoxShadow(
+        color: Color(0x120E1513),
+        blurRadius: 24,
+        offset: Offset(0, 10),
+      ),
+      floating = const BoxShadow(
+        color: Color(0x180E1513),
+        blurRadius: 34,
+        offset: Offset(0, 18),
+      );
 
   final BoxShadow floating;
   final BoxShadow soft;
 
   @override
-  AppShadowTokens copyWith({
-    BoxShadow? floating,
-    BoxShadow? soft,
-  }) {
+  AppShadowTokens copyWith({BoxShadow? floating, BoxShadow? soft}) {
     return AppShadowTokens(
       floating: floating ?? this.floating,
       soft: soft ?? this.soft,
@@ -513,7 +525,10 @@ class AppShadowTokens extends ThemeExtension<AppShadowTokens> {
   }
 
   @override
-  AppShadowTokens lerp(covariant ThemeExtension<AppShadowTokens>? other, double t) {
+  AppShadowTokens lerp(
+    covariant ThemeExtension<AppShadowTokens>? other,
+    double t,
+  ) {
     if (other is! AppShadowTokens) {
       return this;
     }
@@ -527,11 +542,12 @@ class AppShadowTokens extends ThemeExtension<AppShadowTokens> {
 
 Duration _lerpDuration(Duration a, Duration b, double t) {
   return Duration(
-    microseconds: lerpDouble(
-      a.inMicroseconds.toDouble(),
-      b.inMicroseconds.toDouble(),
-      t,
-    )?.round() ??
+    microseconds:
+        lerpDouble(
+          a.inMicroseconds.toDouble(),
+          b.inMicroseconds.toDouble(),
+          t,
+        )?.round() ??
         a.inMicroseconds,
   );
 }

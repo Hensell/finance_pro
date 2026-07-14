@@ -107,7 +107,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTagline.
   ///
   /// In es, this message translates to:
-  /// **'Finanzas corporativas con rutas claras, fórmulas vivas y calculadoras prácticas.'**
+  /// **'Finanzas corporativas'**
   String get appTagline;
 
   /// No description provided for @appPrimaryAction.
@@ -137,7 +137,7 @@ abstract class AppLocalizations {
   /// No description provided for @appOpenCalculatorAction.
   ///
   /// In es, this message translates to:
-  /// **'Abrir calculadora'**
+  /// **'Practicar con la calculadora'**
   String get appOpenCalculatorAction;
 
   /// No description provided for @appRetryAction.
@@ -157,6 +157,12 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Volver al inicio'**
   String get appBackHomeAction;
+
+  /// No description provided for @appBackToModuleAction.
+  ///
+  /// In es, this message translates to:
+  /// **'Volver al módulo'**
+  String get appBackToModuleAction;
 
   /// No description provided for @appToggleLanguageLabel.
   ///
@@ -295,6 +301,66 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Módulos'**
   String get shellModulesLabel;
+
+  /// No description provided for @homeStartAction.
+  ///
+  /// In es, this message translates to:
+  /// **'Comenzar la ruta'**
+  String get homeStartAction;
+
+  /// No description provided for @homePracticeAction.
+  ///
+  /// In es, this message translates to:
+  /// **'Ir a la calculadora'**
+  String get homePracticeAction;
+
+  /// No description provided for @homeModulesSection.
+  ///
+  /// In es, this message translates to:
+  /// **'Rutas de aprendizaje'**
+  String get homeModulesSection;
+
+  /// No description provided for @notFoundTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Esta ruta no existe'**
+  String get notFoundTitle;
+
+  /// No description provided for @notFoundBody.
+  ///
+  /// In es, this message translates to:
+  /// **'El enlace puede estar incompleto o el contenido pudo cambiar de ubicación.'**
+  String get notFoundBody;
+
+  /// No description provided for @notFoundAction.
+  ///
+  /// In es, this message translates to:
+  /// **'Volver al inicio'**
+  String get notFoundAction;
+
+  /// No description provided for @academicContextTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Contexto académico'**
+  String get academicContextTitle;
+
+  /// No description provided for @academicContextBody.
+  ///
+  /// In es, this message translates to:
+  /// **'Los modelos y rangos de esta app simplifican la realidad para apoyar el aprendizaje. Contrasta cada resultado con la industria, el periodo analizado, las políticas contables y los supuestos del caso; no sustituye asesoría financiera profesional.'**
+  String get academicContextBody;
+
+  /// No description provided for @academicReferencesLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Lecturas recomendadas'**
+  String get academicReferencesLabel;
+
+  /// No description provided for @academicReferencesBody.
+  ///
+  /// In es, this message translates to:
+  /// **'Gitman y Zutter, Principios de administración financiera · Brealey, Myers y Allen, Principios de finanzas corporativas.'**
+  String get academicReferencesBody;
 
   /// No description provided for @validationPositiveNumbers.
   ///

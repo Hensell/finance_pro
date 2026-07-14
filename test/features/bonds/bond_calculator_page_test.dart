@@ -1,4 +1,5 @@
 import 'package:finance_pro/app/bootstrap/app_dependencies.dart';
+import 'package:finance_pro/design_system/atoms/ds_formula.dart';
 import 'package:finance_pro/features/bonds/presentation/pages/bond_calculator_page.dart';
 import 'package:finance_pro/features/lease/domain/usecases/calculate_lease_comparison.dart';
 import 'package:finance_pro/features/lease/domain/validators/lease_input_validator.dart';
@@ -7,7 +8,6 @@ import 'package:finance_pro/features/shared_content/domain/repositories/feature_
 import 'package:finance_pro/features/shared_content/domain/usecases/load_feature_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_tex/flutter_tex.dart';
 
 import '../../test_support/test_app_harness.dart';
 
@@ -58,27 +58,27 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    TeXWidget liveFormula() =>
-        tester.widgetList<TeXWidget>(find.byType(TeXWidget)).last;
+    DsFormula liveFormula() =>
+        tester.widgetList<DsFormula>(find.byType(DsFormula)).last;
 
-    expect(liveFormula().content, contains(r'\text{?}'));
+    expect(liveFormula().tex, contains(r'\text{?}'));
 
     await tester.enterText(find.byType(TextField).at(0), '80');
     await tester.pump();
-    expect(liveFormula().content, contains('I = 80'));
+    expect(liveFormula().tex, contains('I = 80'));
 
     await tester.enterText(find.byType(TextField).at(1), '1000');
     await tester.pump();
-    expect(liveFormula().content, contains('M = 1000'));
+    expect(liveFormula().tex, contains('M = 1000'));
 
     await tester.enterText(find.byType(TextField).at(2), '5');
     await tester.pump();
-    expect(liveFormula().content, contains('N = 5'));
+    expect(liveFormula().tex, contains('N = 5'));
 
     await tester.enterText(find.byType(TextField).at(3), '10');
     await tester.pump();
-    expect(liveFormula().content, contains('k_d = 0.1'));
-    expect(liveFormula().content, contains(r'B_0 = 80\sum_{t=1}^{5}'));
+    expect(liveFormula().tex, contains('k_d = 0.1'));
+    expect(liveFormula().tex, contains(r'B_0 = 80\sum_{t=1}^{5}'));
   });
 
   testWidgets('BondCalculatorPage shows retry state when content load fails', (

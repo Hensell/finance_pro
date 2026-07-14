@@ -1,5 +1,6 @@
 import 'package:finance_pro/app/bootstrap/app_dependencies.dart';
 import 'package:finance_pro/core/utils/app_number_formatter.dart';
+import 'package:finance_pro/design_system/atoms/ds_formula.dart';
 import 'package:finance_pro/features/lease/domain/usecases/calculate_lease_comparison.dart';
 import 'package:finance_pro/features/lease/domain/validators/lease_input_validator.dart';
 import 'package:finance_pro/features/leverage/presentation/pages/leverage_calculator_page.dart';
@@ -8,7 +9,6 @@ import 'package:finance_pro/features/shared_content/domain/repositories/feature_
 import 'package:finance_pro/features/shared_content/domain/usecases/load_feature_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_tex/flutter_tex.dart';
 
 import '../../test_support/test_app_harness.dart';
 
@@ -69,12 +69,12 @@ void main() {
     await tester.enterText(find.byType(TextField).at(3), '9000');
     await tester.pump();
 
-    final String content = tester
-        .widgetList<TeXWidget>(find.byType(TeXWidget))
+    final String tex = tester
+        .widgetList<DsFormula>(find.byType(DsFormula))
         .last
-        .content;
-    expect(content, contains(r'Q = 1200'));
-    expect(content, contains(r'\frac{14400}{5400}'));
+        .tex;
+    expect(tex, contains(r'Q = 1200'));
+    expect(tex, contains(r'\frac{14400}{5400}'));
 
     await _pressButton(tester, 'Calcular apalancamiento');
     await tester.pumpAndSettle();
@@ -109,12 +109,12 @@ void main() {
     await tester.enterText(find.byType(TextField).at(3), '40');
     await tester.pump();
 
-    final String content = tester
-        .widgetList<TeXWidget>(find.byType(TeXWidget))
+    final String tex = tester
+        .widgetList<DsFormula>(find.byType(DsFormula))
         .last
-        .content;
-    expect(content, contains(r'UAII = 10000'));
-    expect(content, contains(r'T = 0.4'));
+        .tex;
+    expect(tex, contains(r'UAII = 10000'));
+    expect(tex, contains(r'T = 0.4'));
 
     await _pressButton(tester, 'Calcular apalancamiento');
     await tester.pumpAndSettle();
@@ -217,8 +217,7 @@ Future<void> _pressButton(WidgetTester tester, String label) async {
 Future<void> _selectMode(WidgetTester tester, String modeId) async {
   final Finder mode = find.byKey(ValueKey<String>('leverage-mode:$modeId'));
   await tester.ensureVisible(mode);
-  final GestureDetector gestureDetector = tester.widget<GestureDetector>(mode);
-  gestureDetector.onTap?.call();
+  tester.widget<InkWell>(mode).onTap?.call();
 }
 
 final class _FailingFeatureContentRepository

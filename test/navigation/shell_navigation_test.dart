@@ -191,8 +191,7 @@ Future<void> _tapRailItem(WidgetTester tester, String label) async {
   final Finder item = find.byKey(
     ValueKey<String>('nav-item:${_locationForLabel(label)}'),
   );
-  final GestureDetector gestureDetector = tester.widget<GestureDetector>(item);
-  gestureDetector.onTap?.call();
+  tester.widget<InkWell>(item).onTap?.call();
   await tester.pumpAndSettle();
   expect(tester.takeException(), isNull);
 }

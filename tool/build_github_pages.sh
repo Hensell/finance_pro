@@ -19,7 +19,7 @@ case "${base_href}" in
     ;;
 esac
 
-flutter build web --base-href "${base_href}"
+fvm flutter build web --base-href "${base_href}"
 cp build/web/index.html build/web/404.html
 touch build/web/.nojekyll
 

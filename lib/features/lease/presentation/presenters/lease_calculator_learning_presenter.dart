@@ -75,13 +75,13 @@ class LeaseCalculatorLearningPresenter {
 
     final StringBuffer buffer = StringBuffer()
       ..write(
-        'Pago = $leasePayment,\\quad P_0 = $purchasePrice,\\quad VR = $residualValue,\\quad N = $periods,\\quad k = $rate \\\\ ',
+        'Pago = $leasePayment,\\quad P_0 = $purchasePrice,\\quad VR = $residualValue,\\quad N = $periods,\\quad k = $rate \\qquad ',
       )
       ..write(
-        'VP_{lease} = \\sum_{t=1}^{$periodsExponent}\\frac{$leasePayment}{(1+$rateExpression)^t} \\\\ ',
+        'VP_{lease} = \\sum_{t=1}^{$periodsExponent}\\frac{$leasePayment}{(1+$rateExpression)^t} \\qquad ',
       )
       ..write(
-        'VP_{buy} = $purchasePrice - \\frac{$residualValue}{(1+$rateExpression)^{$periodsExponent}} \\\\ ',
+        'VP_{buy} = $purchasePrice - \\frac{$residualValue}{(1+$rateExpression)^{$periodsExponent}} \\qquad ',
       )
       ..write('\\Delta = VP_{buy} - VP_{lease}');
 

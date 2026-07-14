@@ -30,8 +30,9 @@ class DsReadingSection extends StatelessWidget {
         border: Border.all(color: tokens.colors.border),
       ),
       child: Column(
-        crossAxisAlignment:
-            centerAligned ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+        crossAxisAlignment: centerAligned
+            ? CrossAxisAlignment.center
+            : CrossAxisAlignment.start,
         children: <Widget>[
           if (title != null) ...<Widget>[
             DsText(

@@ -5,6 +5,7 @@ import 'package:finance_pro/core/state/app_load_status.dart';
 import 'package:finance_pro/design_system/atoms/ds_button.dart';
 import 'package:finance_pro/design_system/atoms/ds_divider_rule.dart';
 import 'package:finance_pro/design_system/atoms/ds_text.dart';
+import 'package:finance_pro/design_system/molecules/ds_academic_note.dart';
 import 'package:finance_pro/design_system/molecules/ds_aside_panel.dart';
 import 'package:finance_pro/design_system/molecules/ds_feature_tile.dart';
 import 'package:finance_pro/design_system/molecules/ds_page_intro.dart';
@@ -78,8 +79,6 @@ class _FeatureOverviewBody extends StatelessWidget {
     final TopicContent? singleTopic = content.topics.length == 1
         ? content.topics.first
         : null;
-    final bool splitLayout =
-        MediaQuery.sizeOf(context).width >= tokens.layout.breakpointTwoColumn;
     final Widget main = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -122,6 +121,8 @@ class _FeatureOverviewBody extends StatelessWidget {
           SizedBox(height: tokens.spacing.lg),
           _SingleTopicOverview(topic: singleTopic),
         ],
+        SizedBox(height: tokens.layout.sectionGap),
+        const DsAcademicNote(),
       ],
     );
 
@@ -134,28 +135,28 @@ class _FeatureOverviewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          ...content.heroPoints.map(
-            (String point) => Padding(
-              padding: EdgeInsets.only(bottom: tokens.spacing.sm),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(top: tokens.spacing.xs),
-                    child: Icon(
-                      Icons.circle,
-                      size: 7,
-                      color: tokens.colors.secondary,
+          if (content.calculator == null)
+            ...content.heroPoints.map(
+              (String point) => Padding(
+                padding: EdgeInsets.only(bottom: tokens.spacing.sm),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(top: tokens.spacing.xs),
+                      child: Icon(
+                        Icons.check_circle_outline_rounded,
+                        size: 18,
+                        color: tokens.colors.primary,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: tokens.spacing.sm),
-                  Expanded(child: DsText(point, tone: DsTextTone.bodyMuted)),
-                ],
+                    SizedBox(width: tokens.spacing.sm),
+                    Expanded(child: DsText(point, tone: DsTextTone.bodyMuted)),
+                  ],
+                ),
               ),
             ),
-          ),
           if (content.calculator != null) ...<Widget>[
-            SizedBox(height: tokens.spacing.lg),
             DsButton(
               label: context.l10n.appOpenCalculatorAction,
               onPressed: () =>
@@ -167,30 +168,30 @@ class _FeatureOverviewBody extends StatelessWidget {
       ),
     );
 
-    if (!splitLayout) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          if (content.calculator != null) ...<Widget>[
-            aside,
-            SizedBox(height: tokens.layout.sectionGap),
-          ],
-          main,
-          if (content.calculator == null) ...<Widget>[
-            SizedBox(height: tokens.layout.sectionGap),
-            aside,
-          ],
-        ],
-      );
-    }
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final bool splitLayout = constraints.maxWidth >= 1040;
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Expanded(child: main),
-        SizedBox(width: tokens.layout.gridGap),
-        SizedBox(width: tokens.layout.asideWidth, child: aside),
-      ],
+        if (!splitLayout) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              main,
+              SizedBox(height: tokens.layout.sectionGap),
+              aside,
+            ],
+          );
+        }
+
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Expanded(child: main),
+            SizedBox(width: tokens.layout.gridGap),
+            SizedBox(width: tokens.layout.asideWidth, child: aside),
+          ],
+        );
+      },
     );
   }
 }

@@ -8,11 +8,9 @@ class CalculateBondValue {
   BondCalculatorResult call(BondCalculatorInput input) {
     final double discountRate = input.requiredReturn / 100;
     final int periods = input.yearsToMaturity;
-    double couponFactorSum = 0;
-
-    for (int period = 1; period <= periods; period++) {
-      couponFactorSum += 1 / pow(1 + discountRate, period);
-    }
+    final double couponFactorSum = discountRate == 0
+        ? periods.toDouble()
+        : (1 - pow(1 + discountRate, -periods)) / discountRate;
 
     final double presentValue =
         (input.annualInterest * couponFactorSum) +

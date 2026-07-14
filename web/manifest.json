@@ -1,12 +1,14 @@
 {
-    "name": "finance_pro",
-    "short_name": "finance_pro",
+    "name": "Finance Pro — Finanzas corporativas",
+    "short_name": "Finance Pro",
+    "lang": "es",
+    "dir": "ltr",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
+    "background_color": "#F2EDE4",
+    "theme_color": "#1F5C50",
+    "description": "Laboratorio bilingüe de finanzas corporativas con teoría, fórmulas y calculadoras guiadas.",
+    "orientation": "any",
     "prefer_related_applications": false,
     "icons": [
         {

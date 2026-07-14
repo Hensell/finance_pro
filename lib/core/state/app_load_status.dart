@@ -1,6 +1,1 @@
-enum AppLoadStatus {
-  initial,
-  loading,
-  success,
-  failure,
-}
+enum AppLoadStatus { initial, loading, success, failure }

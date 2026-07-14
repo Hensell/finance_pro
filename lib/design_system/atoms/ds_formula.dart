@@ -2,14 +2,10 @@ import 'package:finance_pro/core/extensions/build_context_x.dart';
 import 'package:finance_pro/design_system/atoms/ds_divider_rule.dart';
 import 'package:finance_pro/design_system/atoms/ds_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_tex/flutter_tex.dart';
+import 'package:flutter_math_fork/flutter_math.dart';
 
 class DsFormula extends StatelessWidget {
-  const DsFormula({
-    required this.label,
-    required this.tex,
-    super.key,
-  });
+  const DsFormula({required this.label, required this.tex, super.key});
 
   final String label;
   final String tex;
@@ -37,8 +33,13 @@ class DsFormula extends StatelessWidget {
           SizedBox(height: tokens.spacing.sm),
           const DsDividerRule(),
           SizedBox(height: tokens.spacing.md),
-          TeXWidget(
-            content: '\$\$$tex\$\$',
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Math.tex(
+              tex,
+              onErrorFallback: (_) =>
+                  Text(tex, style: Theme.of(context).textTheme.bodyLarge),
+            ),
           ),
         ],
       ),

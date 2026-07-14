@@ -10,9 +10,6 @@ class LoadFeatureContent {
     required String localeCode,
     required String featureId,
   }) {
-    return _repository.load(
-      localeCode: localeCode,
-      featureId: featureId,
-    );
+    return _repository.load(localeCode: localeCode, featureId: featureId);
   }
 }

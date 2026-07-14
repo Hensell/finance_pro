@@ -11,7 +11,7 @@ Originalmente, esta app fue creada como proyecto final para la clase de Finanzas
 ## Qué incluye
 
 - Contenido educativo bilingüe: español e inglés.
-- Fórmulas renderizadas con `flutter_tex`.
+- Fórmulas renderizadas localmente con `flutter_math_fork`.
 - Calculadoras guiadas para:
   - Bonos
   - Acciones
@@ -29,8 +29,7 @@ Originalmente, esta app fue creada como proyecto final para la clase de Finanzas
 - `go_router`
 - `freezed` / `json_serializable`
 - `flutter_gen_l10n`
-- `flutter_tex`
-- `golden_toolkit`
+- `flutter_math_fork`
 
 ## Arquitectura
 
@@ -75,17 +74,18 @@ Nota: todavía existen carpetas legacy como `lib/screens`, `lib/widgets`, `lib/s
 
 ## Ejecutar en local
 
-Desde la raíz del proyecto:
+El proyecto fija su versión de Flutter con FVM. Desde la raíz:
 
 ```bash
-flutter pub get
-flutter run -d chrome
+fvm install
+fvm flutter pub get
+fvm flutter run -d chrome
 ```
 
 Si prefieres servidor web en lugar de Chrome:
 
 ```bash
-flutter run -d web-server
+fvm flutter run -d web-server
 ```
 
 ## Generación de código
@@ -93,8 +93,8 @@ flutter run -d web-server
 Cuando cambien modelos `freezed`, `json_serializable` o localización:
 
 ```bash
-dart run build_runner build --delete-conflicting-outputs
-flutter gen-l10n
+fvm dart run build_runner build --delete-conflicting-outputs
+fvm flutter gen-l10n
 ```
 
 ## Calidad y pruebas
@@ -102,9 +102,9 @@ flutter gen-l10n
 Checks principales:
 
 ```bash
-flutter analyze
-flutter test
-flutter build web
+fvm flutter analyze
+fvm flutter test
+fvm flutter build web
 ```
 
 La suite incluye:

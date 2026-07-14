@@ -21,6 +21,8 @@ class DsPageIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
+    final bool useDisplayTitle =
+        !compact && MediaQuery.sizeOf(context).width >= 720;
 
     return ConstrainedBox(
       constraints: BoxConstraints(
@@ -37,7 +39,7 @@ class DsPageIntro extends StatelessWidget {
           SizedBox(height: tokens.spacing.sm),
           DsText(
             title,
-            tone: compact ? DsTextTone.headline : DsTextTone.display,
+            tone: useDisplayTitle ? DsTextTone.display : DsTextTone.headline,
           ),
           SizedBox(height: tokens.spacing.md),
           DsText(summary, tone: DsTextTone.bodyMuted),

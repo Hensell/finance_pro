@@ -1,5 +1,6 @@
 import 'package:finance_pro/app/bootstrap/app_dependencies.dart';
 import 'package:finance_pro/core/utils/app_number_formatter.dart';
+import 'package:finance_pro/design_system/atoms/ds_formula.dart';
 import 'package:finance_pro/features/lease/domain/usecases/calculate_lease_comparison.dart';
 import 'package:finance_pro/features/lease/domain/validators/lease_input_validator.dart';
 import 'package:finance_pro/features/lease/presentation/pages/lease_calculator_page.dart';
@@ -8,7 +9,6 @@ import 'package:finance_pro/features/shared_content/domain/repositories/feature_
 import 'package:finance_pro/features/shared_content/domain/usecases/load_feature_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_tex/flutter_tex.dart';
 
 import '../../test_support/test_app_harness.dart';
 
@@ -40,13 +40,13 @@ void main() {
     await tester.enterText(find.byType(TextField).at(2), '11');
     await tester.pump();
 
-    final String content = tester
-        .widgetList<TeXWidget>(find.byType(TeXWidget))
+    final String tex = tester
+        .widgetList<DsFormula>(find.byType(DsFormula))
         .last
-        .content;
-    expect(content, contains('Pago = 450'));
-    expect(content, contains('N = 4'));
-    expect(content, contains('k = 0.11'));
+        .tex;
+    expect(tex, contains('Pago = 450'));
+    expect(tex, contains('N = 4'));
+    expect(tex, contains('k = 0.11'));
   });
 
   testWidgets('LeaseCalculatorPage calculates result and recommendation', (

@@ -97,16 +97,16 @@ class ShareCalculatorLearningPresenter {
 
     switch (mode) {
       case ShareCalculationMode.zeroGrowth:
-        return 'D_1 = $dividend,\\quad k_s = $requiredReturn \\\\ '
+        return 'D_1 = $dividend,\\quad k_s = $requiredReturn \\qquad '
             'P_0 = \\frac{$dividend}{$requiredReturn}';
       case ShareCalculationMode.preferredShare:
-        return 'D = $dividend,\\quad k_s = $requiredReturn \\\\ '
+        return 'D = $dividend,\\quad k_s = $requiredReturn \\qquad '
             'P_0 = \\frac{$dividend}{$requiredReturn}';
       case ShareCalculationMode.constantGrowth:
-        return 'D_1 = $dividend,\\quad k_s = $requiredReturn,\\quad g = $initialGrowth \\\\ '
+        return 'D_1 = $dividend,\\quad k_s = $requiredReturn,\\quad g = $initialGrowth \\qquad '
             'P_0 = \\frac{$dividend}{$requiredReturn-$initialGrowth}';
       case ShareCalculationMode.variableGrowth:
-        return 'D_0 = $dividend,\\quad g_1 = $initialGrowth,\\quad N = $periods,\\quad g_2 = $terminalGrowth,\\quad k_s = $requiredReturn \\\\ '
+        return 'D_0 = $dividend,\\quad g_1 = $initialGrowth,\\quad N = $periods,\\quad g_2 = $terminalGrowth,\\quad k_s = $requiredReturn \\qquad '
             'D_t = $dividend(1+$initialGrowth)^t,\\quad '
             'P_N = \\frac{D_{N+1}}{$requiredReturn-$terminalGrowth}';
     }

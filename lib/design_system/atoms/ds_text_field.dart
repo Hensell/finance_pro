@@ -1,5 +1,4 @@
 import 'package:finance_pro/core/extensions/build_context_x.dart';
-import 'package:finance_pro/design_system/atoms/ds_text.dart';
 import 'package:flutter/material.dart';
 
 class DsTextField extends StatefulWidget {
@@ -48,26 +47,21 @@ class _DsTextFieldState extends State<DsTextField> {
 
   @override
   Widget build(BuildContext context) {
-    final tokens = context.tokens;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        DsText(widget.label, tone: DsTextTone.label),
-        SizedBox(height: tokens.spacing.sm),
-        TextField(
-          controller: _controller,
-          decoration: InputDecoration(
-            helperText: widget.helperText,
-            hintText: widget.hint ?? context.l10n.appNumericHint,
-            suffixText: widget.suffix,
-          ),
-          keyboardType: TextInputType.numberWithOptions(
-            decimal: widget.acceptsDecimal,
-          ),
-          onChanged: widget.onChanged,
-        ),
-      ],
+    return TextField(
+      controller: _controller,
+      decoration: InputDecoration(
+        errorMaxLines: 2,
+        helperText: widget.helperText,
+        helperMaxLines: 2,
+        hintText: widget.hint ?? context.l10n.appNumericHint,
+        labelText: widget.label,
+        suffixText: widget.suffix,
+      ),
+      keyboardType: TextInputType.numberWithOptions(
+        decimal: widget.acceptsDecimal,
+      ),
+      textInputAction: TextInputAction.next,
+      onChanged: widget.onChanged,
     );
   }
 }

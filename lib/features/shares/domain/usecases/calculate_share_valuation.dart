@@ -19,7 +19,8 @@ class CalculateShareValuation {
       case ShareCalculationMode.constantGrowth:
         return ShareCalculatorResult(
           mode: mode,
-          presentValue: input.dividend /
+          presentValue:
+              input.dividend /
               ((input.requiredReturn / 100) - (input.initialGrowthRate / 100)),
         );
       case ShareCalculationMode.variableGrowth:
@@ -32,11 +33,15 @@ class CalculateShareValuation {
       input.periods,
       (int index) {
         final int period = index + 1;
-        final double growthFactor =
-            pow(1 + input.initialGrowthRate / 100, period).toDouble();
+        final double growthFactor = pow(
+          1 + input.initialGrowthRate / 100,
+          period,
+        ).toDouble();
         final double projectedDividend = input.dividend * growthFactor;
-        final double discountFactor =
-            pow(1 + input.requiredReturn / 100, period).toDouble();
+        final double discountFactor = pow(
+          1 + input.requiredReturn / 100,
+          period,
+        ).toDouble();
         final double presentValue = projectedDividend / discountFactor;
 
         return ShareProjectionRow(
@@ -55,9 +60,10 @@ class CalculateShareValuation {
       (double previousValue, ShareProjectionRow row) =>
           previousValue + row.presentValue,
     );
-    final double terminalDividend = rows.last.projectedDividend *
-        (1 + input.terminalGrowthRate / 100);
-    final double terminalPrice = terminalDividend /
+    final double terminalDividend =
+        rows.last.projectedDividend * (1 + input.terminalGrowthRate / 100);
+    final double terminalPrice =
+        terminalDividend /
         ((input.requiredReturn / 100) - (input.terminalGrowthRate / 100));
     final double terminalPresentValue =
         terminalPrice / pow(1 + input.requiredReturn / 100, input.periods);

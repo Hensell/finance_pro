@@ -79,7 +79,7 @@ class LeverageCalculatorLearningPresenter {
 
     final StringBuffer buffer = StringBuffer()
       ..write(
-        'Q = $quantity,\\quad P = $salePrice,\\quad CV = $variableCost,\\quad CF = $fixedCost \\\\ ',
+        'Q = $quantity,\\quad P = $salePrice,\\quad CV = $variableCost,\\quad CF = $fixedCost \\qquad ',
       )
       ..write(
         'GAO = \\frac{$quantity($salePrice-$variableCost)}{$quantity($salePrice-$variableCost)-$fixedCost}',
@@ -110,7 +110,7 @@ class LeverageCalculatorLearningPresenter {
 
     final StringBuffer buffer = StringBuffer()
       ..write(
-        'UAII = $ebit,\\quad I = $interest,\\quad DP = $preferredDividends,\\quad T = $taxRate \\\\ ',
+        'UAII = $ebit,\\quad I = $interest,\\quad DP = $preferredDividends,\\quad T = $taxRate \\qquad ',
       )
       ..write(
         'GAF = \\frac{$ebit}{$ebit-$interest-$preferredDividends\\left(\\frac{1}{1-$taxRate}\\right)}',

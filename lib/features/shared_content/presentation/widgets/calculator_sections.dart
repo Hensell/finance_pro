@@ -19,9 +19,7 @@ class CalculatorSections extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
-    final bool twoColumnLayout =
-        MediaQuery.sizeOf(context).width >=
-        tokens.layout.breakpointGridTwoColumn;
+    final bool twoColumnLayout = MediaQuery.sizeOf(context).width >= 760;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,43 +30,22 @@ class CalculatorSections extends StatelessWidget {
               child: DsReadingSection(
                 title: section.title,
                 summary: section.summary,
-                child: twoColumnLayout
-                    ? Wrap(
-                        spacing: tokens.layout.gridGap,
-                        runSpacing: tokens.spacing.md,
-                        children: section.fields
-                            .map(
-                              (CalculatorFieldContent field) => SizedBox(
-                                width:
-                                    (tokens.layout.maxReadingWidth -
-                                        tokens.layout.gridGap) /
-                                    2,
-                                child: _CalculatorField(
-                                  field: field,
-                                  inputs: inputs,
-                                  onChanged: onChanged,
-                                ),
-                              ),
-                            )
-                            .toList(),
+                child: Wrap(
+                  spacing: tokens.layout.gridGap,
+                  runSpacing: tokens.spacing.md,
+                  children: section.fields
+                      .map(
+                        (CalculatorFieldContent field) => FractionallySizedBox(
+                          widthFactor: twoColumnLayout ? 0.47 : 1,
+                          child: _CalculatorField(
+                            field: field,
+                            inputs: inputs,
+                            onChanged: onChanged,
+                          ),
+                        ),
                       )
-                    : Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: section.fields
-                            .map(
-                              (CalculatorFieldContent field) => Padding(
-                                padding: EdgeInsets.only(
-                                  bottom: tokens.spacing.md,
-                                ),
-                                child: _CalculatorField(
-                                  field: field,
-                                  inputs: inputs,
-                                  onChanged: onChanged,
-                                ),
-                              ),
-                            )
-                            .toList(),
-                      ),
+                      .toList(),
+                ),
               ),
             ),
           )

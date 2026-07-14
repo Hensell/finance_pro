@@ -75,7 +75,7 @@ class BondCalculatorLearningPresenter {
 
     final StringBuffer buffer = StringBuffer()
       ..write(
-        'I = $annualInterest,\\quad N = $years,\\quad M = $parValue,\\quad k_d = $requiredReturn \\\\ ',
+        'I = $annualInterest,\\quad N = $years,\\quad M = $parValue,\\quad k_d = $requiredReturn \\qquad ',
       )
       ..write('B_0 = $annualInterest\\sum_{t=1}^{$yearsExponent}')
       ..write('\\frac{1}{(1+$rateExpression)^t}')

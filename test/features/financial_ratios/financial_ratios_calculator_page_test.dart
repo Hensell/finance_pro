@@ -78,7 +78,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Liquidez corriente'), findsOneWidget);
-      expect(find.text('2.15x'), findsOneWidget);
+      expect(find.text('2,15x'), findsOneWidget);
       expect(find.text('Volver'), findsOneWidget);
     },
   );

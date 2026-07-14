@@ -18,8 +18,8 @@ class DsCalculatorFrame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
-    final bool splitLayout = aside != null &&
-        MediaQuery.sizeOf(context).width >= tokens.layout.breakpointTwoColumn;
+    final bool splitLayout =
+        aside != null && MediaQuery.sizeOf(context).width >= 1400;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,10 +32,7 @@ class DsCalculatorFrame extends StatelessWidget {
             children: <Widget>[
               Expanded(child: main),
               SizedBox(width: tokens.layout.gridGap),
-              SizedBox(
-                width: tokens.layout.asideWidth,
-                child: aside,
-              ),
+              SizedBox(width: tokens.layout.asideWidth, child: aside),
             ],
           )
         else ...<Widget>[
